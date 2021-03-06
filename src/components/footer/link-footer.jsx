@@ -1,12 +1,11 @@
-import icon from './assets/github.svg';
+import icon from '../../assets/images/github.svg';
 
-const Link = (props) => {
-  const {
-    value, href,
-  } = props;
+const Link = ({ value, href }) => {
   return (
     <a
-      className="footer-link" href={href} target="_blank"
+      className="footer-link" 
+      href={href} 
+      target="_blank"
       rel="noreferrer"
     >
       <img className="footer-link-icon" src={icon} alt="icon" />

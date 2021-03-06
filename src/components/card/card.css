@@ -1,0 +1,29 @@
+.country-card {
+  min-width: 200px;
+  margin: 15px;
+  padding: 30px 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: darkcyan;
+  user-select: none;
+  cursor: pointer;
+}
+
+.current-country {
+  color: cornflowerblue;
+  margin: 20px 0;
+}
+
+.description {
+  width: 400px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 10px;
+  color: cadetblue;
+  border: 1px solid cadetblue;
+}
+
+.cards-cont {
+  display: flex;
+  justify-content: center;
+}
