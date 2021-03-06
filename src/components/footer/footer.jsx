@@ -18,13 +18,13 @@ const authors = [
   {
     iconUrl: icon,
     value: 'ssamvelk',
-    href: '',
+    href: 'https://github.com/ssamvelk',
     classNamePart: 'footer',
   },
   {
     iconUrl: icon,
     value: 'yrevtovich',
-    href: '',
+    href: 'https://github.com/yrevtovich',
     classNamePart: 'footer',
   },
 ];
@@ -50,9 +50,9 @@ const Footer = () => {
   }
 
   return (
-    <footer className="app-footer footer flex-space-between">
+    <footer className="app-footer footer">
       <div className="footer-links">
-        <span>2020-q3</span>
+        <span>React 2021-Q1</span>
         {drawLinks()}
       </div>
       <div className="footer-course">
