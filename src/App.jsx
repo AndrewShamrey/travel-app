@@ -1,6 +1,6 @@
 import "./App.scss";
 import ExampleContainer from "./containers/exampleContainer";
-import Footer from './components/footer';
+import Footer from './components/footer/footer';
 
 function App() {
   return (

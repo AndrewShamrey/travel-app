@@ -1,48 +1,7 @@
 import React from 'react';
+import Link from './link-footer';
+import authors from './authors';
 import './footer.scss';
-import icon from './assets/github.svg';
-
-const authors = [
-  {
-    iconUrl: icon,
-    value: 'AndrewShamrey',
-    href: 'https://github.com/AndrewShamrey',
-    classNamePart: 'footer',
-  },
-  {
-    iconUrl: icon,
-    value: 'Angoulema',
-    href: 'https://github.com/Angoulema',
-    classNamePart: 'footer',
-  },
-  {
-    iconUrl: icon,
-    value: 'ssamvelk',
-    href: 'https://github.com/ssamvelk',
-    classNamePart: 'footer',
-  },
-  {
-    iconUrl: icon,
-    value: 'yrevtovich',
-    href: 'https://github.com/yrevtovich',
-    classNamePart: 'footer',
-  },
-];
-
-const Link = (props) => {
-  const {
-    iconUrl, value, href, classNamePart,
-  } = props;
-  return (
-    <a
-      className={`${classNamePart}-link`} href={href} target="_blank"
-      rel="noreferrer"
-    >
-      <img className={`${classNamePart}-link-icon`} src={iconUrl} alt="icon" />
-      {value}
-    </a>
-  );
-};
 
 const Footer = () => {
   function drawLinks() {
