@@ -1,11 +1,12 @@
-import React from 'react';
 import Link from './link-footer';
-import authors from './authors';
+import authors from '../../authors';
 import './footer.scss';
 
 const Footer = () => {
-  function drawLinks() {
-    return authors.map((link, index) => <Link key={`${index + 1}index`} {...link} />);
+  const drawLinks = () => {
+    return authors.map((link, index) => {
+      return <Link key={`${index + 1}index`} {...link} />
+    });
   }
 
   return (
@@ -16,7 +17,9 @@ const Footer = () => {
       </div>
       <div className="footer-course">
         <a
-          className="footer-course-link click" href="https://rs.school/js/" target="_blank"
+          className="footer-course-link click" 
+          href="https://rs.school/js/" 
+          target="_blank"
           rel="noreferrer"
         >
           <img src="https://rs.school/images/rs_school_js.svg" alt="RSSchool" />

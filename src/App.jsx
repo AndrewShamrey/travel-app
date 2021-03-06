@@ -1,12 +1,16 @@
 import "./App.scss";
-import ExampleContainer from "./containers/exampleContainer";
+import DateWidget from "./components/dateWidget/dateWidget";
+import Card from "./components/card/card";
 import Footer from './components/footer/footer';
 
 function App() {
   return (
     <div className="App">
-      <div />
-      <ExampleContainer />
+      <div></div>
+      <div>
+        <DateWidget />
+        <Card />
+      </div>
       <Footer />
     </div>
   );
