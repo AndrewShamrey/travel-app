@@ -16,7 +16,7 @@ const ExampleContainer = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div>
       <Example
         curContent={'+'}
         onClickHandler={onClickIncHandler}
@@ -26,7 +26,7 @@ const ExampleContainer = () => {
         curContent={'-'}
         onClickHandler={onClickDecHandler}
       />
-    </>
+    </div>
   );
 };
 
