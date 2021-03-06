@@ -4,7 +4,7 @@ import { setCountryConfig } from "../../actions/control";
 import fetchData from "../../utils/fetchData";
 import "./card.css";
 
-const ExCard = () => {
+const Card = () => {
   const dispatch = useDispatch();
   const currentCountry = useSelector((rootState) => rootState.control.currentCountry);
   const currentLang = useSelector((rootState) => rootState.control.currentLang);
@@ -42,4 +42,4 @@ const ExCard = () => {
   );
 };
 
-export default ExCard;
+export default Card;
