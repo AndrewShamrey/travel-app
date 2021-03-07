@@ -1,0 +1,290 @@
+[
+  {
+    "name": "Австралия",
+    "shortName": "Australia",
+    "lang": "ru",
+    "capital": "Канберра",
+    "timeDifference": -660,
+    "description": "Австралия, официальная форма — Австралийский Союз, или Содружество Австралии, — государство в Южном полушарии, занимающее одноимённый материк, остров Тасмания и несколько других островов Индийского и Тихого океанов. Самое крупное государство по занимаемой площади в Океании и шестое — в мире. Население — почти 26 млн человек, большинство из которых проживает в городах на восточном побережье. Столица Австралии — Канберра, а самый крупный город — Сидней. В числе других мегаполисов — Мельбурн, Брисбен, Перт и Аделаида."
+  },
+  {
+    "name": "Аўстралія",
+    "shortName": "Australia",
+    "lang": "by",
+    "capital": "Канбера",
+    "timeDifference": -660,
+    "description": "Аўстралія, Аўстралійскі Саюз — дзяржава ў Паўднёвым паўшар'і, якая займае мацярык Аўстралія, востраў Тасманія і некалькі іншых астравоў Індыйскага і Ціхага акіянаў. Аўстралія з'яўляецца найбуйнейшай па плошчы дзяржавай у Акіяніі і шостай — у свеце. Насельніцтва складае амаль 26 мільёнаў чалавек, большасць з якіх пражывае ў гарадах на ўсходнім узбярэжжы. Сталіца Аўстраліі — Канбера, а найбуйнейшы горад — Сідней. У ліку іншых мегаполісаў — Мельбурн, Брысбен,Перт і Адэлаіда."
+  },
+  {
+    "name": "Australia",
+    "shortName": "Australia",
+    "lang": "en",
+    "capital": "Canberra",
+    "timeDifference": -660,
+    "description": "Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands. It is the largest country in Oceania and the world's sixth-largest country by total area. Its population of nearly 26 million is highly urbanised and heavily concentrated on the eastern seaboard. Australia's capital is Canberra, and its largest city is Sydney. The country's other major metropolitan areas are Melbourne, Brisbane, Perth, and Adelaide."
+  },
+  {
+    "name": "Бразилия",
+    "shortName": "Brazil",
+    "lang": "ru",
+    "capital": "Бразилиа",
+    "timeDifference": 180,
+    "description": "Бразилия, официально — Федеративная Республика Бразилия, — суверенное государство в Южной Америке. Будучи пятой среди стран мира по площади и шестой по численности населения, Бразилия является наибольшей страной Южной Америки, как по территории, так и по численности населения. Столица — Бразилиа, самый крупный город — Сан-Паулу. Государственный язык — португальский. Бразилия — единственная португалоязычная страна во всей Америке самая крупная лузофонная страна в мире. Также Бразилия — одна из самых мультикультурных стран с широким  этническим разнообразием, что обусловлено миграциями со всего мира в течение более чем столетия."
+  },
+  {
+    "name": "Бразілія",
+    "shortName": "Brazil",
+    "lang": "by",
+    "capital": "Бразіліа",
+    "timeDifference": 180,
+    "description": "Бразілія, Федэратыўная Рэспубліка Бразілія, — найбуйнейшая краіна Паўднёвай Амерыкі і Лацінскай Амерыкі. Пятая краіна свету паводле плошчы і шостая — паводле колькасці насельніцтва. Сталіца — горад Бразіліа, найбуйнейшы горад — Сан-Паўлу. Дзяржаўная мова — партугальская. Гэта адзіная партугаламоўная краіна на амерыканскім кантыненце і буйнейшая лузафонная краіна свету. Бразілія — адна з самых мультыкультурных і этнічна разнастайных нацый дзякуючы міграцыям я усяго свету, што доўжыліся больш за стагоддзе."
+  },
+  {
+    "name": "Brazil",
+    "shortName": "Brazil",
+    "lang": "en",
+    "capital": "Brasília",
+    "timeDifference": 180,
+    "description": "Brazil, officially the Federative Republic of Brazil, is the largest country in both South America and Latin America. Brazil is the world's fifth-largest country by area and the sixth most populous. Its capital is Brasília, and its most populous city is São Paulo. It is the largest country to have Portuguese as an official language and the only one in the Americas. It is also one of the most multicultural and ethnically diverse nations, due to over a century of mass immigration from around the world."
+  },
+  {
+    "name": "Вьетнам",
+    "shortName": "Vietnam",
+    "lang": "ru",
+    "capital": "Ханой",
+    "timeDifference": -420,
+    "description": "Вьетнам, полная официальная форма — Социалистическая Республика Вьетнам, — государство в Юго-Восточной Азии на полуострове Индокитай. Занимает 16-е место по численности населения в мире. На западе граничит с Лаосом и Камбоджей, на севере — с Китаем. с востока и юга омывается Южно-Китайским морем. Столица — Ханой, самый крупный город — Хошимин."
+  },
+  {
+    "name": "В’етнам",
+    "shortName": "Vietnam",
+    "lang": "by",
+    "capital": "Ханой",
+    "timeDifference": -420,
+    "description": "В’етнам, Сацыялістычная Рэспубліка В’етнам, — дзяржава ў Паўднёва-Усходняй Азіі. Займае 16-е месца па населенасці ў свеце. В’етнам мяжуе з Кітаем на поўначы, Лаосам і Камбоджай на захадзе. Сярод марскіх суседзяў краіны — Таіланд праз Сіямскі заліў, а таксама Філіпіны, Інданезія і Малайзія праз Паўднёва-Кітайскае мора. Сталіца — Ханой, найбуйнейшы горад — Хашымін."
+  },
+  {
+    "name": "Vietnam",
+    "shortName": "Vietnam",
+    "lang": "en",
+    "capital": "Hanoi",
+    "timeDifference": -420,
+    "description": "Vietnam (also written as Viet Nam), officially the Socialist Republic of Vietnam, is a country in Southeast Asia and the easternmost country on the Indochinese Peninsula. It is the 16th most populous country in the world. Vietnam shares its land borders with China to the north, and Laos and Cambodia to the west. It shares its maritime borders with Thailand through the Gulf of Thailand, and the Philippines, Indonesia and Malaysia through the South China Sea. Its capital city is Hanoi, and its most populous city is Ho Chi Minh City."
+  },
+  {
+    "name": "Дания",
+    "shortName": "Denmark",
+    "lang": "ru",
+    "capital": "Копенгаген",
+    "timeDifference": -60,
+    "description": "Дания, официально — Королевство Дания, — государство в Северной Европе, старший член содружества Датского Соединённого королевства, в которое также входят Фарерские острова и автономная территория Гренландия. Дания — самая южная из скандинавских стран; расположена к юго-западу от Швеции и к югу от Норвегии, с юга граничит с Германией по суше. Дания омывается Балтийским и Северным морями. Территория страны включает в себя большой полуостров Ютландия и 409 островов Датского архипелага, среди которых наиболее известны такие, как Зеландия, Фюн, Венсюссель-Ти, Лолланн, Фальстер и Борнхольм. Дания — конституционная монархия, главой государства является монарх, который осуществляет законодательную власть совместно с однопалатным парламентом — Фолькетингом."
+  },
+  {
+    "name": "Данія",
+    "shortName": "Denmark",
+    "lang": "by",
+    "capital": "Капенгаген",
+    "timeDifference": -60,
+    "description": "Данія, Каралеўства Данія — краіна ў паўночнай Еўропе на ўзбярэжжах Балтыйскага і Паўночнага мораў. Геаграфічна Данія ўключае ў сябе паўвостраў Ютландыя (Jylland), па якім мяжуе з Германіяй, і 409 астравоў, з якіх 90 населеныя, сярод якіх найбольш вядомыя такія, як Зеландыя (дацк.: Sjælland), Фюн (дацк.: Fyn), Паўночная Ютландыя (дацк.: Vendsyssel-Thy), Лоланд, Фальстэр і Борнхальм, да таго ж на Зеландыі (Sjælland) размяшчаецца сталіца Даніі Капенгаген. Даніі належаць таксама Фарэрскія астравы ў Паўночнай Атлантыцы і найвялікшы ў свеце востраў Грэнландыя. Дзяржаўны лад — канстытуцыйная манархія."
+  },
+  {
+    "name": "Denmark",
+    "shortName": "Denmark",
+    "lang": "en",
+    "capital": "Copenhagen",
+    "timeDifference": -60,
+    "description": "Denmark, officially the Kingdom of Denmark, is a Nordic country in Northern Europe. Denmark proper, which is the southernmost of the Scandinavian countries, consists of a peninsula, Jutland, and an archipelago of 443 named islands, with the largest being Zealand, Funen and the North Jutlandic Island. The islands are characterised by flat, arable land and sandy coasts, low elevation and a temperate climate. Denmark lies southwest of Sweden and south of Norway, and is bordered to the south by Germany. The Kingdom of Denmark is constitutionally a unitary state comprising Denmark proper and the two autonomous territories in the North Atlantic Ocean: the Faroe Islands and Greenland. Denmark is a constitutional monarchy organized as a parliamentary democracy."
+  },
+  {
+    "name": "Египет",
+    "shortName": "Egypt",
+    "lang": "ru",
+    "capital": "Каир",
+    "timeDifference": -120,
+    "description": "Египет, официальное название — Арабская Республика Египет, — государство, расположенное в Северной Африке и на Синайском полуострове Азии. Но северо-востоке граничит с Израилем и частично признанным государством Палестиной, на юге — с Суданом, на западе — с Ливией. На севере территория страны омывается водами Средиземного, на востоке — Красного морей, при этом оба моря соединены посредством иискусственно сооружённого Суэцкого канала. История Египта — одной из самых древний цивилизаций мира — уходит корнями в 6–4 тысячелетия до н.э."
+  },
+  {
+    "name": "Егіпет",
+    "shortName": "Egypt",
+    "lang": "by",
+    "capital": "Каір",
+    "timeDifference": -120,
+    "description": "Егіпет, Арабская Рэспубліка Егіпет, — краіна на паўночным усходзе Афрыкі і паўднёвым захадзе Азіі. Мяжуе з Ізраілем, тэрыторыяй Палесціны (сектарам Газы), Суданам і Лівіяй. На поўначы абмываецца водамі Міжземнага мора, на ўсходзе — Чырвонага мора. Па тэрыторыі Егіпта праходзіць Суэцкі канал — найкарацейшы марскі шлях з Міжземнага мора ў Індыйскі акіян. Гісторыя Егіпта — адной з найстаражытнейшых цывілізацый свету, без перабольшання, калыскі чалавецтва — прасочваецца да 6–4 тыс. да н.э."
+  },
+  {
+    "name": "Egypt",
+    "shortName": "Egypt",
+    "lang": "en",
+    "capital": "Cairo",
+    "timeDifference": -120,
+    "description": "Egypt, officially the Arab Republic of Egypt, is a transcontinental country spanning the northeast corner of Africa and southwest corner of Asia by a land bridge formed by the Sinai Peninsula. Egypt is a Mediterranean country bordered by the Gaza Strip (Palestine) and Israel to the northeast, the Gulf of Aqaba and the Red Sea to the east, Sudan to the south, and Libya to the west. Across the Gulf of Aqaba lies Jordan, across the Red Sea lies Saudi Arabia, and across the Mediterranean lie Greece, Turkey and Cyprus, although none share a land border with Egypt. Egypt has one of the longest histories of any country, tracing its heritage along the Nile Delta back to the 6th–4th millennia BCE."
+  },
+  {
+    "name": "Индия",
+    "shortName": "India",
+    "lang": "ru",
+    "capital": "Нью-Дели",
+    "timeDifference": -330,
+    "description": "Индия, официальное название — Республика Индия, — государство в Южной Азии. Крупнейшая страна Южной Азии. Занимает второе место в мире по численности населения и седьмое по территории. Столица — Нью-Дели. Официальные языки — хинди и английский. Индия граничит с Пакистаном на западе, с Китаем, Непалом и Бутаном на северо-востоке, с Бангладеш и Мьянмой на востоке. Кроме того, Индия имеет морские границы с Мальдивами на юго-западе, со Шри-Ланкой на юге и с Индонезией на юго-востоке. Индийский субконтинент является родиной древней индской цивилизации. На протяжении большей части своей истории Индия являлась центром важных торговых маршрутов и славилась своими богатствами и высокой культурой. В Индии зародились такие религии, как индуизм, буддизм, сикхизм и джайнизм."
+  },
+  {
+    "name": "Індыя",
+    "shortName": "India",
+    "lang": "by",
+    "capital": "Нью-Дэлі",
+    "timeDifference": -330,
+    "description": "Рэспубліка Індыя, Індыя — дзяржава ў Паўднёвай Азіі на паўвостраве Індастан, у басейне Індыйскага акіяна. Сёмая краіна свету па плошчы і другая па колькасці насельніцтва. Індыя мяжуе з Пакістанам і Афганістанам на паўночным захадзе, з Кітаем, Бутанам і Непалам на поўначы, з Бангладэш на паўночным усходзе, з М'янмай на ўсходзе. Індыйскі субкантынент — радзіма адной з самых першых цывілізацый чалавецтва — Індскай; рэгіён вякамі слынны сваім культурным і эканамічным багаццем. Насычанае духоўнае жыццё індыйцаў парадзіла чатыры ўплывовыя рэлігіі — індуізм, будызм, джайнізм і сікхізм, а распаўсюджанне ў першым тысячагоддзі н.э. ісламу, хрысціянства, зараастрызму і іншых рэлігій завяршыла фарміраванне поліканфесійнай карціны індыйскага грамадства."
+  },
+  {
+    "name": "India",
+    "shortName": "India",
+    "lang": "en",
+    "capital": "New Delhi",
+    "timeDifference": -330,
+    "description": "India, officially the Republic of India, is a country in South Asia. It is the second-most populous country, the seventh-largest country by land area, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west; China, Nepal, and Bhutan to the north; and Bangladesh and Myanmar to the east. Modern humans arrived on the Indian subcontinent from Africa no later than 55,000 years ago. Their long occupation, initially in varying forms of isolation as hunter-gatherers, has made the region highly diverse, second only to Africa in human genetic diversity. In the early medieval era, Christianity, Islam, Judaism, and Zoroastrianism put down roots on India's southern and western coasts."
+  },
+  {
+    "name": "Италия",
+    "shortName": "Italy",
+    "lang": "ru",
+    "capital": "Рим",
+    "timeDifference": -60,
+    "description": "Италия, официальное название — Итальянская Республика, — государство в Южной Европе, в центре Средиземноморья. Граничит с Францией на северо-западе, Швейцарией и Австрией — на севере, Словенией — на северо-востоке. Внутри территории Италии находятся два государства-анклава: государство Сан-Марино и расположенное внутри территории Рима ассоциированное с Италией государство Ватикан. Италия занимает Апеннинский полуостров, крайний северо-запад Балканского полуострова, Паданскую равнину, южные склоны Альп, острова Сицилия, Сардиния и ряд мелких островов. Благодаря географическому положению Италия была домом для неисчислимого множества народов и культур."
+  },
+  {
+    "name": "Італія",
+    "shortName": "Italy",
+    "lang": "by",
+    "capital": "Рым",
+    "timeDifference": -60,
+    "description": "Італія, Італьянская Рэспубліка — краіна ў Паўднёвай Еўропе. Знаходзіцца на Апенінскім паўвостраве. Цягнецца ад паўночных Альпаў амаль да ўзбярэжжа Паўночнай Афрыкі. Італію акружаюць Лігурыйскае і Тырэнскае мора на захадзе, Іанічнае мора на поўдні і Адрыятычнае мора на ўсходзе. У нацыянальную тэрыторыю Італіі ўваходзяць два вялікіх вострава, гэта Сардзінія і Сіцылія, а таксама мноства маленькіх астравоў. На тэрыторыі самой Італіі існуюць два невялікіх незалежных анклава — Ватыкан і Рэспубліка Сан-Марына. Італія мяжуе на захадзе з Францыяй, на поўначы з Швейцарыяй і Аўстрыяй, на ўсходзе са Славеніяй. Сталіца Італіі — Рым. Дзякуючы свайму геаграфічнаму становішчу Італія была домам для незлічонай колькасці народаў і культур."
+  },
+  {
+    "name": "Italy",
+    "shortName": "Italy",
+    "lang": "en",
+    "capital": "Rome",
+    "timeDifference": -60,
+    "description": "Italy, officially the Italian Republic, is a country consisting of a continental part, delimited by the Alps, a peninsula and several islands surrounding it. Italy is located in Southern Europe, and is also considered part of Western Europe A unitary parliamentary republic with Rome as its capital, the country shares land borders with France, Switzerland, Austria, Slovenia, and the enclaved microstates of Vatican City and San Marino. Italy has a territorial enclave in Switzerland (Campione) and a maritime exclave in Tunisian waters (Lampedusa). With around 60 million inhabitants, Italy is the third-most populous member state of the European Union. Due to its central geographic location in Southern Europe and the Mediterranean, Italy has historically been home to myriad peoples and cultures."
+  },
+  {
+    "name": "Канада",
+    "shortName": "Canada",
+    "lang": "ru",
+    "capital": "Оттава",
+    "timeDifference": 300,
+    "description": "Канада — государство в Северной Америке, занимает второе место в мире по площади. Омывается Атлантическим, Тихим и Северным Ледовитым океанами, имея самую длинную береговую линию в мире. Граничит с Соединёнными Штатами Америки на юге и на северо-западе, также имеет морские границы с Данией (Гренландия) на северо-востоке и с Францией (Сен-Пьер и Микелон) на востоке. Граница Канады и США является самой протяжённой общей границей в мире. Канада — конституционная монархия с парламентарной системой, её монархом является монарх Британского Содружества наций. Канада — двуязычная и многокультурная страна, где английский и французский языки признаны официальными на федеральном уровне. "
+  },
+  {
+    "name": "Канада",
+    "shortName": "Canada",
+    "lang": "by",
+    "capital": "Атава",
+    "timeDifference": 300,
+    "description": "Канада — дзяржава ў Паўночнай Амерыцы, займае другое месца ў свеце па плошчы. Абмываецца Атлантычным, Ціхім і Паўночным Ледавітым акіянамі, мяжуе з ЗША на поўдні і на паўночным захадзе, таксама мае марскія межы з Даніяй (Грэнландыя) на паўночным усходзе і Францыяй (Сен-П'ер і Мікелон) на ўсходзе. Мяжа Канады і ЗША з'яўляецца самай працяглай агульнай мяжой у свеце. Сталіца Канады — Атава. Канада — федэратыўная, дэ-юрэ парламенцкая канстытуцыйная манархія. Фактычная ўлада належыць парламенту і ўраду на чале з прэм'ер-міністрам. Канада — краіна з дзвюма дзяржаўнымі мовамі на ўсіх узроўнях. Найбуйнейшымі гарадамі з'яўляюцца Таронта, Манрэаль і Ванкувер."
+  },
+  {
+    "name": "Canada",
+    "shortName": "Canada",
+    "lang": "en",
+    "capital": "Ottawa",
+    "timeDifference": 300,
+    "description": "Canada is a country in the northern part of North America. Its ten provinces and three territories extend from the Atlantic to the Pacific and northward into the Arctic Ocean, making it the world's second-largest country by total area. Its southern and western border with the United States is the world's longest bi-national land border. Canada's capital is Ottawa, and its three largest metropolitan areas are Toronto, Montreal, and Vancouver. Canada is a parliamentary democracy and a constitutional monarchy in the Westminster tradition. The country's head of government is the prime minister—appointed on the ability to command the confidence of the elected House of Commons—and is sworn in by the governor general (or the administrator) who represents its head of state, the hereditary monarch. The country is a Commonwealth realm and is officially bilingual at the federal level."
+  },
+  {
+    "name": "Таиланд",
+    "shortName": "Thailand",
+    "lang": "ru",
+    "capital": "Бангкок",
+    "timeDifference": -420,
+    "description": "Таиланд, Королевство Таиланд, ранее Сиам, — государство в Юго-Восточной Азии, расположенное в юго-западной части полуострова Индокитай и в северной части полуострова Малакка. Граничит с Мьянмой на севере, Лаосом на северо-востоке, Камбоджой на востоке, Малайзией на юге. С запада омывается Андаманским морем, с востока — Сиамским заливом Южно-Китайского моря. В мировом рейтинге занимает 50-е место по площади и 22-е — по населению. Столица и самый крупный город — Бангкок, который также является специальной административной единицей. Форма правления — конституционная монархия; фактически — военная диктатура с 2014 года. Глава государства — король. Король утратил абсолютную власть, но остаётся Верховным Главнокомандующим, символом единства нации и защитником буддизма. Туристы из Азии в первую очередь приезжают, чтобы посмотреть Бангкок и исторические, природные и культурные достопримечательности в его близости. Западные туристы также любят путешествовать на южные пляжи и острова."
+  },
+  {
+    "name": "Тайланд",
+    "shortName": "Thailand",
+    "lang": "by",
+    "capital": "Бангкок",
+    "timeDifference": -420,
+    "description": "Тайланд, Каралеўства Тайланд — краіна ў Паўднёва-Усходняй Азіі. Мяжуе з М'янмай на поўначы, з Лаосам на поўначы і ўсходзе, з Камбоджай на ўсходзе, з Малайзіяй на поўдні, таксама з поўдня абмываецца Сіамскім залівам і Андаманскім морам. Займае 50-е месца ў свеце па тэрыторыі і 22-е — па колькасці насельніцтва. Сталіца і найбуйнейшы горад — Бангкок, які таксама з’яўляецца спецыяльнай адміністрацыйнай адзінкай. Тайланд — канстытуцыйная манархія. Кароль з'яўляецца кіраўніком дзяржавы, вярхоўным галоўнакамандуючым, абаронцам будызму і гарантам усіх рэлігій. Турысты з Азіі ў першую чаргу едуць у Тайланд, каб наведаць Бангкок і ўбачыць гістарычныя, прыродныя і культурныя каштоўнасці паблізу яго. Заходнія турысты таксама любяць падарожнічаць на паўднёвыя пляжы і астравы Тайланда."
+  },
+  {
+    "name": "Thailand",
+    "shortName": "Thailand",
+    "lang": "en",
+    "capital": "Bangkok",
+    "timeDifference": -420,
+    "description": "Thailand, officially the Kingdom of Thailand and formerly known as Siam, is a country in Southeast Asia. Located at the centre of the Indochinese Peninsula, Thailand is the world's 50th-largest country by land area and the 22nd-most-populous. The capital and largest city is Bangkok, a special administrative area. Thailand is bordered to the north by Myanmar and Laos, to the east by Laos and Cambodia, to the south by the Gulf of Thailand and Malaysia, and to the west by the Andaman Sea and the southern extremity of Myanmar. Its maritime boundaries include Vietnam in the Gulf of Thailand to the southeast, and Indonesia and India on the Andaman Sea to the southwest. Nominally, Thailand is a constitutional monarchy and parliamentary democracy; however, in recent history, its government has experienced multiple coups and periods of military dictatorships. Asian tourists primarily visit Thailand for Bangkok and the historical, natural, and cultural sights in its vicinity. Western tourists not only visit Bangkok and surroundings, but in addition many travel to the southern beaches and islands."
+  },
+  {
+    "name": "Швейцария",
+    "shortName": "Switzerland",
+    "lang": "ru",
+    "capital": "Берн",
+    "timeDifference": -60,
+    "description": "Швейцария, официально — Швейцарская Конфедерация, — суверенное государство, федеративная республика, состоящая из 26 кантонов с федеральными властями в Берне. Швейцария расположена на стыке западной, центральной и южной Европы, не имеет выхода к морю и граничит с Италией на юге, Францией на западе, Германией на севере и Австрией и Лихтенштейном на востоке. Страна географически разделена между Альпами, швейцарским плато и Юрой. В то время как Альпы занимают большую часть территории, население Швейцарии численностью примерно 8,5 млн человек в основном сосредоточено на плато, где расположены крупнейшие города, в том числе два глобальных — Цюрих и Женева."
+  },
+  {
+    "name": "Швейцарыя",
+    "shortName": "Switzerland",
+    "lang": "by",
+    "capital": "Берн",
+    "timeDifference": -60,
+    "description": "Швейцарыя, афіцыйная назва — Швейцарская Канфедэрацыя, — дзяржава ў Заходняй Еўропе. Мяжуе на поўначы з Германіяй, на поўдні — з Італіяй, на захадзе — з Францыяй, на ўсходзе — з Аўстрыяй і Ліхтэнштэйнам. Назва паходзіць ад назвы аднаго з трох першапачатковых кантонаў Швіц. Афіцыйныя мовы: нямецкая, французская, італьянская, рэтараманская. Фактычная сталіца — горад Берн. Адміністрацыйна краіна падзяляецца на 23 кантоны, геаграфічна — на Альпы, Швейцарскае плато і Юру. Альпы займаюць большую частку тэрыторыі краіны, і насельніцтва збольшага сканцентраванае на роўнядзі, дзе размяшчаюцца найбуйнейшыя гарады і эканамічныя цэнтры, сярод якіх — Цюрых, Жэнева, Базель."
+  },
+  {
+    "name": "Switzerland",
+    "shortName": "Switzerland",
+    "lang": "en",
+    "capital": "Bern",
+    "timeDifference": -60,
+    "description": "Switzerland, officially the Swiss Confederation, is a country situated at the confluence of Western, Central, and Southern Europe. It is a federal republic composed of 26 cantons, with federal authorities based in Bern. Switzerland is a landlocked country bordered by Italy to the south, France to the west, Germany to the north, and Austria and Liechtenstein to the east. It is geographically divided among the Swiss Plateau, the Alps, and the Jura. While the Alps occupy the greater part of the territory, the Swiss population of approximately 8.5 million is concentrated mostly on the plateau, where the largest cities and economic centres are located, among them Zürich, Geneva and Basel."
+  },
+  {
+    "name": "Франция",
+    "shortName": "France",
+    "lang": "ru",
+    "capital": "Париж",
+    "timeDifference": -60,
+    "description": "Франция, официальное название — Французская Республика, — трансконтинентальное государство, включающее основную территорию в Западной Европе и ряд заморских регионов и территорий. Столица — Париж. Большая часть страны расположена в Западной Европе, её материковая часть на северо-востоке граничит с Бельгией, Люксембургом и Германией, на востоке — со Швейцарией, на юго-востоке — с Монако и Италией, на юго-западе — с Испанией и Андоррой, на севере имеется морская граница с Великобританией. Францию омывают четыре водных пространства (Ла-Манш, Атлантический океан, Северное море и Средиземное море). Франция — унитарная республика президентского типа со столицей в Париже, который является самым крупным городом и одновременно главным культурным и коммерческим центром. Государство делится на 18 регионов, из которых 12 находятся на европейском континенте, один (Корсика) — на острове Корсика, а ещё пять — заморские."
+  },
+  {
+    "name": "Францыя",
+    "shortName": "France",
+    "lang": "by",
+    "timeDifference": -60,
+    "capital": "Парыж",
+    "description": "Францыя, Французская Рэспубліка, — краіна ў Заходняй Еўропе, што ўключае ў сябе таксама некалькі заморскіх рэгіёнаў і тэрыторый. Метрапольная Францыя мяжуе з Бельгіяй, Люксембургам, Германіяй, Швейцарыяй, Італіяй і Манака на ўсходзе, Андорай і Іспаніяй на поўдні, і аддзеленая пралівам Ла-Манш ад Вялікабрытаніі на поўначы. Таксама ў Францыю ўваходзяць тэрыторыі, размешчаныя ў розных частках свету. Францыя з’яўляецца ўнітарнай паўпрэзідэнцкай рэспублікай са сталіцай у Парыжы, найбуйнейшым горадзе краіны і галоўным культурным і эканамічным цэнтры. Падзяляецца на 18 рэгіёнаў, 5 з якіх адносяцца да заморскіх. Найбуйнейшая заморская тэрыторыя — Французская Гвіяна — знаходзіцца ў Паўднёвай Амерыцы."
+  },
+  {
+    "name": "France",
+    "shortName": "France",
+    "lang": "en",
+    "timeDifference": -60,
+    "capital": "Paris",
+    "description": "France, officially the French Republic, is a country primarily located in Western Europe, consisting of metropolitan France and several overseas regions and territories. The metropolitan area of France extends from the Rhine to the Atlantic Ocean and from the Mediterranean Sea to the English Channel and the North Sea. The overseas territories include French Guiana in South America and several islands in the Atlantic, Pacific and Indian Oceans. France borders Belgium, Luxembourg and Germany to the northeast, Switzerland, Monaco and Italy to the east, Andorra and Spain to the south, as well as the Netherlands, Suriname and Brazil in the Americas. The country has eighteen integral regions, five of which are situated overseas. France is a unitary semi-presidential republic with its capital in Paris, the country's largest city and main cultural and commercial centre."
+  },
+  {
+    "name": "Япония",
+    "shortName": "Japan",
+    "lang": "ru",
+    "timeDifference": -540,
+    "capital": "Токио",
+    "description": "Япония, официальное название — Государство Япония, — островное государство в Восточной Азии. Находится в Тихом океане к востоку от Японского моря, Китая, Северной и Южной Кореи, России. Занимает территорию от Охотского моря на севере до Восточно-Китайского моря и Тайваня на юге. Поэтическое название — Страна восходящего солнца. Расположена на Японском архипелаге, состоящем из 6852 островов. Четыре крупнейших острова — Хонсю, Хоккайдо, Кюсю и Сикоку — составляют 97% общей площади архипелага. Большинство островов горные, многие вулканические. Высшая точка Японии — вулкан Фудзияма (3776 м). С населением почти 126 миллионов человек, Япония занимает одиннадцатое место в мире. Большой Токио, включающий в себя столицу Японии Токио и несколько близлежащих префектур, с населением более 30 миллионов человек является крупнейшей городской агломерацией в мире."
+  },
+  {
+    "name": "Японія",
+    "shortName": "Japan",
+    "lang": "by",
+    "capital": "Токіа",
+    "timeDifference": -540,
+    "description": "Японія — астраўная дзяржава ва Усходняй Азіі на астравах паўночна-заходняй часткі Ціхага акіяна на ўсходзе ад Кітая і Карэі, чацвёртая па памерах астраўная дзяржава свету (пасля Інданезіі, Мадагаскара і Папуа — Новай Гвінеі). У склад Японіі ўваходзіць больш за 6800 астравоў, найвялікшыя з якіх — Хакайда, Хонсю, Сікоку, Кюсю. З насельніцтвам 126 млн чалавек мае 11 месца ў спісе самых населеных краін свету. 80% насельніцтва жыве на востраве Хонсю. У Японіі самая высокая ў свеце працягласць жыцця (84,5 гады ў 2018) і адзін з самых нізкіх паказчыкаў дзіцячай смяротнасці. Монанацыянальная краіна: 99% насельніцтва складаюць японцы. Сталіца — горад Токіа — разам з прылеглымі гарадамі ўтварае найвялікушую ў свеце агламерацыю з насельніцтвам каля 38 млн чал."
+  },
+  {
+    "name": "Japan",
+    "shortName": "Japan",
+    "lang": "en",
+    "capital": "Tokio",
+    "timeDifference": -540,
+    "description": "Japan is an island country in East Asia, located in the northwest Pacific Ocean. It is bordered on the west by the Sea of Japan, and extends from the Sea of Okhotsk in the north toward the East China Sea and Taiwan in the south. Part of the Ring of Fire, Japan spans an archipelago of 6852 islands covering 377,975 square kilometers; the five main islands are Hokkaido, Honshu, Shikoku, Kyushu, and Okinawa. Tokyo is Japan's capital and largest city. Japan is the eleventh-most populous country in the world, as well as one of the most densely populated and urbanized. About three-fourths of the country's terrain is mountainous, concentrating its population of 125.62 million on narrow coastal plains. Japan is divided into 47 administrative prefectures and eight traditional regions. The Greater Tokyo Area is the most populous metropolitan area in the world, with more than 37.4 million residents."
+  }
+]
