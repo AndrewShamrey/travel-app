@@ -1,3 +1,30 @@
+@keyframes rotateMenuBtnActive {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateMenuBtnInactive {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes showMenu {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
 .header {
   margin: 0;
   padding: 10px 20px;
@@ -10,9 +37,122 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
+
+  &__logo {
+    font-size: 32px;
+    background-color: inherit;
+    flex-grow: 3;
+  }
+
+  &__authorization-btn {
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #ffe325;
+    }
+  }
+
+  &__menu-btn {
+    display: none;
+    outline: none;
+
+    &:hover {      
+      color: #ffe325;
+    }
+  }
+
+  @media (max-width: 600px) {   
+    &__menu-btn {
+      height: 18px;
+      font-size: 18px;
+      color: #fff;
+      background-color: transparent;
+      border: none;
+      display: block;
+      animation: rotateMenuBtnInactive 0.3s linear reverse;
+
+      &_active {
+        transform: rotate(180deg);
+        animation: rotateMenuBtnActive 0.3s linear;
+      }
+    }    
+
+    &__logo {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    padding: 10px;
+    &__logo {
+      font-size: 18px;
+    }
+  }
 }
 
 
 .header__options {
   display: flex;
+
+  & > * {
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 10px 20px;
+    width: 100%;
+    background-color: inherit;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    left: 0;  
+    display: none; 
+    z-index: -1;
+
+    &_visible {
+      display: flex;
+      top: 100%;
+      animation: showMenu 0.3s linear;
+    }
+
+    & > * {
+      margin-right: 15px;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media (max-width: 375px) {
+    padding: 10px;
+  }
+}
+
+.header__select {
+  color: #fff;  
+  background-color: #f1f1ff45;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+
+  &-item {
+    background-color: #504ca0;
+    position: relative;
+    cursor: pointer;
+
+    &:checked {
+      background-color: #504ca0c9;
+      cursor: pointer;
+    }    
+  }
 }

@@ -1,17 +1,20 @@
 import React from 'react';
 import './search.scss';
 
-const Search = ({ value, onChange, onSearchButtonClick }) => {
+const Search = ({ value, onChange, onSubmit }) => {
   const handlerOnKeydown = (e) => {
     if (e.key === 'Enter') {
-      onSearchButtonClick(e);
+      onSubmit(e);
     }
-    // console.log(e.target)
+  }
+
+  const clearSearchField = () => {
+    onChange({ target: { value: '' } });
   }
 
   return (
     <div className="search">
-      <div>
+      <div className="search__input-wrapper">
         <input
           value={value}
           placeholder="Search..."
@@ -20,12 +23,18 @@ const Search = ({ value, onChange, onSearchButtonClick }) => {
           onChange={onChange}
           onKeyDown={handlerOnKeydown}
         />
+        <i
+          className="search__delete-icon far fa-times-circle"
+          onClick={clearSearchField}
+        />
       </div>
       <button
         className="search__button"
         type="button"
-        onClick={onSearchButtonClick}
-      />
+        onClick={onSubmit}
+      >       
+        <i className="fas fa-search"></i>
+      </button>
     </div>        
   );
 };

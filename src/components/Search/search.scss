@@ -1,45 +1,64 @@
 .search {
-  margin: 0 5px;
-}
+  display: flex;
+  flex-grow: 2;
 
-.search__input {
-  padding: 5px;
-  color: #fff;
-  background-color: #ffffff47;
-  border: none;
-  border-radius: 5px;
-  position: relative;
-  outline: none;
+  &__input-wrapper {
+    width: 100%;
+    position: relative;
+    color: #c5c2c2;
 
-  &::placeholder {
-    color: #fff;
+    &:hover {
+      color: #fff;
+    }
   }
 
-  // &::after {
-  //   content: ' ';
-  //   width: 5px;
-  //   height: 2px;
-  //   background-color: red;
-  //   display: block;
-  //   position: absolute;
-  //   top: 50%;
-  //   right: 2px;
-  //   transform: translate(50%, 0);
-  // }
-}
+  &__input {
+    padding: 5px;
+    width: 100%;
+    color: #c5c2c2;
+    background-color: #ffffff47;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    outline: none;
+  
+    &::placeholder {
+      color: #c5c2c2;
+    }
 
-.search__button {
-  width: 28px;
-  height: 100%;  
-  background-color: #ffffffad;
-  background-image: url('./assets/images/search-icon.png');
-  background-size: 15px;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 5px;  
-  vertical-align: middle;
-  &:hover {
-    background-color: #ffe325;
+    &:hover {
+      color: #fff;
+
+      &::placeholder {
+        color: #fff;
+      }  
+    }
+  }
+
+  &__delete-icon {
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+
+    &:hover {
+      color: #ff0000;
+    }
+  }
+
+  &__button {
+    width: 28px;
+    height: 100%;  
+    background-color: #ffffffad;
+    border: none;
+    border-radius: 5px;  
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ffe325;
+    }
   }
 }

@@ -1,10 +1,12 @@
-import React, { useCallback } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchValue, setApplicationLanguage } from "../../actions/control";
 import Search from '../Search/Search';
 import './header.scss';
 
 const Header = ({ searchField }) => {
+  const [isMenuOpen, setIsmenuOpen] = useState(false);
+
   const dispatch = useDispatch();
   const searchValue = useSelector((rootState) => rootState.control.searchValue);
   const applicationLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
@@ -16,31 +18,63 @@ const Header = ({ searchField }) => {
   const selectChangeHandler = (e) => {
     dispatch(setApplicationLanguage(e.target.value));
   };
+
+  const toggleMenu = () => {
+    setIsmenuOpen((state) => !state);
+  }
   
   return (
     <header
       className="header"
     >
-      <h1>TravelApp</h1>
+      <h1 className="header__logo">TravelApp</h1>
       <div
-        className="header__options"
+        className={isMenuOpen ? "header__options header__options_visible" : "header__options"}
       >
         {searchField && (
           <Search
             value={searchValue}
             onChange={searchFieldChangeHandler}
-            onSearchButtonClick={selectChangeHandler}
+            onSubmit={selectChangeHandler}
           />
         )}
         <select 
+          className="header__select"
           value={applicationLanguage}
           onChange={selectChangeHandler}
         >
-          <option value="en">EN</option>
-          <option value="ru">RU</option>
-          <option value="be">BE</option>
+          <option 
+            value="en"
+            className="header__select-item"
+          >
+            EN
+          </option>
+          <option 
+            value="ru"
+            className="header__select-item"
+          >
+            RU
+          </option>
+          <option 
+            value="be"
+            className="header__select-item"
+          >
+            BE
+          </option>
         </select>
+        <button 
+          className="header__authorization-btn"
+          onClick={() => {}}
+        >
+          Login
+        </button>
       </div>
+      <button
+        className={isMenuOpen ? "header__menu-btn header__menu-btn_active" : "header__menu-btn"}
+        onClick={toggleMenu}
+      >
+        <i className="fas fa-chevron-circle-down"></i>
+      </button>
     </header>
   );
 };
