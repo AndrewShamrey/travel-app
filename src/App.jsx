@@ -1,10 +1,10 @@
 import "./App.css";
-import ExampleContainer from "./containers/exampleContainer";
+import Header from '../src/components/Header/Header';
 
 function App() {
   return (
     <div className="App">
-      <ExampleContainer />
+      <Header searchField />
     </div>
   );
 }
