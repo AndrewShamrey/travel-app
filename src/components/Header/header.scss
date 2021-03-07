@@ -49,6 +49,7 @@
     color: inherit;
     background-color: transparent;
     border: none;
+    outline: 'none';
     cursor: pointer;
 
     &:hover {
@@ -93,7 +94,6 @@
     }
   }
 }
-
 
 .header__options {
   display: flex;
