@@ -1,28 +1,46 @@
 export const EXAMPLE_CONST = 2;
 export const DEFAULT_LANGUAGE = 'en';
-export const APPLICATION_LANGUAGES = [
-  {
-    shortName: 'en',
-    name: { 
-      en: 'ENG',
-      ru: 'АНГ',
-      be: 'АНГ',
+export const APPLICATION_LANGUAGES = {
+  en: [
+    {
+      value: 'en',
+      text: 'ENG'
     },
-  },
-  {
-    shortName: 'ru',
-    name: { 
-      en: 'RUS',
-      ru: 'РУС',
-      be: 'РУС',
+    {
+      value: 'ru',
+      text: 'RUS',
     },
-  },
-  {
-    shortName: 'be',
-    name: { 
-      en: 'BEL',
-      ru: 'БЕЛ',
-      be: 'БЕЛ',
+    {
+      value: 'be',
+      text: 'BEL',
+    }
+  ],
+  ru: [
+    {
+      value: 'en',
+      text: 'АНГ',
     },
-  }
-]
+    {
+      value: 'ru',
+      text: 'РУС',
+    },
+    {
+      value: 'be',
+      text: 'БЕЛ',
+    }
+  ],
+  be:  [
+    {
+      value: 'en',
+      text: 'АНГ',
+    },
+    {
+      value: 'ru',
+      text: 'РУС',
+    },
+    {
+      value: 'be',
+      text: 'БЕЛ',
+    }
+  ],
+};
