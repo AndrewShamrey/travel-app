@@ -11,6 +11,10 @@ const Search = () => {
     dispatch(setSearchValue(e.target.value));
   };
 
+  const sendSearchRequest = () => {
+    dispatch(setSearchValue(value));
+  };
+
   const clearSearchField = () => {
     dispatch(setSearchValue(''));
   };  
@@ -40,7 +44,7 @@ const Search = () => {
       <button
         className="search__button"
         type="button"
-        onClick={searchFieldChangeHandler}
+        onClick={sendSearchRequest}
       >       
         <i className="fas fa-search"></i>
       </button>

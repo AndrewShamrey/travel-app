@@ -5,6 +5,7 @@ import { DEFAULT_LANGUAGE } from "../utils/constants";
 const initialState = {
   searchValue: '',
   applicationLanguage: DEFAULT_LANGUAGE,
+  isAuthorized: false,
   currentLang: 'en',
   timeDifference: -660,
   currentCountry: 'Australia',
@@ -31,6 +32,10 @@ const controlReducer = (state = initialState, action) => {
       return produce(state, (draft) => {
         draft.applicationLanguage = action.payload;
       });
+    case ACTION_TYPES.SET_IS_AUTHORIZED: 
+    return produce(state, (draft) => {
+      draft.isAuthorized = action.payload;
+    });
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Search from '../search/search';
 import LanguageSelect from '../languageSelect/languageSelect';
+import AuthorizationButton from '../authirizationButton/authorizationButton';
 import './header.scss';
 
 const Header = ({ searchField }) => {
@@ -23,12 +24,7 @@ const Header = ({ searchField }) => {
       >
         {searchField && <Search/>}
         <LanguageSelect/>
-        <button 
-          className="header__authorization-btn"
-          onClick={() => {}}
-        >
-          Login
-        </button>
+        <AuthorizationButton/>
       </div>
       <button
         className={isMenuOpen 

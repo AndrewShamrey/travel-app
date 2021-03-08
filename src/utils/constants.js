@@ -1,5 +1,5 @@
-export const EXAMPLE_CONST = 2;
 export const DEFAULT_LANGUAGE = 'en';
+export const DEFAULT_USER_ICON = './assets/images/defaultUser.png';
 export const APPLICATION_LANGUAGES = {
   en: [
     {
@@ -11,7 +11,7 @@ export const APPLICATION_LANGUAGES = {
       text: 'RUS',
     },
     {
-      value: 'be',
+      value: 'by',
       text: 'BEL',
     }
   ],
@@ -25,11 +25,11 @@ export const APPLICATION_LANGUAGES = {
       text: 'РУС',
     },
     {
-      value: 'be',
+      value: 'by',
       text: 'БЕЛ',
     }
   ],
-  be:  [
+  by:  [
     {
       value: 'en',
       text: 'АНГ',
@@ -39,7 +39,7 @@ export const APPLICATION_LANGUAGES = {
       text: 'РУС',
     },
     {
-      value: 'be',
+      value: 'by',
       text: 'БЕЛ',
     }
   ],
