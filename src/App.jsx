@@ -2,6 +2,8 @@ import Header from '../src/components/header/header';
 import DateWidget from "./components/dateWidget/dateWidget";
 import Card from "./components/card/card";
 import Footer from './components/footer/footer';
+import Video from './components/video/Video';
+import { Player } from 'video-react';
 
 import "./App.scss";
 
@@ -12,6 +14,8 @@ function App() {
       <div>
         <DateWidget />
         <Card />
+        <Video
+        />
       </div>
       <Footer />
     </div>
