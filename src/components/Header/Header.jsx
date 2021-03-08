@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Search from '../Search/Search';
-import LanguageSelect from '../LanguageSelect/LanguageSelect';
+import Search from '../search/search';
+import LanguageSelect from '../languageSelect/languageSelect';
 import './header.scss';
 
 const Header = ({ searchField }) => {

@@ -1,8 +1,7 @@
-import Header from '../src/components/Header/Header';
+import Header from '../src/components/header/header';
 import DateWidget from "./components/dateWidget/dateWidget";
 import Card from "./components/card/card";
 import Footer from './components/footer/footer';
-
 
 import "./App.scss";
 
