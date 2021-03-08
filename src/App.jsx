@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Switch, } from 'react-router-dom';
 import "./App.scss";
 import CountryPage from './components/country-page/countryPage';
 import MainPage from './components/main-page/mainPage';
-
 import Footer from './components/footer/footer';
 
 function App() {

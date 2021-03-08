@@ -3,7 +3,7 @@ import './countryPage.scss';
 const CountryPage = () => {
 
   return (
-    <div />
+    <div className="country-page" />
   )
 };
 
