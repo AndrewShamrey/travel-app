@@ -1,12 +1,14 @@
-import "./App.scss";
+import Header from '../src/components/header/header';
 import DateWidget from "./components/dateWidget/dateWidget";
 import Card from "./components/card/card";
 import Footer from './components/footer/footer';
 
+import "./App.scss";
+
 function App() {
   return (
     <div className="App">
-      <div></div>
+      <Header searchField />
       <div>
         <DateWidget />
         <Card />
