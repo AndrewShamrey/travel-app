@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
- useHistory, useLocation
+ useLocation, Link,
 } from 'react-router-dom';
 import Search from '../search/search';
 import LanguageSelect from '../languageSelect/languageSelect';
@@ -14,12 +14,6 @@ const Header = ({ searchField }) => {
     setIsMenuOpen((state) => !state);
   };
 
-  let history = useHistory();
-
-  const redirect = (path = '/') => {
-    history.push(path);
-  };
-
   const { pathname } = useLocation();
   const isSearchField = pathname === '/';
   
@@ -27,10 +21,11 @@ const Header = ({ searchField }) => {
     <header
       className="header"
     >
-      <h1 className="header__logo"
-        onClick={() => redirect('/')}>
-        TravelApp
-      </h1>
+      <Link to="/">
+        <h1 className="header__logo">
+          TravelApp
+        </h1>
+      </Link>
       <div
         className={isMenuOpen 
           ? "header__options header__options_visible"

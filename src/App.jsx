@@ -14,16 +14,18 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="App">
-        <Route>
-          <Header />
-            <Switch>
-              <CountryPage
-                path="/country" />
-              <MainPage
-                path="/" />
-            </Switch>
-          <Footer />
-        </Route>
+        <Header />
+          <Switch>
+            <Route 
+              path="/:country" >
+              <CountryPage />
+            </Route>
+            <Route
+              path="/" >
+              <MainPage />
+            </Route>   
+          </Switch>
+        <Footer />
       </div>                                  
     </Router>
   );
