@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
- useHistory,
+ useHistory, useLocation
 } from 'react-router-dom';
 import Search from '../search/search';
 import LanguageSelect from '../languageSelect/languageSelect';
@@ -8,10 +8,10 @@ import AuthorizationButton from '../authirizationButton/authorizationButton';
 import './header.scss';
 
 const Header = ({ searchField }) => {
-  const [isMenuOpen, setIsmenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsmenuOpen((state) => !state);
+    setIsMenuOpen((state) => !state);
   };
 
   let history = useHistory();
@@ -19,6 +19,9 @@ const Header = ({ searchField }) => {
   const redirect = (path = '/') => {
     history.push(path);
   };
+
+  const { pathname } = useLocation();
+  const isSearchField = pathname === '/';
   
   return (
     <header
@@ -34,7 +37,7 @@ const Header = ({ searchField }) => {
           : "header__options"
         }
       >
-        {searchField && <Search/>}
+        {isSearchField && <Search/>}
         <LanguageSelect/>
         <AuthorizationButton/>
       </div>

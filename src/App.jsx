@@ -15,7 +15,7 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <Route>
-          <Header searchField />
+          <Header />
             <Switch>
               <CountryPage
                 path="/country" />
