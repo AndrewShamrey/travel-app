@@ -1,18 +1,26 @@
+import { BrowserRouter as Router, Route, Switch, } from 'react-router-dom';
 import "./App.scss";
-import DateWidget from "./components/dateWidget/dateWidget";
-import Card from "./components/card/card";
+import CountryPage from './components/country-page/countryPage';
+import MainPage from './components/main-page/mainPage';
+
 import Footer from './components/footer/footer';
 
 function App() {
   return (
-    <div className="App">
-      <div></div>
-      <div>
-        <DateWidget />
-        <Card />
-      </div>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Route>
+          <div></div>
+            <Switch>
+              <CountryPage
+                path="/country" />
+              <MainPage
+                path="/" />
+            </Switch>
+          <Footer />
+        </Route>
+      </div>                                  
+    </Router>
   );
 }
 
