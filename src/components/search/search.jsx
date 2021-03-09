@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchValue} from "../../actions/control";
-import './search.scss';
+import { setSearchValue } from "../../actions/control";
+import "./search.scss";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -16,20 +16,20 @@ const Search = () => {
   };
 
   const clearSearchField = () => {
-    dispatch(setSearchValue(''));
-  };  
+    dispatch(setSearchValue(""));
+  };
 
   const handlerOnKeydown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       searchFieldChangeHandler(e);
     }
-  }
+  };
 
   return (
     <div className="search">
       <div className="search__input-wrapper">
         <input
-          value={value || ''}
+          value={value || ""}
           placeholder="Search..."
           className="search__input"
           autoFocus
@@ -45,10 +45,10 @@ const Search = () => {
         className="search__button"
         type="button"
         onClick={sendSearchRequest}
-      >       
+      >
         <i className="fas fa-search"></i>
       </button>
-    </div>        
+    </div>
   );
 };
 
