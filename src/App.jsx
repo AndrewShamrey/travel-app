@@ -1,20 +1,33 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import "./App.scss";
 import Header from '../src/components/header/header';
-import DateWidget from "./components/dateWidget/dateWidget";
-import Card from "./components/card/card";
+import CountryPage from './components/country-page/countryPage';
+import MainPage from './components/main-page/mainPage';
 import Footer from './components/footer/footer';
+import ScrollToTop from './utils/scrollToTop';
 
 import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
-      <Header searchField />
-      <div>
-        <DateWidget />
-        <Card />
-      </div>
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="App">
+        <Header />
+          <Switch>
+            <Route 
+              path="/:country" >
+              <CountryPage />
+            </Route>
+            <Route
+              path="/" >
+              <MainPage />
+            </Route>   
+          </Switch>
+        <Footer />
+      </div>                                  
+    </Router>
   );
 }
 
