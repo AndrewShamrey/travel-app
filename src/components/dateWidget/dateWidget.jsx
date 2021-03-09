@@ -2,13 +2,16 @@ import { useState, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import "./dateWidget.css";
 
+// ? отображается число, название месяца, название дня недели, время в формате часы-минуты-секунды
+// для перевода даты и времени на язык локализации страницы воспользуйтесь встроенными возможностями JavaScript
+
 const DateWidget = () => {
-  const timeDifference = useSelector((rootState) => rootState.control.timeDifference);
-  const [time, setTime] = useState(toOffsetDate(timeDifference));
+  const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
+  const [time, setTime] = useState(toOffsetDate(countryConfig.timeDifference));
 
   const tick = useCallback(() => {
-    setTime(toOffsetDate(timeDifference))
-  }, [timeDifference]);
+    setTime(toOffsetDate(countryConfig.timeDifference))
+  }, [countryConfig]);
 
   function toOffsetDate (offset) {
     const date = new Date(Date.now() - (offset * 60 * 1000));
