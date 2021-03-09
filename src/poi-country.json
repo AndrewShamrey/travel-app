@@ -1,0 +1,114 @@
+[
+  {
+    "shortName": "Australia",
+    "timeDifference": -660,
+    "latlng": [-27.0,133.0],
+    "mainPlace": {
+      "image": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615293521/Japan/1_Mount_Fuji_js4opr.jpg",
+      "en": {"name": "Mount Fuji", "description": ""},
+      "ru": {"name": "Гора Фудзи", "description": ""},
+      "be": {"name": "Гара Фудзі", "description": ""}
+    },
+    "video": "https://www.youtube.com/watch?v=WLIv7HnZ_fE",
+    "info": {
+      "en": {"name": "Australia", "capital": "Canberra", "description": "Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands. It is the largest country in Oceania and the world's sixth-largest country by total area. Its population of nearly 26 million is highly urbanised and heavily concentrated on the eastern seaboard. Australia's capital is Canberra, and its largest city is Sydney. The country's other major metropolitan areas are Melbourne, Brisbane, Perth, and Adelaide."}, 
+      "ru": {"name": "Австралия", "capital": "Канберра", "description": "Австралия, официальная форма — Австралийский Союз, или Содружество Австралии, — государство в Южном полушарии, занимающее одноимённый материк, остров Тасмания и несколько других островов Индийского и Тихого океанов. Самое крупное государство по занимаемой площади в Океании и шестое — в мире. Население — почти 26 млн человек, большинство из которых проживает в городах на восточном побережье. Столица Австралии — Канберра, а самый крупный город — Сидней. В числе других мегаполисов — Мельбурн, Брисбен, Перт и Аделаида."},
+      "be": {"name": "Аўстралія", "capital": "Канбера", "description": "Аўстралія, Аўстралійскі Саюз — дзяржава ў Паўднёвым паўшар'і, якая займае мацярык Аўстралія, востраў Тасманія і некалькі іншых астравоў Індыйскага і Ціхага акіянаў. Аўстралія з'яўляецца найбуйнейшай па плошчы дзяржавай у Акіяніі і шостай — у свеце. Насельніцтва складае амаль 26 мільёнаў чалавек, большасць з якіх пражывае ў гарадах на ўсходнім узбярэжжы. Сталіца Аўстраліі — Канбера, а найбуйнейшы горад — Сідней. У ліку іншых мегаполісаў — Мельбурн, Брысбен,Перт і Адэлаіда."}
+    }
+  },
+
+
+  {
+    "country": "Australia",
+    "image": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615293521/Japan/1_Mount_Fuji_js4opr.jpg",
+    "rating": 0,
+    "personsId": [],
+    "info": {
+      "en": {"name": "Mount Fuji", "description": ""},
+      "ru": {"name": "Гора Фудзи", "description": ""},
+      "be": {"name": "Гара Фудзі", "description": ""}
+    }
+  },
+
+  {
+    "nickname": "testPerson",
+    "pass": "password",
+    "photo": "photo)"
+  },
+
+
+
+  
+  {
+    "country": "Japan",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615293521/Japan/1_Mount_Fuji_js4opr.jpg",
+    "video": "https://www.youtube.com/watch?v=WLIv7HnZ_fE",
+    "image-name-en": "Mount Fuji"
+  },
+  {
+    "country": "France",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615298007/France/1_Eiffel_Tower_zfzt1w.jpg",
+    "video": "https://www.youtube.com/watch?v=j9q3NLqUvxI",
+    "image-name-en": "Eiffel Tower"
+  },
+  {
+    "country": "Switzerland",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615299772/Switzerland/1_Bern_kghlby.jpg",
+    "video": "https://www.youtube.com/watch?v=CvrSoObs5jo",
+    "image-name-en": "Bern"
+  },
+  {
+    "country": "Thailand",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615300117/Thailand/1_The_Grand_Palace_Bangkok_tbkofq.jpg",
+    "video": "https://www.youtube.com/watch?v=DhQn9x74g-Q",
+    "image-name-en": "The Grand Palace, Bangkok"
+  },
+  {
+    "country": "Canada",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615295519/Canada/1_Toronto_s_CN_Tower_ohuw8n.jpg",
+    "video": "https://www.youtube.com/watch?v=HfTkZmKK1b0",
+    "image-name-en": "Toronto's CN Tower"
+  },
+  {
+    "country": "Italy",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615298805/Italy/The_Grand_Canal_in_Venice_pjdb5k.jpg",
+    "video": "https://www.youtube.com/watch?v=jLgcah7bpl4",
+    "image-name-en": "The Grand Canal in Venice"
+  },
+  {
+    "country": "India",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615298630/India/1_Taj_Mahal_kt04ju.jpg",
+    "video": "https://www.youtube.com/watch?v=LKac9Zcx7lY",
+    "image-name-en": "Taj Mahal"
+  },
+  {
+    "country": "Egypt",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615297926/Egypt/1_Pyramids_of_Giza_zkujie.jpg",
+    "video": "https://www.youtube.com/watch?v=mfxQy5A_tHs",
+    "image-name-en": "Pyramids of Giza"
+  },
+  {
+    "country": "Denmark",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615295614/Denmark/Nyhavn_pieivz.jpg",
+    "video": "https://www.youtube.com/watch?v=tlsBf8PeYMA",
+    "image-name-en": "Nyhavn"
+  },
+  {
+    "country": "Vietnam",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615300276/Vietnam/Hanoi_Train_Street_qk4uwp.jpg",
+    "video": "https://www.youtube.com/watch?v=8l1tM1TUAFU",
+    "image-name-en": "Hanoi Train Street" 
+  },
+  {
+    "country": "Brazil",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615295430/Brazil/1_Cristo_Redentor_and_Corcovado_lei5ct.jpg",
+    "video": "https://www.youtube.com/watch?v=-Pdvd1bwLAg",
+    "image-name": "Cristo Redentor and Corcovado" 
+  },
+  {
+    "country": "Australia",
+    "image-main": "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615294994/Australia/1_Sydney_Opera_House_h26peq.jpg",
+    "video": "https://www.youtube.com/watch?v=nFS1nvRUVkY",
+    "image-name": "Sydney Opera House" 
+  }
+]

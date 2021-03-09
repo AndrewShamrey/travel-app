@@ -1,0 +1,13 @@
+.load-label {
+  width: 100%;
+  text-align: center;
+  margin-bottom: auto;
+  cursor: pointer;
+  padding: 10px;
+  color: #f8f8f8;
+  font-size: 20px;
+}
+
+.file-input {
+  display: none;
+}

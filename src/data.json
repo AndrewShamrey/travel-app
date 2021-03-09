@@ -1,76 +1,34 @@
 [
   {
-    "name": "Австралия",
     "shortName": "Australia",
-    "lang": "ru",
-    "capital": "Канберра",
     "timeDifference": -660,
-    "description": "Австралия, официальная форма — Австралийский Союз, или Содружество Австралии, — государство в Южном полушарии, занимающее одноимённый материк, остров Тасмания и несколько других островов Индийского и Тихого океанов. Самое крупное государство по занимаемой площади в Океании и шестое — в мире. Население — почти 26 млн человек, большинство из которых проживает в городах на восточном побережье. Столица Австралии — Канберра, а самый крупный город — Сидней. В числе других мегаполисов — Мельбурн, Брисбен, Перт и Аделаида."
+    "info": {
+      "en": {"name": "Australia", "capital": "Canberra", "description": "Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands. It is the largest country in Oceania and the world's sixth-largest country by total area. Its population of nearly 26 million is highly urbanised and heavily concentrated on the eastern seaboard. Australia's capital is Canberra, and its largest city is Sydney. The country's other major metropolitan areas are Melbourne, Brisbane, Perth, and Adelaide."}, 
+      "ru": {"name": "Австралия", "capital": "Канберра", "description": "Австралия, официальная форма — Австралийский Союз, или Содружество Австралии, — государство в Южном полушарии, занимающее одноимённый материк, остров Тасмания и несколько других островов Индийского и Тихого океанов. Самое крупное государство по занимаемой площади в Океании и шестое — в мире. Население — почти 26 млн человек, большинство из которых проживает в городах на восточном побережье. Столица Австралии — Канберра, а самый крупный город — Сидней. В числе других мегаполисов — Мельбурн, Брисбен, Перт и Аделаида."},
+      "be": {"name": "Аўстралія", "capital": "Канбера", "description": "Аўстралія, Аўстралійскі Саюз — дзяржава ў Паўднёвым паўшар'і, якая займае мацярык Аўстралія, востраў Тасманія і некалькі іншых астравоў Індыйскага і Ціхага акіянаў. Аўстралія з'яўляецца найбуйнейшай па плошчы дзяржавай у Акіяніі і шостай — у свеце. Насельніцтва складае амаль 26 мільёнаў чалавек, большасць з якіх пражывае ў гарадах на ўсходнім узбярэжжы. Сталіца Аўстраліі — Канбера, а найбуйнейшы горад — Сідней. У ліку іншых мегаполісаў — Мельбурн, Брысбен,Перт і Адэлаіда."}
+    }
   },
   {
-    "name": "Аўстралія",
-    "shortName": "Australia",
-    "lang": "by",
-    "capital": "Канбера",
-    "timeDifference": -660,
-    "description": "Аўстралія, Аўстралійскі Саюз — дзяржава ў Паўднёвым паўшар'і, якая займае мацярык Аўстралія, востраў Тасманія і некалькі іншых астравоў Індыйскага і Ціхага акіянаў. Аўстралія з'яўляецца найбуйнейшай па плошчы дзяржавай у Акіяніі і шостай — у свеце. Насельніцтва складае амаль 26 мільёнаў чалавек, большасць з якіх пражывае ў гарадах на ўсходнім узбярэжжы. Сталіца Аўстраліі — Канбера, а найбуйнейшы горад — Сідней. У ліку іншых мегаполісаў — Мельбурн, Брысбен,Перт і Адэлаіда."
-  },
-  {
-    "name": "Australia",
-    "shortName": "Australia",
-    "lang": "en",
-    "capital": "Canberra",
-    "timeDifference": -660,
-    "description": "Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands. It is the largest country in Oceania and the world's sixth-largest country by total area. Its population of nearly 26 million is highly urbanised and heavily concentrated on the eastern seaboard. Australia's capital is Canberra, and its largest city is Sydney. The country's other major metropolitan areas are Melbourne, Brisbane, Perth, and Adelaide."
-  },
-  {
-    "name": "Бразилия",
     "shortName": "Brazil",
-    "lang": "ru",
-    "capital": "Бразилиа",
     "timeDifference": 180,
-    "description": "Бразилия, официально — Федеративная Республика Бразилия, — суверенное государство в Южной Америке. Будучи пятой среди стран мира по площади и шестой по численности населения, Бразилия является наибольшей страной Южной Америки, как по территории, так и по численности населения. Столица — Бразилиа, самый крупный город — Сан-Паулу. Государственный язык — португальский. Бразилия — единственная португалоязычная страна во всей Америке самая крупная лузофонная страна в мире. Также Бразилия — одна из самых мультикультурных стран с широким  этническим разнообразием, что обусловлено миграциями со всего мира в течение более чем столетия."
+    "info": {
+      "en": {"name": "Brazil", "capital": "Brasília", "description": "Brazil, officially the Federative Republic of Brazil, is the largest country in both South America and Latin America. Brazil is the world's fifth-largest country by area and the sixth most populous. Its capital is Brasília, and its most populous city is São Paulo. It is the largest country to have Portuguese as an official language and the only one in the Americas. It is also one of the most multicultural and ethnically diverse nations, due to over a century of mass immigration from around the world."}, 
+      "ru": {"name": "Бразилия", "capital": "Бразилиа", "description": "Бразилия, официально — Федеративная Республика Бразилия, — суверенное государство в Южной Америке. Будучи пятой среди стран мира по площади и шестой по численности населения, Бразилия является наибольшей страной Южной Америки, как по территории, так и по численности населения. Столица — Бразилиа, самый крупный город — Сан-Паулу. Государственный язык — португальский. Бразилия — единственная португалоязычная страна во всей Америке самая крупная лузофонная страна в мире. Также Бразилия — одна из самых мультикультурных стран с широким  этническим разнообразием, что обусловлено миграциями со всего мира в течение более чем столетия."},
+      "be": {"name": "Бразілія", "capital": "Бразіліа", "description": "Бразілія, Федэратыўная Рэспубліка Бразілія, — найбуйнейшая краіна Паўднёвай Амерыкі і Лацінскай Амерыкі. Пятая краіна свету паводле плошчы і шостая — паводле колькасці насельніцтва. Сталіца — горад Бразіліа, найбуйнейшы горад — Сан-Паўлу. Дзяржаўная мова — партугальская. Гэта адзіная партугаламоўная краіна на амерыканскім кантыненце і буйнейшая лузафонная краіна свету. Бразілія — адна з самых мультыкультурных і этнічна разнастайных нацый дзякуючы міграцыям я усяго свету, што доўжыліся больш за стагоддзе."}
+    }
   },
   {
-    "name": "Бразілія",
-    "shortName": "Brazil",
-    "lang": "by",
-    "capital": "Бразіліа",
-    "timeDifference": 180,
-    "description": "Бразілія, Федэратыўная Рэспубліка Бразілія, — найбуйнейшая краіна Паўднёвай Амерыкі і Лацінскай Амерыкі. Пятая краіна свету паводле плошчы і шостая — паводле колькасці насельніцтва. Сталіца — горад Бразіліа, найбуйнейшы горад — Сан-Паўлу. Дзяржаўная мова — партугальская. Гэта адзіная партугаламоўная краіна на амерыканскім кантыненце і буйнейшая лузафонная краіна свету. Бразілія — адна з самых мультыкультурных і этнічна разнастайных нацый дзякуючы міграцыям я усяго свету, што доўжыліся больш за стагоддзе."
-  },
-  {
-    "name": "Brazil",
-    "shortName": "Brazil",
-    "lang": "en",
-    "capital": "Brasília",
-    "timeDifference": 180,
-    "description": "Brazil, officially the Federative Republic of Brazil, is the largest country in both South America and Latin America. Brazil is the world's fifth-largest country by area and the sixth most populous. Its capital is Brasília, and its most populous city is São Paulo. It is the largest country to have Portuguese as an official language and the only one in the Americas. It is also one of the most multicultural and ethnically diverse nations, due to over a century of mass immigration from around the world."
-  },
-  {
-    "name": "Вьетнам",
     "shortName": "Vietnam",
-    "lang": "ru",
-    "capital": "Ханой",
     "timeDifference": -420,
-    "description": "Вьетнам, полная официальная форма — Социалистическая Республика Вьетнам, — государство в Юго-Восточной Азии на полуострове Индокитай. Занимает 16-е место по численности населения в мире. На западе граничит с Лаосом и Камбоджей, на севере — с Китаем. с востока и юга омывается Южно-Китайским морем. Столица — Ханой, самый крупный город — Хошимин."
+    "info": {
+      "en": {"name": "Vietnam", "capital": "Hanoi", "description": "Vietnam (also written as Viet Nam), officially the Socialist Republic of Vietnam, is a country in Southeast Asia and the easternmost country on the Indochinese Peninsula. It is the 16th most populous country in the world. Vietnam shares its land borders with China to the north, and Laos and Cambodia to the west. It shares its maritime borders with Thailand through the Gulf of Thailand, and the Philippines, Indonesia and Malaysia through the South China Sea. Its capital city is Hanoi, and its most populous city is Ho Chi Minh City."}, 
+      "ru": {"name": "Вьетнам", "capital": "Ханой", "description": "Вьетнам, полная официальная форма — Социалистическая Республика Вьетнам, — государство в Юго-Восточной Азии на полуострове Индокитай. Занимает 16-е место по численности населения в мире. На западе граничит с Лаосом и Камбоджей, на севере — с Китаем. с востока и юга омывается Южно-Китайским морем. Столица — Ханой, самый крупный город — Хошимин."},
+      "be": {"name": "В’етнам", "capital": "Ханой", "description": "В’етнам, Сацыялістычная Рэспубліка В’етнам, — дзяржава ў Паўднёва-Усходняй Азіі. Займае 16-е месца па населенасці ў свеце. В’етнам мяжуе з Кітаем на поўначы, Лаосам і Камбоджай на захадзе. Сярод марскіх суседзяў краіны — Таіланд праз Сіямскі заліў, а таксама Філіпіны, Інданезія і Малайзія праз Паўднёва-Кітайскае мора. Сталіца — Ханой, найбуйнейшы горад — Хашымін."}
+    }
   },
-  {
-    "name": "В’етнам",
-    "shortName": "Vietnam",
-    "lang": "by",
-    "capital": "Ханой",
-    "timeDifference": -420,
-    "description": "В’етнам, Сацыялістычная Рэспубліка В’етнам, — дзяржава ў Паўднёва-Усходняй Азіі. Займае 16-е месца па населенасці ў свеце. В’етнам мяжуе з Кітаем на поўначы, Лаосам і Камбоджай на захадзе. Сярод марскіх суседзяў краіны — Таіланд праз Сіямскі заліў, а таксама Філіпіны, Інданезія і Малайзія праз Паўднёва-Кітайскае мора. Сталіца — Ханой, найбуйнейшы горад — Хашымін."
-  },
-  {
-    "name": "Vietnam",
-    "shortName": "Vietnam",
-    "lang": "en",
-    "capital": "Hanoi",
-    "timeDifference": -420,
-    "description": "Vietnam (also written as Viet Nam), officially the Socialist Republic of Vietnam, is a country in Southeast Asia and the easternmost country on the Indochinese Peninsula. It is the 16th most populous country in the world. Vietnam shares its land borders with China to the north, and Laos and Cambodia to the west. It shares its maritime borders with Thailand through the Gulf of Thailand, and the Philippines, Indonesia and Malaysia through the South China Sea. Its capital city is Hanoi, and its most populous city is Ho Chi Minh City."
-  },
+
+
+  
   {
     "name": "Дания",
     "shortName": "Denmark",
