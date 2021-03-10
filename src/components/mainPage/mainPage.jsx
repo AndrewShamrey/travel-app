@@ -6,7 +6,7 @@ import "./mainPage.scss";
 const MainPage = () => {
   return (
     <div className="main-page">
-      {/* <DateWidget /> */}
+      <DateWidget />
       {/* <LoadPhoto /> */}
       <Card />
     </div>

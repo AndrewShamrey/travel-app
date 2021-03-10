@@ -21,7 +21,9 @@ function App() {
 
   const handleLoad = useCallback(() => {
     const prevState = JSON.parse(localStorage.getItem("currentCountryConfig"));
-    dispatch(setCountryConfig(prevState));
+    if (prevState) {
+      dispatch(setCountryConfig(prevState))
+    };
   }, [dispatch]);
 
   useEffect(() => {
