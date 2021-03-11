@@ -1,6 +1,6 @@
-import produce from "immer";
-import * as ACTION_TYPES from "../actionTypes/control";
-import { DEFAULT_LANGUAGE } from "../utils/constants";
+import produce from 'immer';
+import * as ACTION_TYPES from '../actionTypes/control';
+import { DEFAULT_LANGUAGE } from '../utils/constants';
 
 const initialState = {
   searchValue: '',
@@ -24,18 +24,18 @@ const controlReducer = (state = initialState, action) => {
         draft.capital = action.country.capital;
         draft.description = action.country.description;
       });
-    case ACTION_TYPES.SET_SEARCH_VALUE: 
+    case ACTION_TYPES.SET_SEARCH_VALUE:
       return produce(state, (draft) => {
         draft.searchValue = action.payload;
       });
-    case ACTION_TYPES.SET_APPLICATION_LANGUAGE: 
+    case ACTION_TYPES.SET_APPLICATION_LANGUAGE:
       return produce(state, (draft) => {
         draft.applicationLanguage = action.payload;
       });
-    case ACTION_TYPES.SET_IS_AUTHORIZED: 
-    return produce(state, (draft) => {
-      draft.isAuthorized = action.payload;
-    });
+    case ACTION_TYPES.SET_IS_AUTHORIZED:
+      return produce(state, (draft) => {
+        draft.isAuthorized = action.payload;
+      });
     default:
       return state;
   }

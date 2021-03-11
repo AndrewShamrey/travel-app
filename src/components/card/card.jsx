@@ -1,8 +1,8 @@
-import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setCountryConfig } from "../../actions/control";
-import fetchData from "../../utils/fetchData";
-import "./card.css";
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCountryConfig } from '../../actions/control';
+import fetchData from '../../utils/fetchData';
+import './card.css';
 
 const Card = () => {
   const dispatch = useDispatch();
@@ -15,28 +15,61 @@ const Card = () => {
 
   const onClickCardHandler = useCallback((e) => {
     const clickedCountry = e.target.getAttribute('country');
-    fetchData("GET", 'countries', currentLang, clickedCountry)
+    fetchData('GET', 'countries', currentLang, clickedCountry)
       .then((response) => response.json())
       .then((data) => {
         const country = data[0];
         dispatch(setCountryConfig(country));
-    })
-    .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
   }, [currentLang, dispatch]);
 
   return (
     <div>
       <div className="current-country">
-        <p>name - {fullName}</p>
-        <p>ShortName - {currentCountry}</p>
-        <p>capital - {capital}</p>
-        <p>timeDifference - {timeDifference}</p>
-        <p className="description">description - {description}</p>
+        <p>
+          name -
+          {fullName}
+        </p>
+        <p>
+          ShortName -
+          {currentCountry}
+        </p>
+        <p>
+          capital -
+          {capital}
+        </p>
+        <p>
+          timeDifference -
+          {timeDifference}
+        </p>
+        <p className="description">
+          description -
+          {description}
+        </p>
       </div>
       <div className="cards-cont">
-        <p country="Vietnam" className="country-card" onClick={onClickCardHandler}>Vietnam</p>
-        <p country="Denmark" className="country-card" onClick={onClickCardHandler}>Denmark</p>
-        <p country="Japan" className="country-card" onClick={onClickCardHandler}>Japan</p>
+        <button
+          className="country-card-button"
+          type="button"
+          onClick={onClickCardHandler}
+        >
+          <p country="Vietnam" className="country-card">Vietnam</p>
+        </button>
+        <button
+          className="country-card-button"
+          type="button"
+          onClick={onClickCardHandler}
+        >
+          <p country="Denmark" className="country-card">Denmark</p>
+        </button>
+        <button
+          className="country-card-button"
+          type="button"
+          onClick={onClickCardHandler}
+        >
+          <p country="Japan" className="country-card">Japan</p>
+        </button>
       </div>
     </div>
   );

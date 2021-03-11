@@ -47,7 +47,19 @@
     z-index: -1;
   
     &-item {
+      padding: 8px 15px;  
+      
+      &:hover {
+        color: #ffe325;
+      }
+    }
+
+    &-button {      
       padding: 8px 15px;
+      color: inherit;
+      background: transparent;
+      border: none;
+      cursor: pointer;
   
       &:hover {
         color: #ffe325;

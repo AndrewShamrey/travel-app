@@ -4,7 +4,7 @@ export const APPLICATION_LANGUAGES = {
   en: [
     {
       value: 'en',
-      text: 'ENG'
+      text: 'ENG',
     },
     {
       value: 'ru',
@@ -13,7 +13,7 @@ export const APPLICATION_LANGUAGES = {
     {
       value: 'by',
       text: 'BEL',
-    }
+    },
   ],
   ru: [
     {
@@ -27,9 +27,9 @@ export const APPLICATION_LANGUAGES = {
     {
       value: 'by',
       text: 'БЕЛ',
-    }
+    },
   ],
-  by:  [
+  by: [
     {
       value: 'en',
       text: 'АНГ',
@@ -41,6 +41,6 @@ export const APPLICATION_LANGUAGES = {
     {
       value: 'by',
       text: 'БЕЛ',
-    }
+    },
   ],
 };

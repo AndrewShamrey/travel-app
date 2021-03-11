@@ -37,6 +37,10 @@
 
   &__delete-icon {
     font-size: 12px;
+    color: inherit;
+    background: transparent;
+    border-radius: 5%;
+    border: none;
     position: absolute;
     top: 50%;
     right: 5px;
@@ -46,8 +50,11 @@
     &:hover {
       color: #ff0000;
     }
-  }
 
+    i {
+      vertical-align: middle;
+    }
+  }
   &__button {
     width: 28px;
     height: 100%;  

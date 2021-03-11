@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import {
- useLocation, Link,
+  useLocation, Link,
 } from 'react-router-dom';
 import Search from '../search/search';
 import LanguageSelect from '../languageSelect/languageSelect';
 import AuthorizationButton from '../authirizationButton/authorizationButton';
 import './header.scss';
 
-const Header = ({ searchField }) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -16,7 +16,7 @@ const Header = ({ searchField }) => {
 
   const { pathname } = useLocation();
   const isSearchField = pathname === '/';
-  
+
   return (
     <header
       className="header"
@@ -27,23 +27,22 @@ const Header = ({ searchField }) => {
         </h1>
       </Link>
       <div
-        className={isMenuOpen 
-          ? "header__options header__options_visible"
-          : "header__options"
-        }
+        className={isMenuOpen
+          ? 'header__options header__options_visible'
+          : 'header__options'}
       >
-        {isSearchField && <Search/>}
-        <LanguageSelect/>
-        <AuthorizationButton/>
+        {isSearchField && <Search />}
+        <LanguageSelect />
+        <AuthorizationButton />
       </div>
       <button
-        className={isMenuOpen 
-          ? "header__menu-btn header__menu-btn_active" 
-          : "header__menu-btn"
-        }
+        className={isMenuOpen
+          ? 'header__menu-btn header__menu-btn_active'
+          : 'header__menu-btn'}
+        type="button"
         onClick={toggleMenu}
       >
-        <i className="fas fa-chevron-circle-down"></i>
+        <i className="fas fa-chevron-circle-down" />
       </button>
     </header>
   );

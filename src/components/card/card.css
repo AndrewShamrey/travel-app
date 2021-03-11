@@ -1,12 +1,19 @@
 .country-card {
   min-width: 200px;
-  margin: 15px;
+  /* margin: 15px; */
   padding: 30px 10px;
   border-radius: 10px;
   text-align: center;
   background-color: darkcyan;
   user-select: none;
   cursor: pointer;
+}
+
+.country-card-button {
+  margin: 15px;
+  padding: 0;
+  width: fit-content;
+  border: none;
 }
 
 .current-country {

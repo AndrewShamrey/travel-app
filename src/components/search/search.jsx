@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { setSearchValue} from "../../actions/control";
+import { useDispatch, useSelector } from 'react-redux';
+import { setSearchValue } from '../../actions/control';
 import './search.scss';
 
 const Search = () => {
@@ -17,13 +17,13 @@ const Search = () => {
 
   const clearSearchField = () => {
     dispatch(setSearchValue(''));
-  };  
+  };
 
   const handlerOnKeydown = (e) => {
     if (e.key === 'Enter') {
       searchFieldChangeHandler(e);
     }
-  }
+  };
 
   return (
     <div className="search">
@@ -36,19 +36,22 @@ const Search = () => {
           onChange={searchFieldChangeHandler}
           onKeyDown={handlerOnKeydown}
         />
-        <i
-          className="search__delete-icon far fa-times-circle"
+        <button
+          className="search__delete-icon"
+          type="button"
           onClick={clearSearchField}
-        />
+        >
+          <i className="far fa-times-circle" />
+        </button>
       </div>
       <button
         className="search__button"
         type="button"
         onClick={sendSearchRequest}
-      >       
-        <i className="fas fa-search"></i>
+      >
+        <i className="fas fa-search" />
       </button>
-    </div>        
+    </div>
   );
 };
 

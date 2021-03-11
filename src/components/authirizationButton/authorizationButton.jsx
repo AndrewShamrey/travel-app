@@ -14,17 +14,17 @@ const AuthorizationButton = () => {
 
   const toggleAuthorization = () => {
     dispatch(setIsAuthorized(!isAuthorized));
-  }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  }
+  };
 
   useEffect(() => {
     const closeMenu = (e) => {
       const { target } = e;
       const { current } = btnRef;
-      
+
       if (!(target === current || target.parentNode === current)) {
         setIsMenuOpen(false);
       }
@@ -34,48 +34,50 @@ const AuthorizationButton = () => {
     return () => {
       window.removeEventListener('click', closeMenu);
     };
-  }, [])
+  }, []);
 
   return (
     <div>
-      <button 
+      <button
         ref={btnRef}
         className="authorization-btn"
+        type="button"
         onClick={toggleMenu}
       >
-        {isAuthorized 
+        {isAuthorized
           ? (
-            <img 
+            <img
               className="authorization-btn__image"
               src={DEFAULT_USER_ICON}
               alt="user icon"
             />
           ) : (
             <i className="authorization-btn__icon far fa-user" />
-          )
-        }
+          )}
       </button>
       {isMenuOpen && (
         <ul className="authorization-btn__menu">
           {isAuthorized
             ? (
-              <li 
-                onClick={toggleAuthorization}
-                className="authorization-btn__menu-item"
-              >
-                SignOut
-              </li> 
+              <li>
+                <button
+                  className="authorization-btn__menu-button"
+                  type="button"
+                  onClick={toggleAuthorization}
+                >
+                  SignOut
+                </button>
+              </li>
             ) : (
-              <>      
+              <>
                 <li className="authorization-btn__menu-item">SignIn</li>
                 <li className="authorization-btn__menu-item">SignUp</li>
               </>
-            )
-          }
+            )}
         </ul>
       )}
     </div>
   );
-}
+};
 
 export default AuthorizationButton;
