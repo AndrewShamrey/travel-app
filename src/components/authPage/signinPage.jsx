@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrentPerson } from '../../actions/control';
+import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
 import fetchData from '../../utils/fetchData';
 import DefaultPhoto from '../../assets/images/default-photo.jpg';
 import DeleteIMG from '../../assets/images/error.svg';
@@ -88,6 +88,7 @@ const LogInPage = ({ backRef }) => {
         
         const { nickname, photo } = newPerson;
         dispatch(setCurrentPerson({ nickname, photo }));
+        dispatch(setIsAuthorized(true));
 
         backRef.current.click();
       })

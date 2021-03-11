@@ -6,6 +6,7 @@ const initialState = {
   searchValue: '',
   applicationLanguage: DEFAULT_LANGUAGE,
   countryConfig: DEFAULT_COUNTRY_CONFIG,
+  isAuthorized: false,
   currentPerson: null
 };
 
@@ -26,6 +27,10 @@ const controlReducer = (state = initialState, action) => {
     case ACTION_TYPES.SET_APPLICATION_LANGUAGE:
       return produce(state, (draft) => {
         draft.applicationLanguage = action.payload;
+      });
+    case ACTION_TYPES.SET_IS_AUTHORIZED:
+      return produce(state, (draft) => {
+        draft.isAuthorized = action.payload;
       });
     default:
       return state;

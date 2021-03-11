@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setCurrentPerson } from '../../actions/control';
+import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
 // import { DEFAULT_USER_ICON } from '../../utils/constants';
 import DefaultPhoto from '../../assets/images/default-photo.jpg';
 import './authorizationButton.scss';
@@ -9,10 +9,12 @@ import './authorizationButton.scss';
 const AuthorizationButton = () => {
   const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isAuthorized = useSelector((rootState) => rootState.control.isAuthorized);
   const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
   const btnRef = useRef(null);
 
-  const signOutHandler = () => {
+  const toggleAuthorization = () => {
+    dispatch(setIsAuthorized(!isAuthorized));
     dispatch(setCurrentPerson(null));
   };
 
@@ -38,28 +40,28 @@ const AuthorizationButton = () => {
   return (
     <div>
       <button ref={btnRef} className='authorization-btn' onClick={toggleMenu}>
-        {currentPerson && (
+        {isAuthorized && (
           <img
             className='authorization-btn__image'
             src={currentPerson.photo || DefaultPhoto}
             alt='user icon'
           />
         )}
-        {!currentPerson && (
+        {!isAuthorized && (
           <i className='authorization-btn__icon far fa-user' />
         )}
       </button>
       {isMenuOpen && (
         <ul className='authorization-btn__menu'>
-          {currentPerson && (
+          {isAuthorized && (
             <li
-              onClick={signOutHandler}
+              onClick={toggleAuthorization}
               className='authorization-btn__menu-item'
             >
               SignOut
             </li>
           )}
-          {!currentPerson && (
+          {!isAuthorized && (
             <>
               <li className='authorization-btn__menu-item'>
                 <Link to='/authorization'>SignIn</Link>

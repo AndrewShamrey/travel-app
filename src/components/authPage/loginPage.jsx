@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrentPerson } from '../../actions/control';
+import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
 import fetchData from '../../utils/fetchData';
 import './authPage.css';
 
@@ -45,6 +45,7 @@ const LogInPage = ({ backRef }) => {
 
         const { _id, nickname, photo } = person;
         dispatch(setCurrentPerson({ _id, nickname, photo }));
+        dispatch(setIsAuthorized(true));
         
         backRef.current.click();
       })
