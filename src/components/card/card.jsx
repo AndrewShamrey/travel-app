@@ -2,41 +2,40 @@ import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCountryConfig } from "../../actions/control";
 import fetchData from "../../utils/fetchData";
+import { ALL_COUNTRIES, MAIN_PLACES } from "../../utils/constants.js";
 import "./card.css";
 
 const Card = () => {
   const dispatch = useDispatch();
-  const currentCountry = useSelector((rootState) => rootState.control.currentCountry);
-  const currentLang = useSelector((rootState) => rootState.control.currentLang);
-  const timeDifference = useSelector((rootState) => rootState.control.timeDifference);
-  const fullName = useSelector((rootState) => rootState.control.fullName);
-  const capital = useSelector((rootState) => rootState.control.capital);
-  const description = useSelector((rootState) => rootState.control.description);
+  const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
+  const lang = useSelector((rootState) => rootState.control.applicationLanguage);
 
   const onClickCardHandler = useCallback((e) => {
     const clickedCountry = e.target.getAttribute('country');
-    fetchData("GET", 'countries', currentLang, clickedCountry)
+    fetchData("GET", 'countries', clickedCountry)
       .then((response) => response.json())
       .then((data) => {
         const country = data[0];
         dispatch(setCountryConfig(country));
     })
     .catch((err) => console.log(err));
-  }, [currentLang, dispatch]);
+  }, [dispatch]);
 
   return (
     <div>
       <div className="current-country">
-        <p>name - {fullName}</p>
-        <p>ShortName - {currentCountry}</p>
-        <p>capital - {capital}</p>
-        <p>timeDifference - {timeDifference}</p>
-        <p className="description">description - {description}</p>
+        <p>name - {countryConfig.info[lang].name}</p>
+        <p>ShortName - {countryConfig.shortName}</p>
+        <p>capital - {countryConfig.info[lang].capital}</p>
+        <p>timeDifference - {countryConfig.timeDifference}</p>
+        <p className="description">description - {countryConfig.info[lang].description}</p>
       </div>
       <div className="cards-cont">
-        <p country="Vietnam" className="country-card" onClick={onClickCardHandler}>Vietnam</p>
-        <p country="Denmark" className="country-card" onClick={onClickCardHandler}>Denmark</p>
-        <p country="Japan" className="country-card" onClick={onClickCardHandler}>Japan</p>
+        {ALL_COUNTRIES.map((item, index) => {
+          return <div key={index} country={item} className="country-card" onClick={onClickCardHandler}>
+            <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
+          </div>
+        })}
       </div>
     </div>
   );

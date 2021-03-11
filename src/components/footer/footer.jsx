@@ -1,13 +1,13 @@
-import Link from './link-footer';
-import authors from '../../authors';
-import './footer.scss';
+import Link from "./link-footer";
+import authors from "../../authors";
+import "./footer.scss";
 
 const Footer = () => {
   const drawLinks = () => {
     return authors.map((link, index) => {
-      return <Link key={`${index + 1}index`} {...link} />
+      return <Link key={`${index + 1}index`} {...link} />;
     });
-  }
+  };
 
   return (
     <footer className="app-footer footer">
@@ -17,8 +17,8 @@ const Footer = () => {
       </div>
       <div className="footer-course">
         <a
-          className="footer-course-link click" 
-          href="https://rs.school/js/" 
+          className="footer-course-link click"
+          href="https://rs.school/js/"
           target="_blank"
           rel="noreferrer"
         >
@@ -26,7 +26,7 @@ const Footer = () => {
         </a>
       </div>
     </footer>
-  )
+  );
 };
 
 export default Footer;
