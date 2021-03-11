@@ -9,9 +9,9 @@ const DateWidget = () => {
 
   const toOffsetDate = useCallback((offset) => {
     const date = new Date(Date.now() - (offset * 60 * 1000));
-    const month = DATE_CONFIG[lang].month[date.getMonth()];
-    const weekday = DATE_CONFIG[lang].weekday[date.getDay()];
-    const day = date.getDate();
+    const month = DATE_CONFIG[lang].month[date.getUTCMonth()];
+    const weekday = DATE_CONFIG[lang].weekday[date.getUTCDay()];
+    const day = date.getUTCDate();
     const hrs = date.getUTCHours().toString().padStart(2, '0');
     const mins = date.getUTCMinutes().toString().padStart(2, '0');
     const secs = date.getUTCSeconds().toString().padStart(2, '0');
