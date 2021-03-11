@@ -69,7 +69,6 @@ const LogInPage = ({ backRef }) => {
     if (!isActiveSubmit) {
       return;
     }
-    setActiveSubmit(false)
 
     if (!login || !pass) {
       setWarning(true);
@@ -94,6 +93,8 @@ const LogInPage = ({ backRef }) => {
           setWarning(true);
           return;
         }
+        
+        setActiveSubmit(false)
         
         const { nickname, photo } = newPerson;
         dispatch(setCurrentPerson({ nickname, photo }));
