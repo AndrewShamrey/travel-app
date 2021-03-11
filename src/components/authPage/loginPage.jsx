@@ -10,6 +10,7 @@ const LogInPage = ({ backRef }) => {
   const [warning, setWarning] = useState(false);
   const [login, setLogin] = useState('');
   const [pass, setPass] = useState('');
+  const [isActiveSubmit, setActiveSubmit] = useState(true);
 
   const handleChangeLogin = ({ target: { value } }) => {
     setLogin(value);
@@ -31,10 +32,17 @@ const LogInPage = ({ backRef }) => {
 
   const logInAccount = (e) => {
     e.preventDefault(); 
+
+    if (!isActiveSubmit) {
+      return;
+    }
+    setActiveSubmit(false)
+    
     if (!login || !pass) {
       setWarning(true);
       return;
     }
+
     fetchData('GET', 'persons', login)
       .then((response) => response.json())
       .then(([ person ]) => {

@@ -17,6 +17,7 @@ const LogInPage = ({ backRef }) => {
   const [warningMessage, setMessage] = useState(DEFAULT_WARNING);
   const [login, setLogin] = useState('');
   const [pass, setPass] = useState('');
+  const [isActiveSubmit, setActiveSubmit] = useState(true);
 
   const MAX_IMAGE_SIZE = 4000000;
 
@@ -64,15 +65,23 @@ const LogInPage = ({ backRef }) => {
 
   const SignInAccount = (e) => {
     e.preventDefault();
+
+    if (!isActiveSubmit) {
+      return;
+    }
+    setActiveSubmit(false)
+
     if (!login || !pass) {
       setWarning(true);
       return;
     }
+
     if (pass.length < 8 || pass.length > 20) {
       setMessage('Passwords length should be between 8 and 20');
       setWarning(true);
       return;
     }
+    
     const newPerson = { nickname: login, pass, photo: imgURL }
     if (!newPerson.photo) {
         delete newPerson.photo;
