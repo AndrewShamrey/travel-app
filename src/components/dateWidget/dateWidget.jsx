@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
-import { DATE_CONFIG } from "../../utils/constants";
-import "./dateWidget.css";
+import { useState, useEffect, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { DATE_CONFIG } from '../../utils/constants';
+import './dateWidget.css';
 
 const DateWidget = () => {
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
@@ -12,9 +12,9 @@ const DateWidget = () => {
     const month = DATE_CONFIG[lang].month[date.getMonth()];
     const weekday = DATE_CONFIG[lang].weekday[date.getDay()];
     const day = date.getDate();
-    const hrs = date.getUTCHours().toString().padStart(2, "0");
-    const mins = date.getUTCMinutes().toString().padStart(2, "0");
-    const secs = date.getUTCSeconds().toString().padStart(2, "0");
+    const hrs = date.getUTCHours().toString().padStart(2, '0');
+    const mins = date.getUTCMinutes().toString().padStart(2, '0');
+    const secs = date.getUTCSeconds().toString().padStart(2, '0');
     return { month, weekday, day, hrs, mins, secs };
   }, [lang]);
 
@@ -33,7 +33,7 @@ const DateWidget = () => {
   }, [tick]);
 
   return (
-    <p className="App-clock">{JSON.stringify(time)}</p>
+    <p className='App-clock'>{JSON.stringify(time)}</p>
   );
 } 
 

@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setCurrentPerson } from "../../actions/control";
-import fetchData from "../../utils/fetchData";
-import DefaultPhoto from "../../assets/images/default-photo.jpg";
-import DeleteIMG from "../../assets/images/error.svg";
-import "./authPage.css";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCurrentPerson } from '../../actions/control';
+import fetchData from '../../utils/fetchData';
+import DefaultPhoto from '../../assets/images/default-photo.jpg';
+import DeleteIMG from '../../assets/images/error.svg';
+import './authPage.css';
 
 const LogInPage = ({ backRef }) => {
   const dispatch = useDispatch();
@@ -15,8 +15,10 @@ const LogInPage = ({ backRef }) => {
   const [isOpenPass, togglePass] = useState(false);
   const [warning, setWarning] = useState(false);
   const [warningMessage, setMessage] = useState(DEFAULT_WARNING);
-  const [login, setLogin] = useState("");
-  const [pass, setPass] = useState("");
+  const [login, setLogin] = useState('');
+  const [pass, setPass] = useState('');
+
+  const MAX_IMAGE_SIZE = 4000000;
 
   const setImage = (data) => {
     setImgWarning(false);
@@ -30,7 +32,7 @@ const LogInPage = ({ backRef }) => {
     }
     reader.onloadend = () => {
       const base64data = reader.result;
-      files[0].size >= 4000000
+      files[0].size >= MAX_IMAGE_SIZE
         ? setImgWarning(true)
         : setImage(base64data);
     };
@@ -76,7 +78,7 @@ const LogInPage = ({ backRef }) => {
         delete newPerson.photo;
     }
 
-    fetchData("POST", "persons", null, JSON.stringify(newPerson))
+    fetchData('POST', 'persons', null, JSON.stringify(newPerson))
       .then((data) => {
         if (data.status === 500) {
           setMessage('This nickname is already taken');
@@ -93,53 +95,53 @@ const LogInPage = ({ backRef }) => {
   };
 
   return (
-    <form className="form-container" onSubmit={SignInAccount}>
-      {warning && <div className="warning-error">{warningMessage}</div>}
-      <div className="form-field">
+    <form className='form-container' onSubmit={SignInAccount}>
+      {warning && <div className='warning-error'>{warningMessage}</div>}
+      <div className='form-field'>
         <input
-          className="input-text"
-          name="login"
-          placeholder="Nickname"
-          type="text"
+          className='input-text'
+          name='login'
+          placeholder='Nickname'
+          type='text'
           value={login}
-          autoComplete="off"
+          autoComplete='off'
           onChange={handleChangeLogin}
         />
       </div>
-      <div className="form-field">
+      <div className='form-field'>
         <input
-          className="input-text input-pass"
-          name="pass"
-          placeholder="Password"
-          type={isOpenPass ? "text" : "password"}
+          className='input-text input-pass'
+          name='pass'
+          placeholder='Password'
+          type={isOpenPass ? 'text' : 'password'}
           value={pass}
-          autoComplete="off"
+          autoComplete='off'
           onChange={handleChangePass}
         />
-        <span className="toggle-pass" onClick={toggleVisiblePassword} />
+        <span className='toggle-pass' onClick={toggleVisiblePassword} />
       </div>
-      {warningImg && <div className="warning-error">Max image size is 4MB</div>}
-      <div className="form-field photo-field">
-          <div className="photo-container">
-            <img className="user-photo" src={imgURL || DefaultPhoto} alt="user" />
-            <div className="onhover-img" onClick={handlerDeleteImg}>
-              <img src={DeleteIMG} alt="clear-img"/>
+      {warningImg && <div className='warning-error'>Max image size is 4MB</div>}
+      <div className='form-field photo-field'>
+          <div className='photo-container'>
+            <img className='user-photo' src={imgURL || DefaultPhoto} alt='user' />
+            <div className='onhover-img' onClick={handlerDeleteImg}>
+              <img src={DeleteIMG} alt='clear-img'/>
             </div>
           </div>
-          <label className="load-label">
+          <label className='load-label'>
             Upload your photo
             <input
-              type="file"
-              className="file-input"
+              type='file'
+              className='file-input'
               onChange={loadFile}
             />
           </label>
       </div>
       <input
-        className="input-sign-in"
-        type="submit"
-        value="SignIn"
-        name="signin"
+        className='input-sign-in'
+        type='submit'
+        value='SignIn'
+        name='signin'
       />
     </form>
   );

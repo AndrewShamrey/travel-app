@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import controlReducer from "./controlReducer";
+import { combineReducers } from 'redux';
+import controlReducer from './controlReducer';
 
 const reducer = combineReducers({
   control: controlReducer,

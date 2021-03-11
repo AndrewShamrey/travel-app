@@ -3,7 +3,7 @@ import {
   SET_APPLICATION_LANGUAGE,
   SET_COUNTRY_CONFIG,
   SET_CURRENT_PERSON,
-} from "../actionTypes/control";
+} from '../actionTypes/control';
 
 export const setSearchValue = (value) => ({ type: SET_SEARCH_VALUE, payload: value });
 export const setApplicationLanguage = (value) => ({ type: SET_APPLICATION_LANGUAGE, payload: value });

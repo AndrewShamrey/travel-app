@@ -1,15 +1,15 @@
-const validMethods = ["GET", "POST", "PUT", "PATCH", "DELETE"];
+const validMethods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'];
 
-export default function fetchData(method, whatIsIt="", name="", body="", id="") {
+export default function fetchData(method, whatIsIt='', name='', body='', id='') {
   if (!validMethods.includes(method)) {
     return;
   }
 
-  if (method === "GET") {
+  if (method === 'GET') {
     return fetch(`https://travel-app-back-113.herokuapp.com/api/${whatIsIt}/${name}`, {
       method: method,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
   }
@@ -18,7 +18,7 @@ export default function fetchData(method, whatIsIt="", name="", body="", id="") 
     method: method,
     body: body,
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   });
 }

@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setCurrentPerson } from "../../actions/control";
-import fetchData from "../../utils/fetchData";
-import "./authPage.css";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCurrentPerson } from '../../actions/control';
+import fetchData from '../../utils/fetchData';
+import './authPage.css';
 
 const LogInPage = ({ backRef }) => {
   const dispatch = useDispatch();
   const [isOpenPass, togglePass] = useState(false);
   const [warning, setWarning] = useState(false);
-  const [login, setLogin] = useState("");
-  const [pass, setPass] = useState("");
+  const [login, setLogin] = useState('');
+  const [pass, setPass] = useState('');
 
   const handleChangeLogin = ({ target: { value } }) => {
     setLogin(value);
@@ -35,7 +35,7 @@ const LogInPage = ({ backRef }) => {
       setWarning(true);
       return;
     }
-    fetchData("GET", "persons", login)
+    fetchData('GET', 'persons', login)
       .then((response) => response.json())
       .then(([ person ]) => {
         if (!person || pass !== person.pass) {
@@ -45,43 +45,43 @@ const LogInPage = ({ backRef }) => {
 
         const { _id, nickname, photo } = person;
         dispatch(setCurrentPerson({ _id, nickname, photo }));
-
+        
         backRef.current.click();
       })
       .catch((err) => console.log('Error - ', err));
   };
 
   return (
-    <form className="form-container" onSubmit={logInAccount}>
-      {warning && <div className="warning-error">Invalid nickname or password!</div>}
-      <div className="form-field">
+    <form className='form-container' onSubmit={logInAccount}>
+      {warning && <div className='warning-error'>Incorrect nickname or password!</div>}
+      <div className='form-field'>
         <input
-          className="input-text"
-          name="login"
-          placeholder="Nickname"
-          type="text"
+          className='input-text'
+          name='login'
+          placeholder='Nickname'
+          type='text'
           value={login}
-          autoComplete="off"
+          autoComplete='off'
           onChange={handleChangeLogin}
         />
       </div>
-      <div className="form-field">
+      <div className='form-field'>
         <input
-          className="input-text input-pass"
-          name="pass"
-          placeholder="Password"
-          type={isOpenPass ? "text" : "password"}
+          className='input-text input-pass'
+          name='pass'
+          placeholder='Password'
+          type={isOpenPass ? 'text' : 'password'}
           value={pass}
-          autoComplete="off"
+          autoComplete='off'
           onChange={handleChangePass}
         />
-        <span className="toggle-pass" onClick={toggleVisiblePassword} />
+        <span className='toggle-pass' onClick={toggleVisiblePassword} />
       </div>
       <input
-        className="input-sign-in"
-        type="submit"
-        value="LogIn"
-        name="login"
+        className='input-sign-in'
+        type='submit'
+        value='LogIn'
+        name='login'
       />
     </form>
   );

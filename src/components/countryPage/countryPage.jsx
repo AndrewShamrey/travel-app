@@ -1,8 +1,8 @@
-import "./countryPage.scss";
+import './countryPage.scss';
 
 const CountryPage = () => {
   return (
-    <div className="country-page">
+    <div className='country-page'>
       content will be there
     </div>
   )
