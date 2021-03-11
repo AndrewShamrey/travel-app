@@ -1,19 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsAuthorized } from "../../actions/control";
-import { DEFAULT_USER_ICON } from "../../utils/constants";
+import { Link } from "react-router-dom";
+import { setCurrentPerson } from "../../actions/control";
+// import { DEFAULT_USER_ICON } from "../../utils/constants";
+import DefaultPhoto from "../../assets/images/default-photo.jpg";
 import "./authorizationButton.scss";
 
 const AuthorizationButton = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const dispatch = useDispatch();
-  const isAuthorized = useSelector((rootState) => rootState.control.isAuthorized);
+  const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
 
   const btnRef = useRef(null);
 
-  const toggleAuthorization = () => {
-    dispatch(setIsAuthorized(!isAuthorized));
+  const signOutHandler = () => {
+    dispatch(setCurrentPerson(null));
   };
 
   const toggleMenu = () => {
@@ -39,29 +41,35 @@ const AuthorizationButton = () => {
   return (
     <div>
       <button ref={btnRef} className="authorization-btn" onClick={toggleMenu}>
-        {isAuthorized ? (
+        {currentPerson && (
           <img
             className="authorization-btn__image"
-            src={DEFAULT_USER_ICON}
+            src={currentPerson.photo || DefaultPhoto}
             alt="user icon"
           />
-        ) : (
+        )}
+        {!currentPerson && (
           <i className="authorization-btn__icon far fa-user" />
         )}
       </button>
       {isMenuOpen && (
         <ul className="authorization-btn__menu">
-          {isAuthorized ? (
+          {currentPerson && (
             <li
-              onClick={toggleAuthorization}
+              onClick={signOutHandler}
               className="authorization-btn__menu-item"
             >
               SignOut
             </li>
-          ) : (
+          )}
+          {!currentPerson && (
             <>
-              <li className="authorization-btn__menu-item">SignIn</li>
-              <li className="authorization-btn__menu-item">SignUp</li>
+              <li className="authorization-btn__menu-item">
+                <Link to="/authorization">SignIn</Link>
+              </li>
+              <li className="authorization-btn__menu-item">
+                <Link to="/authorization/registration">SignUp</Link>
+              </li>
             </>
           )}
         </ul>

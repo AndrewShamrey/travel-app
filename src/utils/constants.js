@@ -2,6 +2,7 @@ export const DEFAULT_COUNTRY_CONFIG = {
   shortName: "Australia",
   timeDifference: -660,
   latlng: [-27.0,133.0],
+  currency: {"code": "JPY", "name": "Japanese yen", "symbol": "¥"},
   mainPlace: {
     image: "https://res.cloudinary.com/db8pqmy2n/image/upload/v1615293521/Japan/1_Mount_Fuji_js4opr.jpg",
     en: {name: "Mount Fuji", description: ""},

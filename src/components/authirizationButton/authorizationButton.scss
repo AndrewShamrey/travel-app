@@ -8,6 +8,7 @@
 }
 
 .authorization-btn {
+  position: relative;
   width: 25px;
   height: 25px;
   font-size: 18px;
@@ -16,8 +17,15 @@
   border: none;
   border-radius: 50%;
   overflow: hidden;
+  user-select: none;
   outline: none;
   cursor: pointer;
+
+  .authorization-btn__image {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+  }
 
   &:hover {
     color: #ffe325;

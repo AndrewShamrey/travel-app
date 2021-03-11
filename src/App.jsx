@@ -7,13 +7,12 @@ import CountryPage from "./components/countryPage/countryPage";
 import MainPage from "./components/mainPage/mainPage";
 import Footer from "./components/footer/footer";
 import ScrollToTop from "./components/scrollToTop/scrollToTop";
+import AuthPage from "./components/authPage/authPage";
 import "./App.scss";
 
 function App() {
   const dispatch = useDispatch();
-  const countryConfig = useSelector(
-    (rootState) => rootState.control.countryConfig
-  );
+  const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
 
   const handleUnload = useCallback(() => {
     localStorage.setItem("currentCountryConfig", JSON.stringify(countryConfig));
@@ -41,7 +40,10 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/:country">
+          <Route path="/authorization">
+            <AuthPage />
+          </Route>
+          <Route path="/country/:country">
             <CountryPage />
           </Route>
           <Route path="/">
