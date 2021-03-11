@@ -5,19 +5,30 @@ import './Map.scss';
 import { YMaps, Map, Placemark, Panorama, TypeSelector } from 'react-yandex-maps';
 
 
-const MyPlacemark = () => {
+// Карта
+
+//     для отображения карты используется бесплатное API, которое не требует для использования подключения платёжных документов
+//     предпочтение отдавайте API, в которых есть режим просмотра улиц
+//     карта переводится на язык отображения страницы, если такая возможность есть в используемом API
+//     карту можно развернуть во весь экран
+//     карта интерактивная, её можно перетаскивать, увеличивать и уменьшать масштаб
+//     страна, о которой идёт речь, подсвечена
+//     для стилизации карты используются кастомные (пользовательские) стили, если такая возможность есть в используемом API
+//     столица страны на карте отмечена маркером
+
+
+const CountryMap = () => {
   // const mapState = { center: [-35.306904, 149.125529], zoom: 10 };
 
-  // const dispatch = useDispatch();
-  // const currentCountry = useSelector((rootState) => rootState.control.currentCountry);
-  // const currentLang = useSelector((rootState) => rootState.control.currentLang);
-  // const timeDifference = useSelector((rootState) => rootState.control.timeDifference);
-  // const fullName = useSelector((rootState) => rootState.control.fullName);
-  // const capital = useSelector((rootState) => rootState.control.capital);
-  const description = useSelector((rootState) => rootState.control.description);
+  const currentCountry = useSelector((rootState) => rootState.control);
+  const { latlng } = currentCountry.countryConfig;
 
-  const [zoom, setZoom] = React.useState(10);
-  const mapState = React.useMemo(() => ({ center: [-35.306904, 149.125529], zoom }), [
+  console.log('currentCountry ', currentCountry, latlng);
+  const description = currentCountry;
+  console.log('description ', description);
+
+  const [zoom, setZoom] = React.useState(3);
+  const mapState = React.useMemo(() => ({ center: latlng, zoom }), [
     zoom,
   ])
   
@@ -48,4 +59,4 @@ const MyPlacemark = () => {
   );
 }
 
-export default MyPlacemark;
+export default CountryMap;
