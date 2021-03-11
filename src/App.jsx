@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCountryConfig } from './actions/control';
+import { setPrevState } from './actions/control';
 import Header from '../src/components/header/header';
 import CountryPage from './components/countryPage/countryPage';
 import MainPage from './components/mainPage/mainPage';
@@ -12,16 +12,16 @@ import './App.scss';
 
 function App() {
   const dispatch = useDispatch();
-  const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
+  const state = useSelector((rootState) => rootState.control);
 
   const handleUnload = useCallback(() => {
-    localStorage.setItem('currentCountryConfig', JSON.stringify(countryConfig));
-  }, [countryConfig]);
+    localStorage.setItem('currentState', JSON.stringify(state));
+  }, [state]);
 
   const handleLoad = useCallback(() => {
-    const prevState = JSON.parse(localStorage.getItem('currentCountryConfig'));
+    const prevState = JSON.parse(localStorage.getItem('currentState'));
     if (prevState) {
-      dispatch(setCountryConfig(prevState))
+      dispatch(setPrevState(prevState))
     };
   }, [dispatch]);
 

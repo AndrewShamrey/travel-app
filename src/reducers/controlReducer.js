@@ -6,6 +6,7 @@ const initialState = {
   searchValue: '',
   applicationLanguage: DEFAULT_LANGUAGE,
   countryConfig: DEFAULT_COUNTRY_CONFIG,
+  currentPlaces: null,
   isAuthorized: false,
   currentPerson: null
 };
@@ -19,6 +20,19 @@ const controlReducer = (state = initialState, action) => {
     case ACTION_TYPES.SET_CURRENT_PERSON:
       return produce(state, (draft) => {
         draft.currentPerson = action.person;
+      });
+    case ACTION_TYPES.SET_PLACES_BY_COUNTRY:
+      return produce(state, (draft) => {
+        draft.currentPlaces = action.places;
+      });
+    case ACTION_TYPES.SET_PREV_STATE:
+      return produce(state, (draft) => {
+        draft.searchValue = action.prevState.searchValue;
+        draft.applicationLanguage = action.prevState.applicationLanguage;
+        draft.countryConfig = action.prevState.countryConfig;
+        draft.currentPlaces = action.prevState.currentPlaces;
+        draft.isAuthorized = action.prevState.isAuthorized;
+        draft.currentPerson = action.prevState.currentPerson;
       });
     case ACTION_TYPES.SET_SEARCH_VALUE:
       return produce(state, (draft) => {

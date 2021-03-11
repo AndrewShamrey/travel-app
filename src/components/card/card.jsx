@@ -1,6 +1,5 @@
-import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCountryConfig } from '../../actions/control';
+import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
 import fetchData from '../../utils/fetchData';
 import { ALL_COUNTRIES, MAIN_PLACES } from '../../utils/constants.js';
 import './card.css';
@@ -8,18 +7,26 @@ import './card.css';
 const Card = () => {
   const dispatch = useDispatch();
   const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
+  const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
 
-  const onClickCardHandler = useCallback((e) => {
-    const clickedCountry = e.target.getAttribute('country');
+  const onClickCardHandler = (e) => {
+    const clickedCountry = e.target.closest('.country-card').getAttribute('country');
     fetchData('GET', 'countries', clickedCountry)
       .then((response) => response.json())
-      .then((data) => {
-        const country = data[0];
+      .then(([ country ]) => {
         dispatch(setCountryConfig(country));
-    })
-    .catch((err) => console.log(err));
-  }, [dispatch]);
+      })
+      .then(() => {
+        fetchData('GET', 'places', countryConfig.shortName)
+          .then((response) => response.json())
+          .then((places) => {
+            dispatch(setPlacesByCountry(places));
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -28,6 +35,7 @@ const Card = () => {
         <p>ShortName - {countryConfig.shortName}</p>
         <p>capital - {countryConfig.info[lang].capital}</p>
         <p>timeDifference - {countryConfig.timeDifference}</p>
+        <p>currentPlaces - {JSON.stringify(currentPlaces)}</p>
         <p className='description'>description - {countryConfig.info[lang].description}</p>
       </div>
       <div className='cards-cont'>
