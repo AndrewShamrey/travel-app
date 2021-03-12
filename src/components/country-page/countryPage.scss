@@ -1,6 +1,122 @@
 .country-page {
+  $blockMarginBottom: 15px;
+
+  max-height: calc(100vh - 110px);
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // overflow: hidden;
+
+  &__map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    @media (max-width: 600px) {
+      height: 60px;
+      position: relative;
+    }
+  }  
+
+  &__image {
+    margin-bottom: $blockMarginBottom;
+    width: 100%;
+  }
+
+  &__wrapper {
+    margin: 5px;
+    padding: 15px 5px;
+    width: 450px;
+    max-width: 50%;
+    font-size: 14px;
+    text-align: justify;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0px #150f7d;
+    overflow-y: hidden;
+    z-index: 1;
+  }
+
+  &__info {  
+    padding: 0 10px;
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 1;
+    
+    &::-webkit-scrollbar {      
+      width: 8px;
+      background-color: #d4d4d4;
+      border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #d4d4d4;
+      border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: #adacac;
+      &:hover {
+        background-color: #33238d;
+      }
+    }
+  } 
+
+  &__description {
+    margin-bottom: $blockMarginBottom;
+    text-indent: 20px;
+  }
+  
+  &__country {
+    padding: 0 10px 5px;
+    background-color: #fff;
+    box-shadow: 10px -1px 0px 1px #fff, -10px -1px 0px 1px #fff, 0 3px 7px 0px #808080b8;
+    position: sticky;
+    top: 0;
+  }
+
+  &__name {
+    margin-bottom: 5px;
+  }
+
+  &__capital {
+    font-size: 12px;
+  }
+
+  &__widgets {
+    margin-bottom: $blockMarginBottom;
+    padding: 10px 0;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__widget {
+    background: transparent;
+    flex-grow: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__gallery {
+    margin-bottom: $blockMarginBottom;
+
+    img {
+      margin-bottom: 0;
+    }
+  }
 }

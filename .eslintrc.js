@@ -27,5 +27,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 1,
     'no-use-before-define': 1,
     'jsx-a11y/no-autofocus': 1,
+    'no-unused-vars': 1,
   },
 };
