@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
-import { DEFAULT_PHOTO } from '../../utils/constants';
+import { DEFAULT_PHOTO, AUTHORIZATION_INFO, MAX_IMAGE_SIZE } from '../../utils/constants';
 import DeleteIMG from '../../assets/images/error.svg';
 import './authPage.css';
 
@@ -10,18 +10,15 @@ const LogInPage = () => {
   const fetchClass = new FetchData();
 
   const dispatch = useDispatch();
-  const DEFAULT_WARNING = 'Invalid nickname or password!';
+  const lang = useSelector((rootState) => rootState.control.applicationLanguage); 
   const [warningImg, setImgWarning] = useState(false);
   const [imgURL, setImgUrl] = useState(null);
-
   const [isOpenPass, togglePass] = useState(false);
   const [warning, setWarning] = useState(false);
-  const [warningMessage, setMessage] = useState(DEFAULT_WARNING);
+  const [warningMessage, setMessage] = useState('defaultWarning');
   const [login, setLogin] = useState('');
   const [pass, setPass] = useState('');
   const [isActiveSubmit, setActiveSubmit] = useState(true);
-
-  const MAX_IMAGE_SIZE = 4000000;
 
   const setImage = (data) => {
     setImgWarning(false);
@@ -45,7 +42,7 @@ const LogInPage = () => {
     setLogin(value);
     if (warning) {
       setWarning(false);
-      setMessage(DEFAULT_WARNING);
+      setMessage('defaultWarning');
     }
   };
 
@@ -53,7 +50,7 @@ const LogInPage = () => {
     setPass(value);
     if (warning) {
       setWarning(false);
-      setMessage(DEFAULT_WARNING);
+      setMessage('defaultWarning');
     }
   };
 
@@ -76,7 +73,7 @@ const LogInPage = () => {
     }
 
     if (pass.length < 8 || pass.length > 20) {
-      setMessage('Passwords length should be between 8 and 20');
+      setMessage('passwordWarning');
       setWarning(true);
       return false;
     }
@@ -87,7 +84,7 @@ const LogInPage = () => {
   const signInAccount = (e) => {
     e.preventDefault();
 
-    if (!validatePersonsData) {
+    if (!validatePersonsData()) {
       return
     }
     
@@ -99,7 +96,7 @@ const LogInPage = () => {
     fetchClass.postNewPerson(JSON.stringify(newPerson))
       .then((data) => {
         if (data.status !== 201) {
-          setMessage('This nickname is already taken');
+          setMessage('nickNameWarning');
           setWarning(true);
           return;
         }
@@ -115,12 +112,12 @@ const LogInPage = () => {
 
   return (
     <form className='form-container' onSubmit={signInAccount}>
-      {warning && <div className='warning-error'>{warningMessage}</div>}
+      {warning && <div className='warning-error'>{AUTHORIZATION_INFO[lang][warningMessage]}</div>}
       <div className='form-field'>
         <input
           className='input-text'
           name='login'
-          placeholder='Nickname'
+          placeholder={AUTHORIZATION_INFO[lang].loginName}
           type='text'
           value={login}
           autoComplete='off'
@@ -131,7 +128,7 @@ const LogInPage = () => {
         <input
           className='input-text input-pass'
           name='pass'
-          placeholder='Password'
+          placeholder={AUTHORIZATION_INFO[lang].passName}
           type={isOpenPass ? 'text' : 'password'}
           value={pass}
           autoComplete='off'
@@ -139,7 +136,7 @@ const LogInPage = () => {
         />
         <span className='toggle-pass' onClick={toggleVisiblePassword} />
       </div>
-      {warningImg && <div className='warning-error'>Max image size is 4MB</div>}
+      {warningImg && <div className='warning-error'>{AUTHORIZATION_INFO[lang].imageSizeWarning}</div>}
       <div className='form-field photo-field'>
           <div className='photo-container'>
             <img className='user-photo' src={imgURL || DEFAULT_PHOTO} alt='user' />
@@ -148,7 +145,7 @@ const LogInPage = () => {
             </div>
           </div>
           <label className='load-label'>
-            Upload your photo
+            {AUTHORIZATION_INFO[lang].uploadPhoto}
             <input
               type='file'
               className='file-input'
@@ -159,7 +156,7 @@ const LogInPage = () => {
       <input
         className='input-sign-in'
         type='submit'
-        value='SignIn'
+        value={AUTHORIZATION_INFO[lang].login}
         name='signin'
       />
     </form>

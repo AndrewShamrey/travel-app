@@ -1,11 +1,15 @@
+import { useSelector } from 'react-redux';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { ReactComponent as ArrowLeft } from '../../assets/images/arrow-left.svg';
 import { BackButton } from './styledNav';
+import { AUTHORIZATION_INFO } from '../../utils/constants';
 import LogInPage from './loginPage';
 import SignInPage from './signinPage';
 import './authPage.css';
 
-const AuthPage = () => {    
+const AuthPage = () => {   
+  const lang = useSelector((rootState) => rootState.control.applicationLanguage); 
+  
   return (
     <div className='auth-page'>
       <div className='auth-container'>
@@ -18,8 +22,8 @@ const AuthPage = () => {
           </div>
           <div className='content-header'>
             <div>
-              <NavLink exact className='tabsItem' to='/authorization'>LogIn</NavLink>
-              <NavLink className='tabsItem' to='/authorization/registration'>SignIn</NavLink>
+              <NavLink exact className='tabsItem' to='/authorization'>{AUTHORIZATION_INFO[lang].login}</NavLink>
+              <NavLink className='tabsItem' to='/authorization/registration'>{AUTHORIZATION_INFO[lang].signin}</NavLink>
             </div>
           </div>
           <div className='content-wrapper'>

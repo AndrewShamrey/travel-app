@@ -58,6 +58,44 @@ export const MAIN_PLACES = [
   'https://res.cloudinary.com/db8pqmy2n/image/upload/v1615293521/Japan/1_Mount_Fuji_js4opr.jpg'
 ];
 
+export const AUTHORIZATION_INFO = {
+  en: {
+    login: 'LogIn',
+    signin: 'SignIn',
+    passName: 'Password',
+    loginName: 'Nickname',
+    defaultWarning: 'Incorrect nickname or password!',
+    passwordWarning: 'Password length should be between 8 and 20',
+    nickNameWarning: 'This nickname is already taken',
+    imageSizeWarning: 'Max image size is 4MB',
+    uploadPhoto: 'Upload your photo'
+  },
+  ru: {
+    login: 'Вход',
+    signin: 'Регистрация',
+    passName: 'Пароль',
+    loginName: 'Ник',
+    defaultWarning: 'Неверный ник или пароль!',
+    passwordWarning: 'Длина пароля должна быть от 8 до 20.',
+    nickNameWarning: 'Этот ник уже занят',
+    imageSizeWarning: 'Максимальный размер изображения - 4МБ.',
+    uploadPhoto: 'Загрузите свое фото'
+  },
+  be: {
+    login: 'Уваход',
+    signin: 'Рэгістрацыя',
+    passName: 'Пароль',
+    loginName: 'Нік',
+    defaultWarning: 'Няправільны нік або пароль!',
+    passwordWarning: 'Даўжыня пароля павінна быць ад 8 да 20',
+    nickNameWarning: 'Гэта мянушка ўжо занята',
+    imageSizeWarning: 'Максімальны памер фатаграфіі - 4МБ.',
+    uploadPhoto: 'Загрузіце сваё фота'
+  }
+}
+
+export const MAX_IMAGE_SIZE = 4000000;
+
 export const DATE_CONFIG = {
   en: {
     weekday: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
