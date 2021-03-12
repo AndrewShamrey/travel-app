@@ -83,11 +83,11 @@
   position: relative;
 }
 
-input[type="password"] + span {
+.form-field input[type="password"] + span {
   background: url(../../assets/images/hide.svg) center center no-repeat;
 }
 
-input[type="text"] + span {
+.form-field input[type="text"] + span {
   background: url(../../assets/images/visibility.svg) center center no-repeat;
 }
 
