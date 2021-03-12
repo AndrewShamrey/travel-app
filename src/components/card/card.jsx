@@ -1,39 +1,46 @@
-import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setCountryConfig } from "../../actions/control";
-import fetchData from "../../utils/fetchData";
-import { ALL_COUNTRIES, MAIN_PLACES } from "../../utils/constants.js";
-import "./card.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
+import FetchData from '../../utils/fetchData';
+import { ALL_COUNTRIES, MAIN_PLACES } from '../../utils/constants.js';
+import './card.css';
 
 const Card = () => {
+  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+
   const dispatch = useDispatch();
   const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
+  const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
 
-  const onClickCardHandler = useCallback((e) => {
-    const clickedCountry = e.target.getAttribute('country');
-    fetchData("GET", 'countries', clickedCountry)
-      .then((response) => response.json())
-      .then((data) => {
-        const country = data[0];
+  const onClickCardHandler = (e) => {
+    const clickedCountry = e.target.closest('.country-card').getAttribute('country');
+    fetchClass.getCountry(clickedCountry)
+      .then(([ country ]) => {
         dispatch(setCountryConfig(country));
-    })
-    .catch((err) => console.log(err));
-  }, [dispatch]);
+      })
+      .then(() => {
+        fetchClass.getPlacesByCountry(countryConfig.shortName)
+          .then((places) => {
+            dispatch(setPlacesByCountry(places));
+          })
+      })
+      .catch((err) => console.log('Error - ', err));
+  };
 
   return (
     <div>
-      <div className="current-country">
+      <div className='current-country'>
         <p>name - {countryConfig.info[lang].name}</p>
         <p>ShortName - {countryConfig.shortName}</p>
         <p>capital - {countryConfig.info[lang].capital}</p>
         <p>timeDifference - {countryConfig.timeDifference}</p>
-        <p className="description">description - {countryConfig.info[lang].description}</p>
+        <p>currentPlaces - {JSON.stringify(currentPlaces)}</p>
+        <p className='description'>description - {countryConfig.info[lang].description}</p>
       </div>
-      <div className="cards-cont">
+      <div className='cards-cont'>
         {ALL_COUNTRIES.map((item, index) => {
-          return <div key={index} country={item} className="country-card" onClick={onClickCardHandler}>
-            <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
+          return <div key={index} country={item} className='country-card' onClick={onClickCardHandler}>
+            <img src={MAIN_PLACES[index]} alt='place' className='country-card__image' />
           </div>
         })}
       </div>

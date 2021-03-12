@@ -1,13 +1,11 @@
-import DateWidget from "../dateWidget/dateWidget";
-import Card from "../card/card";
-import LoadPhoto from "../loadPhoto/loadPhoto";
-import "./mainPage.scss";
+import DateWidget from '../dateWidget/dateWidget';
+import Card from '../card/card';
+import './mainPage.scss';
 
 const MainPage = () => {
   return (
-    <div className="main-page">
-      {/* <DateWidget /> */}
-      {/* <LoadPhoto /> */}
+    <div className='main-page'>
+      <DateWidget />
       <Card />
     </div>
   );
