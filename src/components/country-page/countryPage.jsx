@@ -5,9 +5,6 @@ const CountryPage = () => {
 
   return (
     <main className="country-page">
-      <div className="country-page__map">
-        <img src="assets/images/map.png" alt="map example" />
-      </div>
       <div className="country-page__wrapper">
         <div className="country-page__info">
           <div className="country-page__country">
@@ -54,6 +51,9 @@ const CountryPage = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="country-page__map">
+        <img src="assets/images/map.png" alt="map example" />
       </div>
     </main>
   );

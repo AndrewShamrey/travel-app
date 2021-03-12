@@ -5,7 +5,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  // overflow: hidden;
+
+  @media (max-width: 600px) {
+    max-height: unset;
+  }
 
   &__map {
     width: 100%;
@@ -44,6 +47,15 @@
     box-shadow: 0 0 15px 0px #150f7d;
     overflow-y: hidden;
     z-index: 1;
+
+    @media (max-width: 600px) {
+      margin: 0;
+      width: unset;
+      max-width: unset;
+      border-radius: 0;
+      box-shadow: unset;
+      overflow-y: visible;
+    }
   }
 
   &__info {  
@@ -51,6 +63,10 @@
     height: 100%;
     overflow-y: scroll;
     z-index: 1;
+
+    @media (max-width: 600px) {
+      overflow-y: visible;
+    }
     
     &::-webkit-scrollbar {      
       width: 8px;
@@ -83,6 +99,11 @@
     box-shadow: 10px -1px 0px 1px #fff, -10px -1px 0px 1px #fff, 0 3px 7px 0px #808080b8;
     position: sticky;
     top: 0;
+
+    @media (max-width: 600px) {
+      position: relative;
+      // box-shadow: unset;
+    }
   }
 
   &__name {
