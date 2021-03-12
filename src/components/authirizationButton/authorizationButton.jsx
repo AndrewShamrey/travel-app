@@ -1,19 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsAuthorized } from '../../actions/control';
-import { DEFAULT_USER_ICON } from '../../utils/constants';
+import { Link } from 'react-router-dom';
+import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
+import { DEFAULT_PHOTO } from '../../utils/constants';
 import './authorizationButton.scss';
 
 const AuthorizationButton = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const dispatch = useDispatch();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isAuthorized = useSelector((rootState) => rootState.control.isAuthorized);
-
+  const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
   const btnRef = useRef(null);
 
   const toggleAuthorization = () => {
     dispatch(setIsAuthorized(!isAuthorized));
+    dispatch(setCurrentPerson(null));
   };
 
   const toggleMenu = () => {
@@ -21,8 +22,7 @@ const AuthorizationButton = () => {
   };
 
   useEffect(() => {
-    const closeMenu = (e) => {
-      const { target } = e;
+    const closeMenu = ({ target }) => {
       const { current } = btnRef;
 
       if (!(target === current || target.parentNode === current)) {
@@ -44,36 +44,40 @@ const AuthorizationButton = () => {
         type="button"
         onClick={toggleMenu}
       >
-        {isAuthorized
-          ? (
-            <img
-              className="authorization-btn__image"
-              src={DEFAULT_USER_ICON}
-              alt="user icon"
-            />
-          ) : (
-            <i className="authorization-btn__icon far fa-user" />
-          )}
+        {isAuthorized && (
+          <img
+            className="authorization-btn__image"
+            src={currentPerson.photo || DEFAULT_PHOTO}
+            alt="user icon"
+          />
+        )}
+        {!isAuthorized && (
+          <i className="authorization-btn__icon far fa-user" />
+        )}
       </button>
       {isMenuOpen && (
         <ul className="authorization-btn__menu">
-          {isAuthorized
-            ? (
-              <li>
-                <button
-                  className="authorization-btn__menu-button"
-                  type="button"
-                  onClick={toggleAuthorization}
-                >
-                  SignOut
-                </button>
+          {isAuthorized && (
+            <li>
+              <button
+                className="authorization-btn__menu-button"
+                type="button"
+                onClick={toggleAuthorization}
+              >
+                SignOut
+              </button>
+            </li>
+          )}
+          {!isAuthorized && (
+            <>
+              <li className="authorization-btn__menu-item">
+                <Link to="/authorization">SignIn</Link>
               </li>
-            ) : (
-              <>
-                <li className="authorization-btn__menu-item">SignIn</li>
-                <li className="authorization-btn__menu-item">SignUp</li>
-              </>
-            )}
+              <li className="authorization-btn__menu-item">
+                <Link to="/authorization/registration">SignUp</Link>
+              </li>
+            </>
+          )}
         </ul>
       )}
     </div>

@@ -20,11 +20,7 @@ const LanguageSelect = () => {
       onChange={onChange}
     >
       {options.map(({ value, text }) => (
-        <option
-          key={value}
-          value={value}
-          className="select__option"
-        >
+        <option key={value} value={value} className="select__option">
           {text}
         </option>
       ))}
