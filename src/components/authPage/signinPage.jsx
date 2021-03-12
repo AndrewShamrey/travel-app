@@ -7,7 +7,7 @@ import DeleteIMG from '../../assets/images/error.svg';
 import './authPage.css';
 
 const LogInPage = () => {
-  const fetchClass = new FetchData();
+  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
   const dispatch = useDispatch();
   const lang = useSelector((rootState) => rootState.control.applicationLanguage); 
@@ -81,7 +81,7 @@ const LogInPage = () => {
     return true;
   }
 
-  const signInAccount = (e) => {
+  const signUpAccount = (e) => {
     e.preventDefault();
 
     if (!validatePersonsData()) {
@@ -111,7 +111,7 @@ const LogInPage = () => {
   };
 
   return (
-    <form className='form-container' onSubmit={signInAccount}>
+    <form className='form-container' onSubmit={signUpAccount}>
       {warning && <div className='warning-error'>{AUTHORIZATION_INFO[lang][warningMessage]}</div>}
       <div className='form-field'>
         <input
@@ -156,8 +156,8 @@ const LogInPage = () => {
       <input
         className='input-sign-in'
         type='submit'
-        value={AUTHORIZATION_INFO[lang].login}
-        name='signin'
+        value={AUTHORIZATION_INFO[lang].signup}
+        name='signup'
       />
     </form>
   );

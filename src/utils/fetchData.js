@@ -1,4 +1,8 @@
 export default class FetchData {
+  constructor (url) {
+    this.baseUrl = url;
+  }
+
   getCountry(name, pass) {
     return this._defaultMethod('GET', 'countries', name, pass);
   }
@@ -17,15 +21,15 @@ export default class FetchData {
 
   _defaultMethod(method, path='', name='', pass='', body='', id='') {
     if (method === 'GET') {
-      return fetch(`https://travel-app-back-113.herokuapp.com/api/${path}/${name}/${pass}`, {
+      return fetch(`${this.baseUrl}/${path}/${name}/${pass}`, {
         method: method,
         headers: {
           'Content-Type': 'application/json',
         },
-      });
+      }).then((response) => response.json());
     }
 
-    return fetch(`https://travel-app-back-113.herokuapp.com/api/${path}/${id}`, {
+    return fetch(`${this.baseUrl}/${path}/${id}`, {
       method: method,
       body: body,
       headers: {

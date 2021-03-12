@@ -6,7 +6,7 @@ import FetchData from '../../utils/fetchData';
 import './authPage.css';
 
 const LogInPage = () => {
-  const fetchClass = new FetchData();
+  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
   const dispatch = useDispatch();
   const [isOpenPass, togglePass] = useState(false);
@@ -47,7 +47,6 @@ const LogInPage = () => {
     }
 
     fetchClass.getPersonByNameAndPass(login, pass)
-      .then((response) => response.json())
       .then(([ person ]) => {
         if (!person) {
           setWarning(true);
@@ -55,7 +54,6 @@ const LogInPage = () => {
         }
 
         setActiveSubmit(false)
-
         dispatch(setCurrentPerson(person));
         dispatch(setIsAuthorized(true));
       })

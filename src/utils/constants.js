@@ -61,7 +61,7 @@ export const MAIN_PLACES = [
 export const AUTHORIZATION_INFO = {
   en: {
     login: 'LogIn',
-    signin: 'SignIn',
+    signup: 'SignUp',
     passName: 'Password',
     loginName: 'Nickname',
     defaultWarning: 'Incorrect nickname or password!',
@@ -72,7 +72,7 @@ export const AUTHORIZATION_INFO = {
   },
   ru: {
     login: 'Вход',
-    signin: 'Регистрация',
+    signup: 'Регистрация',
     passName: 'Пароль',
     loginName: 'Ник',
     defaultWarning: 'Неверный ник или пароль!',
@@ -83,7 +83,7 @@ export const AUTHORIZATION_INFO = {
   },
   be: {
     login: 'Уваход',
-    signin: 'Рэгістрацыя',
+    signup: 'Рэгістрацыя',
     passName: 'Пароль',
     loginName: 'Нік',
     defaultWarning: 'Няправільны нік або пароль!',

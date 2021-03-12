@@ -23,7 +23,7 @@ const AuthPage = () => {
           <div className='content-header'>
             <div>
               <NavLink exact className='tabsItem' to='/authorization'>{AUTHORIZATION_INFO[lang].login}</NavLink>
-              <NavLink className='tabsItem' to='/authorization/registration'>{AUTHORIZATION_INFO[lang].signin}</NavLink>
+              <NavLink className='tabsItem' to='/authorization/registration'>{AUTHORIZATION_INFO[lang].signup}</NavLink>
             </div>
           </div>
           <div className='content-wrapper'>

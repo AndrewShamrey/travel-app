@@ -5,7 +5,7 @@ import { ALL_COUNTRIES, MAIN_PLACES } from '../../utils/constants.js';
 import './card.css';
 
 const Card = () => {
-  const fetchClass = new FetchData();
+  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
   const dispatch = useDispatch();
   const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
@@ -15,19 +15,16 @@ const Card = () => {
   const onClickCardHandler = (e) => {
     const clickedCountry = e.target.closest('.country-card').getAttribute('country');
     fetchClass.getCountry(clickedCountry)
-      .then((response) => response.json())
       .then(([ country ]) => {
         dispatch(setCountryConfig(country));
       })
       .then(() => {
         fetchClass.getPlacesByCountry(countryConfig.shortName)
-          .then((response) => response.json())
           .then((places) => {
             dispatch(setPlacesByCountry(places));
           })
-          .catch((err) => console.log(err));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('Error - ', err));
   };
 
   return (
