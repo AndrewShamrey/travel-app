@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
-import fetchData from '../../utils/fetchData';
+import FetchData from '../../utils/fetchData';
 import './authPage.css';
 
-const LogInPage = ({ backRef }) => {
+const LogInPage = () => {
+  const fetchClass = new FetchData();
+
   const dispatch = useDispatch();
   const [isOpenPass, togglePass] = useState(false);
   const [warning, setWarning] = useState(false);
@@ -42,21 +44,18 @@ const LogInPage = ({ backRef }) => {
       return;
     }
 
-    fetchData('GET', 'persons', login)
+    fetchClass.getPersonByNameAndPass(login, pass)
       .then((response) => response.json())
       .then(([ person ]) => {
-        if (!person || pass !== person.pass) {
+        if (!person) {
           setWarning(true);
           return;
         }
 
         setActiveSubmit(false)
 
-        const { _id, nickname, photo } = person;
-        dispatch(setCurrentPerson({ _id, nickname, photo }));
+        dispatch(setCurrentPerson(person));
         dispatch(setIsAuthorized(true));
-        
-        backRef.current.click();
       })
       .catch((err) => console.log('Error - ', err));
   };

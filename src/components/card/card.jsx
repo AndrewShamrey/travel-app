@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
-import fetchData from '../../utils/fetchData';
+import FetchData from '../../utils/fetchData';
 import { ALL_COUNTRIES, MAIN_PLACES } from '../../utils/constants.js';
 import './card.css';
 
 const Card = () => {
+  const fetchClass = new FetchData();
+
   const dispatch = useDispatch();
   const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
@@ -12,13 +14,13 @@ const Card = () => {
 
   const onClickCardHandler = (e) => {
     const clickedCountry = e.target.closest('.country-card').getAttribute('country');
-    fetchData('GET', 'countries', clickedCountry)
+    fetchClass.getCountry(clickedCountry)
       .then((response) => response.json())
       .then(([ country ]) => {
         dispatch(setCountryConfig(country));
       })
       .then(() => {
-        fetchData('GET', 'places', countryConfig.shortName)
+        fetchClass.getPlacesByCountry(countryConfig.shortName)
           .then((response) => response.json())
           .then((places) => {
             dispatch(setPlacesByCountry(places));

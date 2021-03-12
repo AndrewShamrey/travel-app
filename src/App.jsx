@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPrevState } from './actions/control';
@@ -41,7 +41,7 @@ function App() {
         <Header />
         <Switch>
           <Route path='/authorization'>
-            <AuthPage />
+            {state.currentPerson ?  <Redirect to="/"/> : <AuthPage />}            
           </Route>
           <Route path='/country/:country'>
             <CountryPage />

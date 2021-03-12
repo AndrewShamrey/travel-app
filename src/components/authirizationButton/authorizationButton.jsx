@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
-// import { DEFAULT_USER_ICON } from '../../utils/constants';
-import DefaultPhoto from '../../assets/images/default-photo.jpg';
+import { DEFAULT_PHOTO } from '../../utils/constants';
 import './authorizationButton.scss';
 
 const AuthorizationButton = () => {
@@ -43,7 +42,7 @@ const AuthorizationButton = () => {
         {isAuthorized && (
           <img
             className='authorization-btn__image'
-            src={currentPerson.photo || DefaultPhoto}
+            src={currentPerson.photo || DEFAULT_PHOTO}
             alt='user icon'
           />
         )}

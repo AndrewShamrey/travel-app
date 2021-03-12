@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
-import fetchData from '../../utils/fetchData';
-import DefaultPhoto from '../../assets/images/default-photo.jpg';
+import FetchData from '../../utils/fetchData';
+import { DEFAULT_PHOTO } from '../../utils/constants';
 import DeleteIMG from '../../assets/images/error.svg';
 import './authPage.css';
 
-const LogInPage = ({ backRef }) => {
+const LogInPage = () => {
+  const fetchClass = new FetchData();
+
   const dispatch = useDispatch();
   const DEFAULT_WARNING = 'Invalid nickname or password!';
   const [warningImg, setImgWarning] = useState(false);
@@ -63,32 +65,40 @@ const LogInPage = ({ backRef }) => {
     setImage(null);
   }
 
-  const SignInAccount = (e) => {
-    e.preventDefault();
-
+  const validatePersonsData = () => {
     if (!isActiveSubmit) {
-      return;
+      return false;
     }
 
     if (!login || !pass) {
       setWarning(true);
-      return;
+      return false;
     }
 
     if (pass.length < 8 || pass.length > 20) {
       setMessage('Passwords length should be between 8 and 20');
       setWarning(true);
-      return;
+      return false;
+    }
+
+    return true;
+  }
+
+  const signInAccount = (e) => {
+    e.preventDefault();
+
+    if (!validatePersonsData) {
+      return
     }
     
     const newPerson = { nickname: login, pass, photo: imgURL }
     if (!newPerson.photo) {
-        delete newPerson.photo;
+      delete newPerson.photo;
     }
 
-    fetchData('POST', 'persons', null, JSON.stringify(newPerson))
+    fetchClass.postNewPerson(JSON.stringify(newPerson))
       .then((data) => {
-        if (data.status === 500) {
+        if (data.status !== 201) {
           setMessage('This nickname is already taken');
           setWarning(true);
           return;
@@ -99,14 +109,12 @@ const LogInPage = ({ backRef }) => {
         const { nickname, photo } = newPerson;
         dispatch(setCurrentPerson({ nickname, photo }));
         dispatch(setIsAuthorized(true));
-
-        backRef.current.click();
       })
       .catch((err) => console.log('Error - ', err));
   };
 
   return (
-    <form className='form-container' onSubmit={SignInAccount}>
+    <form className='form-container' onSubmit={signInAccount}>
       {warning && <div className='warning-error'>{warningMessage}</div>}
       <div className='form-field'>
         <input
@@ -134,7 +142,7 @@ const LogInPage = ({ backRef }) => {
       {warningImg && <div className='warning-error'>Max image size is 4MB</div>}
       <div className='form-field photo-field'>
           <div className='photo-container'>
-            <img className='user-photo' src={imgURL || DefaultPhoto} alt='user' />
+            <img className='user-photo' src={imgURL || DEFAULT_PHOTO} alt='user' />
             <div className='onhover-img' onClick={handlerDeleteImg}>
               <img src={DeleteIMG} alt='clear-img'/>
             </div>

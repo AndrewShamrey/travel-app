@@ -1,3 +1,6 @@
+import DefaultPhoto from '../assets/images/default-photo.jpg';
+export const DEFAULT_PHOTO = DefaultPhoto;
+
 export const DEFAULT_COUNTRY_CONFIG = {
   shortName: "Australia",
   timeDifference: -660,
@@ -71,7 +74,6 @@ export const DATE_CONFIG = {
 }
 
 export const DEFAULT_LANGUAGE = 'en';
-export const DEFAULT_USER_ICON = './assets/images/defaultUser.png';
 export const APPLICATION_LANGUAGES = {
   en: [
     {
