@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
 import { MAIN_PLACES } from '../../utils/constants';
@@ -8,9 +8,6 @@ const Card = ({ item, index }) => {
   const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
   const dispatch = useDispatch();
-  const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
-  const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
-  const lang = useSelector((rootState) => rootState.control.applicationLanguage);
 
   const onClickCardHandler = (e) => {
     const clickedCountry = e.target.closest('.country-card').getAttribute('country');
@@ -28,7 +25,7 @@ const Card = ({ item, index }) => {
   };
 
   return (
-    <div key={item} country={item} className="country-card" onClick={onClickCardHandler}>
+    <div key={item} country={item} className="country-card" onClick={onClickCardHandler} role="presentation">
       <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
       <div className="country-card__title">
         {item}
