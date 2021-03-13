@@ -49,7 +49,7 @@ function App() {
           <Route path="/country/:country">
             <CountryPage />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <MainPage />
           </Route>
           <Route path="*">

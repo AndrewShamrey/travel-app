@@ -1,9 +1,3 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
@@ -37,7 +31,7 @@ const Card = ({ item, index }) => {
     <div key={item} country={item} className="country-card" onClick={onClickCardHandler}>
       <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
       <div className="country-card__title">
-        {countryConfig.info[lang].name}
+        {item}
       </div>
     </div>
   );
