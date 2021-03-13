@@ -1,3 +1,6 @@
+@import '../../sass/breakpoints.scss';
+@import '../../sass/colors.scss';
+
 .country-page {
   $blockMarginBottom: 15px;
 
@@ -6,7 +9,7 @@
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 600px) {
+  @media (max-width: $size-md) {
     max-height: unset;
   }
 
@@ -21,9 +24,13 @@
       width: 100%;
       height: 100%;
       z-index: 0;
+
+      @media(max-width: $size-md) {
+        height: 50vw;
+      }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: $size-md) {
       height: 60px;
       position: relative;
     }
@@ -41,14 +48,14 @@
     max-width: 50%;
     font-size: 14px;
     text-align: justify;
-    background-color: #fff;
+    background-color: $white;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 0 15px 0px #150f7d;
+    box-shadow: 0 0 15px 0px $blue;
     overflow-y: hidden;
     z-index: 1;
 
-    @media (max-width: 600px) {
+    @media (max-width: $size-md) {
       margin: 0;
       width: unset;
       max-width: unset;
@@ -64,26 +71,26 @@
     overflow-y: scroll;
     z-index: 1;
 
-    @media (max-width: 600px) {
+    @media (max-width: $size-md) {
       overflow-y: visible;
     }
     
     &::-webkit-scrollbar {      
       width: 7px;
-      background-color: #d4d4d4;
+      background-color: $lightGrey;
       border-radius: 5px;
     }
     
     &::-webkit-scrollbar-track {
-      background: #d4d4d4;
+      background: $lightGrey;
       border-radius: 5px;
     }
     
     &::-webkit-scrollbar-thumb {
       border-radius: 5px;
-      background: #adacac;
+      background: $grey;
       &:hover {
-        background-color: #33238d;
+        background-color: $blue;
       }
     }
   } 
@@ -95,14 +102,14 @@
   
   &__country {
     padding: 0 10px 5px;
-    background-color: #fff;
-    box-shadow: 10px -1px 0px 1px #fff, -10px -1px 0px 1px #fff, 0 3px 7px 0px #808080b8;
+    background-color: $white;
+    box-shadow: 10px -1px 0px 1px $white, -10px -1px 0px 1px $white, 0 3px 7px 0px $greyShadow;
     position: sticky;
     top: 0;
 
-    @media (max-width: 600px) {
+    @media (max-width: $size-md) {
       position: relative;
-      // box-shadow: unset;
+      box-shadow: unset;
     }
   }
 
@@ -117,8 +124,8 @@
   &__widgets {
     margin-bottom: $blockMarginBottom;
     padding: 10px 0;
-    border-top: 1px solid #d4d4d4;
-    border-bottom: 1px solid #d4d4d4;
+    border-top: 1px solid $lightGrey;
+    border-bottom: 1px solid $lightGrey;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
