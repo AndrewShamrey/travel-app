@@ -4,7 +4,7 @@ import './footer.scss';
 
 const Footer = () => {
   const drawLinks = () => authors.map((link, index) => (
-    <Link key={`${index + 1}index`} {...link} />
+    <Link key={`${index + 1}index`} value={link.value} href={link.href} />
   ));
 
   return (

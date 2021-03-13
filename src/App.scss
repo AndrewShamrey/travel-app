@@ -1,4 +1,5 @@
 @import './sass/breakpoints.scss';
+@import './sass/colors.scss';
 
 :root {
   font-family: "Montserrat", sans-serif;
@@ -36,16 +37,16 @@ a {
 }
 
 .App {
-  background-color: #fff;
+  background-color: $white;
   min-width: 100%;
   min-height: 100vh;
   display: grid;
   grid-template-rows: 60px 1fr 50px;
 
   @media (max-width: $size-md) {
-    grid-template-rows: 50px 1fr 200px;
+    grid-template-rows: 60px 1fr 200px;
   }
   @media (max-width: $size-xs) {
-    grid-template-rows: 50px 1fr 50px;
+    grid-template-rows: 50px 1fr 200px;
   }
 }

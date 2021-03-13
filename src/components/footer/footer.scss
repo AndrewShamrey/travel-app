@@ -1,13 +1,6 @@
 @import "./../../sass/breakpoints.scss";
-$blue: #150f7d;
-$white: #fff;
-$yellow: #ffe325;
-$red: #ff0000;
-$transparentWhite: #ffffff47;
-$lightGrey: #d4d4d4;
-$grey: #adacac;
-$greyShadow: #808080b8;
-$searchButtonBg: #ffffffad;
+@import "./../../sass/colors.scss";
+@import "./../../sass/transitions.scss";
 
 .app-footer {
   background-color: $lightGrey;
@@ -56,7 +49,7 @@ $searchButtonBg: #ffffffad;
         display: flex;
         align-items: center;
         padding: 6px;
-        transition: 0.3s ease-in-out;
+        transition: $color-transition;
         font-weight: 700;
         text-decoration: none;
         height: 24px;
@@ -81,7 +74,7 @@ $searchButtonBg: #ffffffad;
     &-course {
       padding: 4px 6px;
       background-color: $searchButtonBg;
-      transition: 0.3s ease-in-out;
+      transition: $color-transition;
       border-radius: 4px;
       &:hover {
         box-shadow: 0 0 4px 5px $searchButtonBg;
