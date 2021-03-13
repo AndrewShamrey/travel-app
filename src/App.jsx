@@ -10,6 +10,7 @@ import MainPage from './components/mainPage/mainPage';
 import Footer from './components/footer/footer';
 import ScrollToTop from './components/scrollToTop/scrollToTop';
 import AuthPage from './components/authPage/authPage';
+import ErrorPage from './components/errorPage/errorPage';
 import './App.scss';
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route path="/">
             <MainPage />
+          </Route>
+          <Route path="*">
+            <ErrorPage />
           </Route>
         </Switch>
         <Footer />

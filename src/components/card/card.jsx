@@ -1,10 +1,16 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
-import { ALL_COUNTRIES, MAIN_PLACES } from '../../utils/constants';
+import { MAIN_PLACES } from '../../utils/constants';
 import './card.css';
 
-const Card = () => {
+const Card = ({ item, index }) => {
   const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
   const dispatch = useDispatch();
@@ -28,39 +34,10 @@ const Card = () => {
   };
 
   return (
-    <div>
-      <div className="current-country">
-        <p>
-          name -
-          {countryConfig.info[lang].name}
-        </p>
-        <p>
-          ShortName -
-          {countryConfig.shortName}
-        </p>
-        <p>
-          capital -
-          {countryConfig.info[lang].capital}
-        </p>
-        <p>
-          timeDifference -
-          {countryConfig.timeDifference}
-        </p>
-        <p>
-          currentPlaces -
-          {currentPlaces && JSON.stringify(currentPlaces.map((item) => item.info[lang].name))}
-        </p>
-        <p className="description">
-          description -
-          {countryConfig.info[lang].description}
-        </p>
-      </div>
-      <div className="cards-cont">
-        {ALL_COUNTRIES.map((item, index) => (
-          <div key={item} country={item} className="country-card" onClick={onClickCardHandler}>
-            <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
-          </div>
-        ))}
+    <div key={item} country={item} className="country-card" onClick={onClickCardHandler}>
+      <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
+      <div className="country-card__title">
+        {countryConfig.info[lang].name}
       </div>
     </div>
   );
