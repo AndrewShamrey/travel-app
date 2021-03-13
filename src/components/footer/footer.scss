@@ -1,25 +1,57 @@
+@import "./../../sass/breakpoints.scss";
+$blue: #150f7d;
+$white: #fff;
+$yellow: #ffe325;
+$red: #ff0000;
+$transparentWhite: #ffffff47;
+$lightGrey: #d4d4d4;
+$grey: #adacac;
+$greyShadow: #808080b8;
+$searchButtonBg: #ffffffad;
+
 .app-footer {
-  background-color: white;
+  background-color: $lightGrey;
   padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  @media screen and (max-width: $size-lg) {
+    
+
+  }
+  @media screen and (max-width: $size-md) {
+    flex-direction: column;
+    padding: 16px;
+  }
+
   .footer {
     &-links {
-      color: black;
+      color: $blue;
       display: flex;
       align-items: center;
+
+      @media screen and (max-width: $size-md) {
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
 
       span {
         margin-right: 4px;
         font-size: 16px;
         font-weight: 700;
+
+        @media screen and (max-width: $size-md) {
+          margin-bottom: 10px;
+        }
+        @media screen and (max-width: $size-lg) {
+          font-size: 14px;
+        }
       }
       .footer-link {
-        margin: 0 1rem;
+        margin: 0 10px;
         border-radius: 4px;
-        color: black;
+        color: $blue;
         font-size: 16px;
         display: flex;
         align-items: center;
@@ -30,14 +62,17 @@
         height: 24px;
         cursor: pointer;
         &:hover {
-          background-color: #5fc0c7;
+          background-color: $searchButtonBg;
+        }
+        @media screen and (max-width: $size-lg) {
+          font-size: 14px;
         }
       }
         
         .footer-link-icon {
           margin-right: 5px;
           margin-right: 5px;
-          background: black;
+          background: $blue;
           border-radius: 50%;
         }
       
@@ -45,17 +80,21 @@
 
     &-course {
       padding: 4px 6px;
-      background-color: #5fc0c7;
+      background-color: $searchButtonBg;
       transition: 0.3s ease-in-out;
       border-radius: 4px;
       &:hover {
-        box-shadow: 0 0 5px 7px #5fc0c7;
+        box-shadow: 0 0 4px 5px $searchButtonBg;
       }
     }
 
     &-course-link {
       display: block;
-      width: 74px;
+      width: 64px;
+
+      @media screen and (max-width: $size-md) {
+        padding-left: 6px;
+      }
     }
   }
 }
