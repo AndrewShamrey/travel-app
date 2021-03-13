@@ -157,3 +157,27 @@ export const APPLICATION_LANGUAGES = {
     },
   ],
 };
+
+export const SEARCH__PLACEHOLDER = {
+  en: 'Search...',
+  ru: 'Поиск...',
+  be: 'Пошук...',
+};
+
+export const AUTHORIZATION_BTN_MENU = {
+  en: {
+    login: 'LogIn',
+    signup: 'SignUp',
+    signout: 'SignOut',
+  },
+  ru: {
+    login: 'Войти',
+    signup: 'Зарегистрироваться',
+    signout: 'Выйти',
+  },
+  be: {
+    login: 'Увайсцi',
+    signup: 'Зарэгістравацца',
+    signout: 'Выйсцi',
+  },
+};
