@@ -14,7 +14,7 @@ const LogInPage = () => {
   const [login, setLogin] = useState('');
   const [pass, setPass] = useState('');
   const [isActiveSubmit, setActiveSubmit] = useState(true);
-  const lang = useSelector((rootState) => rootState.control.applicationLanguage); 
+  const lang = useSelector((rootState) => rootState.control.applicationLanguage);
 
   const handleChangeLogin = ({ target: { value } }) => {
     setLogin(value);
@@ -35,25 +35,25 @@ const LogInPage = () => {
   };
 
   const logInAccount = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     if (!isActiveSubmit) {
       return;
     }
-    
+
     if (!login || !pass) {
       setWarning(true);
       return;
     }
 
     fetchClass.getPersonByNameAndPass(login, pass)
-      .then(([ person ]) => {
+      .then(([person]) => {
         if (!person) {
           setWarning(true);
           return;
         }
 
-        setActiveSubmit(false)
+        setActiveSubmit(false);
         dispatch(setCurrentPerson(person));
         dispatch(setIsAuthorized(true));
       })
@@ -61,36 +61,36 @@ const LogInPage = () => {
   };
 
   return (
-    <form className='form-container' onSubmit={logInAccount}>
-      {warning && <div className='warning-error'>{AUTHORIZATION_INFO[lang].defaultWarning}</div>}
-      <div className='form-field'>
+    <form className="form-container" onSubmit={logInAccount}>
+      {warning && <div className="warning-error">{AUTHORIZATION_INFO[lang].defaultWarning}</div>}
+      <div className="form-field">
         <input
-          className='input-text'
-          name='login'
+          className="input-text"
+          name="login"
           placeholder={AUTHORIZATION_INFO[lang].loginName}
-          type='text'
+          type="text"
           value={login}
-          autoComplete='off'
+          autoComplete="off"
           onChange={handleChangeLogin}
         />
       </div>
-      <div className='form-field'>
+      <div className="form-field">
         <input
-          className='input-text input-pass'
-          name='pass'
+          className="input-text input-pass"
+          name="pass"
           placeholder={AUTHORIZATION_INFO[lang].passName}
           type={isOpenPass ? 'text' : 'password'}
           value={pass}
-          autoComplete='off'
+          autoComplete="off"
           onChange={handleChangePass}
         />
-        <span className='toggle-pass' onClick={toggleVisiblePassword} />
+        <span className="toggle-pass" onClick={toggleVisiblePassword} />
       </div>
       <input
-        className='input-sign-in'
-        type='submit'
+        className="input-sign-in"
+        type="submit"
         value={AUTHORIZATION_INFO[lang].login}
-        name='login'
+        name="login"
       />
     </form>
   );

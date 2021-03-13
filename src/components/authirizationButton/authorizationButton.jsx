@@ -38,35 +38,43 @@ const AuthorizationButton = () => {
 
   return (
     <div>
-      <button ref={btnRef} className='authorization-btn' onClick={toggleMenu}>
+      <button
+        ref={btnRef}
+        className="authorization-btn"
+        type="button"
+        onClick={toggleMenu}
+      >
         {isAuthorized && (
           <img
-            className='authorization-btn__image'
+            className="authorization-btn__image"
             src={currentPerson.photo || DEFAULT_PHOTO}
-            alt='user icon'
+            alt="user icon"
           />
         )}
         {!isAuthorized && (
-          <i className='authorization-btn__icon far fa-user' />
+          <i className="authorization-btn__icon far fa-user" />
         )}
       </button>
       {isMenuOpen && (
-        <ul className='authorization-btn__menu'>
+        <ul className="authorization-btn__menu">
           {isAuthorized && (
-            <li
-              onClick={toggleAuthorization}
-              className='authorization-btn__menu-item'
-            >
-              SignOut
+            <li>
+              <button
+                className="authorization-btn__menu-button"
+                type="button"
+                onClick={toggleAuthorization}
+              >
+                SignOut
+              </button>
             </li>
           )}
           {!isAuthorized && (
             <>
-              <li className='authorization-btn__menu-item'>
-                <Link to='/authorization'>SignIn</Link>
+              <li>
+                <Link className="authorization-btn__menu-item" to="/authorization">SignIn</Link>
               </li>
-              <li className='authorization-btn__menu-item'>
-                <Link to='/authorization/registration'>SignUp</Link>
+              <li>
+                <Link className="authorization-btn__menu-item" to="/authorization/registration">SignUp</Link>
               </li>
             </>
           )}

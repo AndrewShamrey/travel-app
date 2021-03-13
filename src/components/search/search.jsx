@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSearchValue } from '../../actions/control';
 import './search.scss';
 
-const Search = () => {
+const Search = ({ isMenuOpen }) => {
   const dispatch = useDispatch();
   const value = useSelector((rootState) => rootState.control.searchValue);
 
@@ -26,27 +26,32 @@ const Search = () => {
   };
 
   return (
-    <div className='search'>
-      <div className='search__input-wrapper'>
+    <div className={isMenuOpen ? 'search search_visible' : 'search'}>
+      <div className="search__input-wrapper">
         <input
           value={value || ''}
-          placeholder='Search...'
-          className='search__input'
+          placeholder="Search..."
+          className="search__input"
           autoFocus
+          autoComplete="off"
+          spellCheck="false"
           onChange={searchFieldChangeHandler}
           onKeyDown={handlerOnKeydown}
         />
-        <i
-          className='search__delete-icon far fa-times-circle'
+        <button
+          className="search__delete-icon"
+          type="button"
           onClick={clearSearchField}
-        />
+        >
+          <i className="far fa-times-circle" />
+        </button>
       </div>
       <button
-        className='search__button'
-        type='button'
+        className="search__button"
+        type="button"
         onClick={sendSearchRequest}
       >
-        <i className='fas fa-search'></i>
+        <i className="fas fa-search" />
       </button>
     </div>
   );

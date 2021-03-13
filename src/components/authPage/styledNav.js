@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const BackButton = styled(NavLink)`
+const BackButton = styled(NavLink)`
   padding: 16px 16px 16px 0;
   display: inline-flex;
   flex-wrap: nowrap;
@@ -32,3 +32,5 @@ export const BackButton = styled(NavLink)`
     color: rgba(255,255,255,0.8);
   }
 `;
+
+export default BackButton;
