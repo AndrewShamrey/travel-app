@@ -1,5 +1,5 @@
 export default class FetchData {
-  constructor (url) {
+  constructor(url) {
     this.baseUrl = url;
   }
 
@@ -19,10 +19,10 @@ export default class FetchData {
     return this._defaultMethod('POST', 'persons', null, null, body);
   }
 
-  _defaultMethod(method, path='', name='', pass='', body='', id='') {
+  _defaultMethod(method, path = '', name = '', pass = '', body = '', id = '') {
     if (method === 'GET') {
       return fetch(`${this.baseUrl}/${path}/${name}/${pass}`, {
-        method: method,
+        method,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -30,8 +30,8 @@ export default class FetchData {
     }
 
     return fetch(`${this.baseUrl}/${path}/${id}`, {
-      method: method,
-      body: body,
+      method,
+      body,
       headers: {
         'Content-Type': 'application/json',
       },

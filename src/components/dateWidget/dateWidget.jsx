@@ -15,15 +15,16 @@ const DateWidget = () => {
     const hrs = date.getUTCHours().toString().padStart(2, '0');
     const mins = date.getUTCMinutes().toString().padStart(2, '0');
     const secs = date.getUTCSeconds().toString().padStart(2, '0');
-    return { month, weekday, day, hrs, mins, secs };
+    return {
+      month, weekday, day, hrs, mins, secs,
+    };
   }, [lang]);
 
   const [time, setTime] = useState(toOffsetDate(countryConfig.timeDifference));
 
   const tick = useCallback(() => {
-    setTime(toOffsetDate(countryConfig.timeDifference))
+    setTime(toOffsetDate(countryConfig.timeDifference));
   }, [countryConfig, toOffsetDate]);
-
 
   useEffect(() => {
     const intervalID = setInterval(() => tick(), 1000);
@@ -33,8 +34,8 @@ const DateWidget = () => {
   }, [tick]);
 
   return (
-    <p className='App-clock'>{JSON.stringify(time)}</p>
+    <p className="App-clock">{JSON.stringify(time)}</p>
   );
-} 
+};
 
 export default DateWidget;

@@ -1,3 +1,6 @@
+@import '../../sass/colors.scss';
+@import '../../sass/transitions.scss';
+
 @keyframes showBtnMenu {
   0% {
     opacity: 0;
@@ -16,6 +19,7 @@
   background-color: transparent;
   border: none;
   border-radius: 50%;
+  transition: $color-transition;
   overflow: hidden;
   user-select: none;
   outline: none;
@@ -28,7 +32,7 @@
   }
 
   &:hover {
-    color: #ffe325;
+    color: $yellow;
   }
 
   &__icon {
@@ -44,8 +48,8 @@
   &__menu {
     padding: 5px;
     font-size: 14px;
-    background-color: #150f7d;
-    border: 1px solid #ffffffb8;
+    background-color: $blue;
+    border: 1px solid $white;
     border-radius: 5px;
     position: absolute;
     top: 100%;
@@ -55,10 +59,26 @@
     z-index: -1;
 
     &-item {
+      padding: 8px 15px;  
+      width: 100%;
+      transition: $color-transition;
+      display: block;
+      
+      &:hover {
+        color: $yellow;
+      }
+    }
+
+    &-button {      
       padding: 8px 15px;
+      color: inherit;
+      background: transparent;
+      border: none;
+      transition: $color-transition;
+      cursor: pointer;
 
       &:hover {
-        color: #ffe325;
+        color: $yellow;
       }
     }
   }

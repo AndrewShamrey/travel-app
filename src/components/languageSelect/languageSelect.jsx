@@ -6,17 +6,21 @@ import './languageSelect.scss';
 
 const LanguageSelect = () => {
   const dispatch = useDispatch();
-  const value = useSelector((rootState) => rootState.control.applicationLanguage);
+  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
 
   const onChange = (e) => {
     dispatch(setApplicationLanguage(e.target.value));
   };
 
-  const options = APPLICATION_LANGUAGES[value];
+  const options = APPLICATION_LANGUAGES[currentLanguage];
   return (
-    <select className='select' value={value} onChange={onChange}>
+    <select
+      className="select"
+      value={currentLanguage}
+      onChange={onChange}
+    >
       {options.map(({ value, text }) => (
-        <option key={value} value={value} className='select__option'>
+        <option key={value} value={value} className="select__option">
           {text}
         </option>
       ))}

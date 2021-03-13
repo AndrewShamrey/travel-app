@@ -8,7 +8,7 @@ const initialState = {
   countryConfig: DEFAULT_COUNTRY_CONFIG,
   currentPlaces: null,
   isAuthorized: false,
-  currentPerson: null
+  currentPerson: null,
 };
 
 const controlReducer = (state = initialState, action) => {

@@ -5,7 +5,7 @@ import LanguageSelect from '../languageSelect/languageSelect';
 import AuthorizationButton from '../authirizationButton/authorizationButton';
 import './header.scss';
 
-const Header = ({ searchField }) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -16,31 +16,28 @@ const Header = ({ searchField }) => {
   const isSearchField = pathname === '/';
 
   return (
-    <header className='header'>
-      <Link to='/'>
-        <h1 className='header__logo'>TravelApp</h1>
+    <header className="header">
+      <Link to="/">
+        <h1 className="header__logo">TravelApp</h1>
       </Link>
-      <div
-        className={
-          isMenuOpen
-            ? 'header__options header__options_visible'
-            : 'header__options'
-        }
-      >
-        {isSearchField && <Search />}
+      <div className="header__options">
+        {isSearchField && <Search isMenuOpen={isMenuOpen} />}
         <LanguageSelect />
         <AuthorizationButton />
+        {isSearchField && (
+          <button
+            className={
+              isMenuOpen
+                ? 'header__menu-btn header__menu-btn_active'
+                : 'header__menu-btn'
+            }
+            type="button"
+            onClick={toggleMenu}
+          >
+            <i className="fas fa-chevron-circle-down" />
+          </button>
+        )}
       </div>
-      <button
-        className={
-          isMenuOpen
-            ? 'header__menu-btn header__menu-btn_active'
-            : 'header__menu-btn'
-        }
-        onClick={toggleMenu}
-      >
-        <i className='fas fa-chevron-circle-down'></i>
-      </button>
     </header>
   );
 };
