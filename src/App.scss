@@ -1,4 +1,4 @@
-@import "./sass/breakpoints.scss";
+@import './sass/breakpoints.scss';
 
 :root {
   font-family: "Montserrat", sans-serif;
@@ -27,10 +27,6 @@ a {
   padding: 0;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 #root {
   position: relative;
   display: flex;
@@ -48,5 +44,8 @@ a {
 
   @media (max-width: $size-md) {
     grid-template-rows: 50px 1fr 200px;
+  }
+  @media (max-width: $size-xs) {
+    grid-template-rows: 50px 1fr 50px;
   }
 }

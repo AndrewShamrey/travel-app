@@ -1,6 +1,150 @@
+@import '../../sass/breakpoints.scss';
+@import '../../sass/colors.scss';
+
 .country-page {
+  $blockMarginBottom: 15px;
+
+  max-height: calc(100vh - 110px);
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  @media (max-width: $size-md) {
+    max-height: unset;
+  }
+
+  &__map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+
+      @media(max-width: $size-md) {
+        height: 50vw;
+      }
+    }
+
+    @media (max-width: $size-md) {
+      height: 60px;
+      position: relative;
+    }
+  }  
+
+  &__image {
+    margin-bottom: $blockMarginBottom;
+    width: 100%;
+  }
+
+  &__wrapper {
+    margin: 5px;
+    padding: 15px 5px;
+    width: 450px;
+    max-width: 50%;
+    font-size: 14px;
+    text-align: justify;
+    background-color: $white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0px $blue;
+    overflow-y: hidden;
+    z-index: 1;
+
+    @media (max-width: $size-md) {
+      margin: 0;
+      width: unset;
+      max-width: unset;
+      border-radius: 0;
+      box-shadow: unset;
+      overflow-y: visible;
+    }
+  }
+
+  &__info {  
+    padding: 0 10px;
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 1;
+
+    @media (max-width: $size-md) {
+      overflow-y: visible;
+    }
+    
+    &::-webkit-scrollbar {      
+      width: 7px;
+      background-color: $lightGrey;
+      border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: $lightGrey;
+      border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: $grey;
+      &:hover {
+        background-color: $blue;
+      }
+    }
+  } 
+
+  &__description {
+    margin-bottom: $blockMarginBottom;
+    text-indent: 20px;
+  }
+  
+  &__country {
+    padding: 0 10px 5px;
+    background-color: $white;
+    box-shadow: 10px -1px 0px 1px $white, -10px -1px 0px 1px $white, 0 3px 7px 0px $greyShadow;
+    position: sticky;
+    top: 0;
+
+    @media (max-width: $size-md) {
+      position: relative;
+      box-shadow: unset;
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+  }
+
+  &__capital {
+    font-size: 12px;
+  }
+
+  &__widgets {
+    margin-bottom: $blockMarginBottom;
+    padding: 10px 0;
+    border-top: 1px solid $lightGrey;
+    border-bottom: 1px solid $lightGrey;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__widget {
+    background: transparent;
+    flex-grow: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__gallery {
+    margin-bottom: $blockMarginBottom;
+
+    img {
+      margin-bottom: 0;
+    }
+  }
 }

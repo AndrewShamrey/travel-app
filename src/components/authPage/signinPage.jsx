@@ -10,7 +10,7 @@ const LogInPage = () => {
   const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
   const dispatch = useDispatch();
-  const lang = useSelector((rootState) => rootState.control.applicationLanguage); 
+  const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const [warningImg, setImgWarning] = useState(false);
   const [imgURL, setImgUrl] = useState(null);
   const [isOpenPass, togglePass] = useState(false);
@@ -32,9 +32,11 @@ const LogInPage = () => {
     }
     reader.onloadend = () => {
       const base64data = reader.result;
-      files[0].size >= MAX_IMAGE_SIZE
-        ? setImgWarning(true)
-        : setImage(base64data);
+      if (files[0].size >= MAX_IMAGE_SIZE) {
+        setImgWarning(true);
+      } else {
+        setImage(base64data);
+      }
     };
   };
 
@@ -60,7 +62,7 @@ const LogInPage = () => {
 
   const handlerDeleteImg = () => {
     setImage(null);
-  }
+  };
 
   const validatePersonsData = () => {
     if (!isActiveSubmit) {
@@ -79,16 +81,16 @@ const LogInPage = () => {
     }
 
     return true;
-  }
+  };
 
   const signUpAccount = (e) => {
     e.preventDefault();
 
     if (!validatePersonsData()) {
-      return
+      return;
     }
-    
-    const newPerson = { nickname: login, pass, photo: imgURL }
+
+    const newPerson = { nickname: login, pass, photo: imgURL };
     if (!newPerson.photo) {
       delete newPerson.photo;
     }
@@ -100,9 +102,9 @@ const LogInPage = () => {
           setWarning(true);
           return;
         }
-        
-        setActiveSubmit(false)
-        
+
+        setActiveSubmit(false);
+
         const { nickname, photo } = newPerson;
         dispatch(setCurrentPerson({ nickname, photo }));
         dispatch(setIsAuthorized(true));
@@ -111,53 +113,54 @@ const LogInPage = () => {
   };
 
   return (
-    <form className='form-container' onSubmit={signUpAccount}>
-      {warning && <div className='warning-error'>{AUTHORIZATION_INFO[lang][warningMessage]}</div>}
-      <div className='form-field'>
+    <form className="form-container" onSubmit={signUpAccount}>
+      {warning && <div className="warning-error">{AUTHORIZATION_INFO[lang][warningMessage]}</div>}
+      <div className="form-field">
         <input
-          className='input-text'
-          name='login'
+          className="input-text"
+          name="login"
           placeholder={AUTHORIZATION_INFO[lang].loginName}
-          type='text'
+          type="text"
           value={login}
-          autoComplete='off'
+          autoComplete="off"
           onChange={handleChangeLogin}
         />
       </div>
-      <div className='form-field'>
+      <div className="form-field">
         <input
-          className='input-text input-pass'
-          name='pass'
+          className="input-text input-pass"
+          name="pass"
           placeholder={AUTHORIZATION_INFO[lang].passName}
           type={isOpenPass ? 'text' : 'password'}
           value={pass}
-          autoComplete='off'
+          autoComplete="off"
           onChange={handleChangePass}
         />
-        <span className='toggle-pass' onClick={toggleVisiblePassword} />
+        <span className="toggle-pass" onClick={toggleVisiblePassword} />
       </div>
-      {warningImg && <div className='warning-error'>{AUTHORIZATION_INFO[lang].imageSizeWarning}</div>}
-      <div className='form-field photo-field'>
-          <div className='photo-container'>
-            <img className='user-photo' src={imgURL || DEFAULT_PHOTO} alt='user' />
-            <div className='onhover-img' onClick={handlerDeleteImg}>
-              <img src={DeleteIMG} alt='clear-img'/>
-            </div>
+      {warningImg && <div className="warning-error">{AUTHORIZATION_INFO[lang].imageSizeWarning}</div>}
+      <div className="form-field photo-field">
+        <div className="photo-container">
+          <img className="user-photo" src={imgURL || DEFAULT_PHOTO} alt="user" />
+          <div className="onhover-img" onClick={handlerDeleteImg}>
+            <img src={DeleteIMG} alt="clear-img" />
           </div>
-          <label className='load-label'>
-            {AUTHORIZATION_INFO[lang].uploadPhoto}
-            <input
-              type='file'
-              className='file-input'
-              onChange={loadFile}
-            />
-          </label>
+        </div>
+        <label className="load-label" htmlFor="avatar">
+          {AUTHORIZATION_INFO[lang].uploadPhoto}
+          <input
+            type="file"
+            name="avatar"
+            className="file-input"
+            onChange={loadFile}
+          />
+        </label>
       </div>
       <input
-        className='input-sign-in'
-        type='submit'
+        className="input-sign-in"
+        type="submit"
         value={AUTHORIZATION_INFO[lang].signup}
-        name='signup'
+        name="signup"
       />
     </form>
   );

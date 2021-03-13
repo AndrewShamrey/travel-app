@@ -1,8 +1,10 @@
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Switch, Redirect,
+} from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPrevState } from './actions/control';
-import Header from '../src/components/header/header';
+import Header from './components/header/header';
 import CountryPage from './components/countryPage/countryPage';
 import MainPage from './components/mainPage/mainPage';
 import Footer from './components/footer/footer';
@@ -21,8 +23,8 @@ function App() {
   const handleLoad = useCallback(() => {
     const prevState = JSON.parse(localStorage.getItem('currentState'));
     if (prevState) {
-      dispatch(setPrevState(prevState))
-    };
+      dispatch(setPrevState(prevState));
+    }
   }, [dispatch]);
 
   useEffect(() => {
@@ -37,16 +39,16 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className='App'>
+      <div className="App">
         <Header />
         <Switch>
-          <Route path='/authorization'>
-            {state.currentPerson ?  <Redirect to="/"/> : <AuthPage />}            
+          <Route path="/authorization">
+            {state.currentPerson ? <Redirect to="/" /> : <AuthPage />}
           </Route>
-          <Route path='/country/:country'>
+          <Route path="/country/:country">
             <CountryPage />
           </Route>
-          <Route path='/'>
+          <Route path="/">
             <MainPage />
           </Route>
         </Switch>
