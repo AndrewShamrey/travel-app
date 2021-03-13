@@ -157,3 +157,9 @@ export const APPLICATION_LANGUAGES = {
     },
   ],
 };
+
+export const ERROR_PAGE_TEXT = {
+  en: 'Oops! There is no such a page.',
+  ru: 'Упс! Нет такой страницы.',
+  be: 'Упс! Няма такой старонкі.',
+};

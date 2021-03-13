@@ -13,8 +13,8 @@ const MainPage = () => {
     <div className="main-page">
       <div className="cards-cont">
         {ALL_COUNTRIES.map((item, index) => {
-          console.log(item);
           const path = `/country/${item}`;
+
           return (
             <Link to={path} key={index}>
               <Card item={item} index={index} />
