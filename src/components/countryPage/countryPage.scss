@@ -26,12 +26,11 @@
       z-index: 0;
 
       @media(max-width: $size-md) {
-        height: 50vw;
+        min-height: 50vw;
       }
     }
 
     @media (max-width: $size-md) {
-      height: 60px;
       position: relative;
     }
   }  
