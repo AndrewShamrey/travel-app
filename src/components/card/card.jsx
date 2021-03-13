@@ -19,7 +19,7 @@ const Card = () => {
         dispatch(setCountryConfig(country));
       })
       .then(() => {
-        fetchClass.getPlacesByCountry(countryConfig.shortName)
+        fetchClass.getPlacesByCountry(clickedCountry)
           .then((places) => {
             dispatch(setPlacesByCountry(places));
           });
@@ -48,7 +48,7 @@ const Card = () => {
         </p>
         <p>
           currentPlaces -
-          {JSON.stringify(currentPlaces)}
+          {currentPlaces && JSON.stringify(currentPlaces.map((item) => item.info[lang].name))}
         </p>
         <p className="description">
           description -

@@ -1,5 +1,6 @@
 @import '../../sass/breakpoints.scss';
 @import '../../sass/colors.scss';
+@import '../../sass/transitions.scss';
 
 @keyframes rotateMenuBtnActive {
   0% {
@@ -55,6 +56,7 @@
   &__menu-btn {
     display: none;
     outline: none;
+    transition: $color-transition;
 
     &:hover {      
       color: $yellow;

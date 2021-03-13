@@ -1,4 +1,5 @@
 @import '../../sass/colors.scss';
+@import '../../sass/transitions.scss';
 
 @keyframes showBtnMenu {
   0% {
@@ -18,6 +19,7 @@
   background-color: transparent;
   border: none;
   border-radius: 50%;
+  transition: $color-transition;
   overflow: hidden;
   user-select: none;
   outline: none;
@@ -59,6 +61,7 @@
     &-item {
       padding: 8px 15px;  
       width: 100%;
+      transition: $color-transition;
       display: block;
       
       &:hover {
@@ -71,8 +74,8 @@
       color: inherit;
       background: transparent;
       border: none;
+      transition: $color-transition;
       cursor: pointer;
-  
 
       &:hover {
         color: $yellow;
