@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
-import { DEFAULT_PHOTO } from '../../utils/constants';
+import { DEFAULT_PHOTO, AUTHORIZATION_BTN_MENU } from '../../utils/constants';
 import './authorizationButton.scss';
 
 const AuthorizationButton = () => {
@@ -10,6 +10,7 @@ const AuthorizationButton = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isAuthorized = useSelector((rootState) => rootState.control.isAuthorized);
   const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
+  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
   const btnRef = useRef(null);
 
   const toggleAuthorization = () => {
@@ -64,17 +65,21 @@ const AuthorizationButton = () => {
                 type="button"
                 onClick={toggleAuthorization}
               >
-                SignOut
+                {AUTHORIZATION_BTN_MENU[currentLanguage].signout}
               </button>
             </li>
           )}
           {!isAuthorized && (
             <>
               <li>
-                <Link className="authorization-btn__menu-item" to="/authorization">SignIn</Link>
+                <Link className="authorization-btn__menu-item" to="/authorization">
+                  {AUTHORIZATION_BTN_MENU[currentLanguage].login}
+                </Link>
               </li>
               <li>
-                <Link className="authorization-btn__menu-item" to="/authorization/registration">SignUp</Link>
+                <Link className="authorization-btn__menu-item" to="/authorization/registration">
+                  {AUTHORIZATION_BTN_MENU[currentLanguage].signup}
+                </Link>
               </li>
             </>
           )}

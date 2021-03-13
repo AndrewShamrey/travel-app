@@ -150,7 +150,7 @@ const LogInPage = () => {
           {AUTHORIZATION_INFO[lang].uploadPhoto}
           <input
             type="file"
-            name="avatar"
+            id="avatar"
             className="file-input"
             onChange={loadFile}
           />
