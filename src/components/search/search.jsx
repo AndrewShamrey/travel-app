@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSearchValue } from '../../actions/control';
 import './search.scss';
 
-const Search = () => {
+const Search = ({ isMenuOpen }) => {
   const dispatch = useDispatch();
   const value = useSelector((rootState) => rootState.control.searchValue);
 
@@ -26,13 +26,15 @@ const Search = () => {
   };
 
   return (
-    <div className="search">
+    <div className={isMenuOpen ? 'search search_visible' : 'search'}>
       <div className="search__input-wrapper">
         <input
           value={value || ''}
           placeholder="Search..."
           className="search__input"
           autoFocus
+          autoComplete="off"
+          spellCheck="false"
           onChange={searchFieldChangeHandler}
           onKeyDown={handlerOnKeydown}
         />

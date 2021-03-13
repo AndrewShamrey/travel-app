@@ -20,28 +20,24 @@ const Header = () => {
       <Link to="/">
         <h1 className="header__logo">TravelApp</h1>
       </Link>
-      <div
-        className={
-          isMenuOpen
-            ? 'header__options header__options_visible'
-            : 'header__options'
-        }
-      >
-        {isSearchField && <Search />}
+      <div className="header__options">
+        {isSearchField && <Search isMenuOpen={isMenuOpen} />}
         <LanguageSelect />
         <AuthorizationButton />
+        {isSearchField && (
+          <button
+            className={
+              isMenuOpen
+                ? 'header__menu-btn header__menu-btn_active'
+                : 'header__menu-btn'
+            }
+            type="button"
+            onClick={toggleMenu}
+          >
+            <i className="fas fa-chevron-circle-down" />
+          </button>
+        )}
       </div>
-      <button
-        className={
-          isMenuOpen
-            ? 'header__menu-btn header__menu-btn_active'
-            : 'header__menu-btn'
-        }
-        type="button"
-        onClick={toggleMenu}
-      >
-        <i className="fas fa-chevron-circle-down" />
-      </button>
     </header>
   );
 };

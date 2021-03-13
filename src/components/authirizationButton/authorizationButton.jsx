@@ -70,11 +70,11 @@ const AuthorizationButton = () => {
           )}
           {!isAuthorized && (
             <>
-              <li className="authorization-btn__menu-item">
-                <Link to="/authorization">SignIn</Link>
+              <li>
+                <Link className="authorization-btn__menu-item" to="/authorization">SignIn</Link>
               </li>
-              <li className="authorization-btn__menu-item">
-                <Link to="/authorization/registration">SignUp</Link>
+              <li>
+                <Link className="authorization-btn__menu-item" to="/authorization/registration">SignUp</Link>
               </li>
             </>
           )}
