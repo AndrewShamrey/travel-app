@@ -1,85 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
-import FetchData from '../../utils/fetchData';
-import { ALL_COUNTRIES, MAIN_PLACES } from '../../utils/constants';
+import { MAIN_PLACES } from '../../utils/constants';
 import './card.css';
 
-const Card = () => {
-  const searchValue = useSelector((rootState) => rootState.control.searchValue);
-  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
-
-  const processedSearchValue = searchValue.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-  const searchRegExp = new RegExp(processedSearchValue, 'gi');
-
-  const displayingCards = ALL_COUNTRIES.filter((country) => {
-    const { name, capital } = country[currentLanguage];
-    return name.match(searchRegExp) || capital.match(searchRegExp);
-  });
-
-  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
-
-  const dispatch = useDispatch();
-  const countryConfig = useSelector((rootState) => rootState.control.countryConfig);
-  const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
-  const lang = useSelector((rootState) => rootState.control.applicationLanguage);
-
-  const onClickCardHandler = (e) => {
-    const clickedCountry = e.target.closest('.country-card').getAttribute('country');
-    fetchClass.getCountry(clickedCountry)
-      .then(([country]) => {
-        dispatch(setCountryConfig(country));
-      })
-      .then(() => {
-        fetchClass.getPlacesByCountry(clickedCountry)
-          .then((places) => {
-            dispatch(setPlacesByCountry(places));
-          });
-      })
-      .catch((err) => console.log('Error - ', err));
-  };
-
-  return (
-    <div>
-      {/* <div className="current-country">
-        <p>
-          name -
-          {countryConfig.info[lang].name}
-        </p>
-        <p>
-          ShortName -
-          {countryConfig.shortName}
-        </p>
-        <p>
-          capital -
-          {countryConfig.info[lang].capital}
-        </p>
-        <p>
-          timeDifference -
-          {countryConfig.timeDifference}
-        </p>
-        <p>
-          currentPlaces -
-          {currentPlaces && JSON.stringify(currentPlaces.map((item) => item.info[lang].name))}
-        </p>
-        <p className="description">
-          description -
-          {countryConfig.info[lang].description}
-        </p>
-      </div> */}
-      <div className="cards-cont">
-        {displayingCards.map((country, index) => {
-          const { name, capital, shortName } = country[currentLanguage];
-
-          return (
-            <div key={shortName} country={shortName} className="country-card">
-              <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
-              <p style={{ zIndex: 1, background: '#fff', position: 'relative' }}>{`${name} - ${capital}`}</p>
-            </div>
-          );
-        })}
-      </div>
+const Card = ({ country, capital, index }) => (
+  <div className="country-card" role="presentation">
+    <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
+    <div className="country-card__title">
+      {`${country} - ${capital}`}
     </div>
-  );
-};
+  </div>
+);
 
 export default Card;

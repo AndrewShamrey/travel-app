@@ -75,6 +75,7 @@
       background: transparent;
       border: none;
       transition: $color-transition;
+      outline: none;
       cursor: pointer;
 
       &:hover {
