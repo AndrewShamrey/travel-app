@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
+import PageImageGallery from '../imageGallery/imageGallery';
 import dateWidget from '../../assets/images/date-widget.png';
 import weatherWidget from '../../assets/images/weather-widget.png';
 import exchangeRatesWidget from '../../assets/images/exchange-rates-widget.png';
@@ -48,13 +49,23 @@ const CountryPage = () => {
   const { name, capital, description } = countryData.info[currentLanguage];
   const { mainPlace } = countryData;
 
+  const capitalTitle = {
+    en: 'Capital',
+    ru: 'Столица',
+    be: 'Сталіца',
+  };
+
   return (
     <main className="country-page">
       <div className="country-page__wrapper">
         <div className="country-page__info">
           <div className="country-page__country">
             <h2 className="country-page__name">{name}</h2>
-            <p className="country-page__capital">{capital}</p>
+            <p className="country-page__capital">
+              {capitalTitle[currentLanguage]}
+              :&nbsp;
+              {capital}
+            </p>
           </div>
           <img
             className="country-page__image"
@@ -73,13 +84,7 @@ const CountryPage = () => {
               <img src={exchangeRatesWidget} alt="Exchange rates widget" />
             </div>
           </div>
-          <div className="country-page__gallery">
-            <img
-              className="country-page__image"
-              src={mainPlace.image}
-              alt="example"
-            />
-          </div>
+          <PageImageGallery />
           <div className="country-page__video">
             <img
               className="country-page__image"
