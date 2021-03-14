@@ -10,19 +10,23 @@ import mapImg from '../../assets/images/map.png';
 import './countryPage.scss';
 
 const CountryPage = () => {
-  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
   const { country } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
+    const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+
     const redirect = () => {
       history.push('/*');
     };
+
     fetchClass.getCountry(country)
-      // eslint-disable-next-line no-shadow
-      .then(([country]) => {
-        dispatch(setCountryConfig(country));
+      .then(([countryConfig]) => {
+        if (!countryConfig) {
+          throw new Error('Page not found');
+        }
+        dispatch(setCountryConfig(countryConfig));
       })
       .then(() => {
         fetchClass.getPlacesByCountry(country)
