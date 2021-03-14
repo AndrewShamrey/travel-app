@@ -1,4 +1,8 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import FetchData from '../../utils/fetchData';
+import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
 import dateWidget from '../../assets/images/date-widget.png';
 import weatherWidget from '../../assets/images/weather-widget.png';
 import exchangeRatesWidget from '../../assets/images/exchange-rates-widget.png';
@@ -6,6 +10,34 @@ import mapImg from '../../assets/images/map.png';
 import './countryPage.scss';
 
 const CountryPage = () => {
+  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+  const { country } = useParams();
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    const redirect = () => {
+      history.push('/*');
+    };
+    fetchClass.getCountry(country)
+      // eslint-disable-next-line no-shadow
+      .then(([country]) => {
+        dispatch(setCountryConfig(country));
+      })
+      .then(() => {
+        fetchClass.getPlacesByCountry(country)
+          .then((places) => {
+            dispatch(setPlacesByCountry(places));
+          });
+      })
+      .catch((err) => {
+        console.log('Error - ', err);
+        redirect();
+      });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   const countryData = useSelector((rootState) => rootState.control.countryConfig);
   const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
 

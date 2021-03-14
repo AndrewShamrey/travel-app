@@ -46,7 +46,7 @@ function App() {
           <Route path="/authorization">
             {state.currentPerson ? <Redirect to="/" /> : <AuthPage />}
           </Route>
-          <Route path="/country/:country">
+          <Route exact path="/country/:country">
             <CountryPage />
           </Route>
           <Route exact path="/">
