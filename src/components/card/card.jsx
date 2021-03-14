@@ -5,6 +5,15 @@ import { ALL_COUNTRIES, MAIN_PLACES } from '../../utils/constants';
 import './card.css';
 
 const Card = () => {
+  const searchValue = useSelector((rootState) => rootState.control.searchValue);
+
+  const processedSearchValue = searchValue.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+  const searchRegExp = new RegExp(processedSearchValue, 'gi');
+
+  const displayingCards = ALL_COUNTRIES.filter((country) => (
+    country.match(searchRegExp) && country
+  ));
+
   const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
   const dispatch = useDispatch();
@@ -29,7 +38,7 @@ const Card = () => {
 
   return (
     <div>
-      <div className="current-country">
+      {/* <div className="current-country">
         <p>
           name -
           {countryConfig.info[lang].name}
@@ -54,9 +63,9 @@ const Card = () => {
           description -
           {countryConfig.info[lang].description}
         </p>
-      </div>
+      </div> */}
       <div className="cards-cont">
-        {ALL_COUNTRIES.map((item, index) => (
+        {displayingCards.map((item, index) => (
           <div key={item} country={item} className="country-card" onClick={onClickCardHandler}>
             <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
           </div>
