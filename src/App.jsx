@@ -10,6 +10,7 @@ import MainPage from './components/mainPage/mainPage';
 import Footer from './components/footer/footer';
 import ScrollToTop from './components/scrollToTop/scrollToTop';
 import AuthPage from './components/authPage/authPage';
+import ErrorPage from './components/errorPage/errorPage';
 import './App.scss';
 
 function App() {
@@ -45,11 +46,14 @@ function App() {
           <Route path="/authorization">
             {state.currentPerson ? <Redirect to="/" /> : <AuthPage />}
           </Route>
-          <Route path="/country/:country">
+          <Route exact path="/country/:country">
             <CountryPage />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <MainPage />
+          </Route>
+          <Route path="*">
+            <ErrorPage />
           </Route>
         </Switch>
         <Footer />
