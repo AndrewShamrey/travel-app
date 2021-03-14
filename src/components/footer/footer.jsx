@@ -1,13 +1,11 @@
-import Link from "./link-footer";
-import authors from "../../authors";
-import "./footer.scss";
+import Link from './link-footer';
+import authors from '../../authors';
+import './footer.scss';
 
 const Footer = () => {
-  const drawLinks = () => {
-    return authors.map((link, index) => {
-      return <Link key={`${index + 1}index`} {...link} />;
-    });
-  };
+  const drawLinks = () => authors.map((link, index) => (
+    <Link key={`${index + 1}index`} value={link.value} href={link.href} />
+  ));
 
   return (
     <footer className="app-footer footer">

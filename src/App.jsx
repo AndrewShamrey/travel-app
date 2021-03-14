@@ -1,35 +1,39 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useCallback, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setCountryConfig } from "./actions/control";
-import Header from "../src/components/header/header";
-import CountryPage from "./components/countryPage/countryPage";
-import MainPage from "./components/mainPage/mainPage";
-import Footer from "./components/footer/footer";
-import ScrollToTop from "./components/scrollToTop/scrollToTop";
-import "./App.scss";
+import {
+  BrowserRouter as Router, Route, Switch, Redirect,
+} from 'react-router-dom';
+import { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPrevState } from './actions/control';
+import Header from './components/header/header';
+import CountryPage from './components/countryPage/countryPage';
+import MainPage from './components/mainPage/mainPage';
+import Footer from './components/footer/footer';
+import ScrollToTop from './components/scrollToTop/scrollToTop';
+import AuthPage from './components/authPage/authPage';
+import ErrorPage from './components/errorPage/errorPage';
+import './App.scss';
 
 function App() {
   const dispatch = useDispatch();
-  const countryConfig = useSelector(
-    (rootState) => rootState.control.countryConfig
-  );
+  const state = useSelector((rootState) => rootState.control);
 
   const handleUnload = useCallback(() => {
-    localStorage.setItem("currentCountryConfig", JSON.stringify(countryConfig));
-  }, [countryConfig]);
+    localStorage.setItem('currentState', JSON.stringify(state));
+  }, [state]);
 
   const handleLoad = useCallback(() => {
-    const prevState = JSON.parse(localStorage.getItem("currentCountryConfig"));
-    dispatch(setCountryConfig(prevState));
+    const prevState = JSON.parse(localStorage.getItem('currentState'));
+    if (prevState) {
+      dispatch(setPrevState(prevState));
+    }
   }, [dispatch]);
 
   useEffect(() => {
-    window.addEventListener("load", handleLoad);
-    window.addEventListener("unload", handleUnload);
+    window.addEventListener('load', handleLoad);
+    window.addEventListener('unload', handleUnload);
     return () => {
-      window.removeEventListener("load", handleLoad);
-      window.removeEventListener("unload", handleUnload);
+      window.removeEventListener('load', handleLoad);
+      window.removeEventListener('unload', handleUnload);
     };
   }, [handleLoad, handleUnload]);
 
@@ -40,11 +44,17 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/:country">
+          <Route path="/authorization">
+            {state.currentPerson ? <Redirect to="/" /> : <AuthPage />}
+          </Route>
+          <Route exact path="/country/:country">
             <CountryPage />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <MainPage />
+          </Route>
+          <Route path="*">
+            <ErrorPage />
           </Route>
         </Switch>
         <Footer />

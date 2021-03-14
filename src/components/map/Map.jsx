@@ -1,62 +1,81 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 import './Map.scss';
 
-import { YMaps, Map, Placemark, Panorama, TypeSelector } from 'react-yandex-maps';
-
-
-// Карта
-
-//     для отображения карты используется бесплатное API, которое не требует для использования подключения платёжных документов
-//     предпочтение отдавайте API, в которых есть режим просмотра улиц
-//     карта переводится на язык отображения страницы, если такая возможность есть в используемом API
-//     карту можно развернуть во весь экран
-//     карта интерактивная, её можно перетаскивать, увеличивать и уменьшать масштаб
-//     страна, о которой идёт речь, подсвечена
-//     для стилизации карты используются кастомные (пользовательские) стили, если такая возможность есть в используемом API
-//     столица страны на карте отмечена маркером
-
+import {
+  YMaps, Map, Placemark, TypeSelector,
+} from 'react-yandex-maps';
+import icon from '../../assets/images/pin.png';
 
 const CountryMap = () => {
-  // const mapState = { center: [-35.306904, 149.125529], zoom: 10 };
-
+  const mapRef = React.createRef(null);
   const currentCountry = useSelector((rootState) => rootState.control);
-  const { latlng } = currentCountry.countryConfig;
+  const { applicationLanguage } = currentCountry;
+  const {
+    shortName, latlng, capitalCoord, currency: { code },
+  } = currentCountry.countryConfig;
 
-  console.log('currentCountry ', currentCountry, latlng);
-  const description = currentCountry;
-  console.log('description ', description);
+  const getRegions = (ymaps) => {
+    if (mapRef && mapRef.current) {
+      const objectManager = new ymaps.ObjectManager();
+      ymaps.borders
+        .load('001', {
+          lang: applicationLanguage,
+          quality: 2,
+        })
+        .then((result) => {
+          result.features.forEach((el) => {
+            if (el.properties.iso3166 === code.slice(0, 2)) {
+              el.id = el.properties.iso3166;
+              el.options = {
+                fillOpacity: 0.6,
+                strokeColor: '#FFF',
+                strokeOpacity: 0.5,
+              };
+              if (!el.options.fillColor) {
+                el.options.fillColor = '#150f7d';
+                objectManager.add(el);
+                mapRef.current.geoObjects.add(objectManager);
+              }
+            }
+          });
+        });
+    }
+  };
 
-  const [zoom, setZoom] = React.useState(3);
-  const mapState = React.useMemo(() => ({ center: latlng, zoom }), [
-    zoom,
-  ])
-  
   return (
     <YMaps>
       <Map
         defaultState={{
-          center: [...mapState.center],
-          zoom: mapState.zoom,
+          center: latlng,
+          zoom: 3,
           controls: ['zoomControl', 'fullscreenControl'],
-          // defaultMapTypes: ['yandex#map' , 'yandex#satellite' , 'yandex#hybrid']
+          lang: 'en_US',
         }}
-        
-        modules={['control.ZoomControl', 'control.FullscreenControl']}
-        className='map'
+        modules={['control.ZoomControl', 'control.FullscreenControl', 'borders', 'ObjectManager']}
+        className="map"
+        lang="en_US"
+        onLoad={(ymaps) => getRegions(ymaps)}
+        instanceRef={mapRef}
       >
-        <Placemark 
+        <Placemark
           modules={['geoObject.addon.balloon']}
-          defaultGeometry={[...mapState.center]}
+          defaultGeometry={(capitalCoord.length > 0) ? capitalCoord : latlng}
           properties={{
-            balloonContentBody: `${description}`,
+            hintContent: `${shortName}`,
+            balloonContent: `${shortName}`,
+          }}
+          options={{
+            iconLayout: 'default#image',
+            iconImageHref: icon,
+            iconImageSize: [30, 30],
+            // iconImageOffset: [-15, -30],
           }}
         />
         <TypeSelector options={{ float: 'right' }} />
       </Map>
-      {/* <Panorama defaultPoint={[55.733685, 37.588264]} /> */}
     </YMaps>
   );
-}
+};
 
 export default CountryMap;
