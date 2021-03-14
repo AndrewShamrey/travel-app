@@ -1,6 +1,7 @@
 import produce from 'immer';
 import * as ACTION_TYPES from '../actionTypes/control';
-import { DEFAULT_COUNTRY_CONFIG, DEFAULT_LANGUAGE } from '../utils/constants';
+import DEFAULT_COUNTRY_CONFIG from '../utils/defCountry';
+import { DEFAULT_LANGUAGE } from '../utils/constants';
 
 const initialState = {
   searchValue: '',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchValue } from '../../actions/control';
-import { SEARCH__PLACEHOLDER } from '../../utils/constants';
+import { SEARCH__PLACEHOLDER } from '../../utils/vocabulary';
 import './search.scss';
 
 const Search = ({ isMenuOpen }) => {
