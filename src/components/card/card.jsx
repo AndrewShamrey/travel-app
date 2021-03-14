@@ -6,13 +6,15 @@ import './card.css';
 
 const Card = () => {
   const searchValue = useSelector((rootState) => rootState.control.searchValue);
+  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
 
   const processedSearchValue = searchValue.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
   const searchRegExp = new RegExp(processedSearchValue, 'gi');
 
-  const displayingCards = ALL_COUNTRIES.filter((country) => (
-    country.match(searchRegExp) && country
-  ));
+  const displayingCards = ALL_COUNTRIES.filter((country) => {
+    const { name, capital } = country[currentLanguage];
+    return name.match(searchRegExp) || capital.match(searchRegExp);
+  });
 
   const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
@@ -65,11 +67,16 @@ const Card = () => {
         </p>
       </div> */}
       <div className="cards-cont">
-        {displayingCards.map((item, index) => (
-          <div key={item} country={item} className="country-card" onClick={onClickCardHandler}>
-            <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
-          </div>
-        ))}
+        {displayingCards.map((country, index) => {
+          const { name, capital, shortName } = country[currentLanguage];
+
+          return (
+            <div key={shortName} country={shortName} className="country-card">
+              <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
+              <p style={{ zIndex: 1, background: '#fff', position: 'relative' }}>{`${name} - ${capital}`}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
