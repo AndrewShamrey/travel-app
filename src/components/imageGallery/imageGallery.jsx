@@ -7,6 +7,7 @@ import './imageGallery.scss';
 const PageImageGallery = () => {
   const [imgId, setImgId] = useState(0);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
+  const isAuthorized = useSelector((rootState) => rootState.control.isAuthorized);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   console.log('currentPlaces are:', currentPlaces);
 
@@ -37,7 +38,7 @@ const PageImageGallery = () => {
           {descriptions[imgId]}
         </p>
       </div>
-      <PlacesRating />
+      {isAuthorized && <PlacesRating />}
     </div>
   );
 };
