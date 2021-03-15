@@ -31,7 +31,7 @@
     background: linear-gradient(45deg, $lightBlue, $white);
 
     &-icon {
-      animation: bounce 0.8s cubic-bezier(0, 0, 0.54, 1.11) infinite alternate;
+      animation: bounce 0.5s cubic-bezier(0, 0, 0.54, 1.11) infinite alternate;
 
       @media (max-width: $size-md) {
         height: 150px;
