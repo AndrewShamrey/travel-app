@@ -1,18 +1,40 @@
-export default function fetchData(method, whatIsIt="", lang="", name="", body="", id="") {
-  if (method === "GET") {
-    return fetch(`https://travel-app-back-113.herokuapp.com/api/${whatIsIt}/${lang}/${name}`, {
-      method: method,
+export default class FetchData {
+  constructor(url) {
+    this.baseUrl = url;
+  }
+
+  getCountry(name, pass) {
+    return this._defaultMethod('GET', 'countries', name, pass);
+  }
+
+  getPlacesByCountry(country) {
+    return this._defaultMethod('GET', 'places', country);
+  }
+
+  getPersonByNameAndPass(name, pass) {
+    return this._defaultMethod('GET', 'persons/one', name, pass);
+  }
+
+  postNewPerson(body) {
+    return this._defaultMethod('POST', 'persons', null, null, body);
+  }
+
+  _defaultMethod(method, path = '', name = '', pass = '', body = '', id = '') {
+    if (method === 'GET') {
+      return fetch(`${this.baseUrl}/${path}/${name}/${pass}`, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((response) => response.json());
+    }
+
+    return fetch(`${this.baseUrl}/${path}/${id}`, {
+      method,
+      body,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
   }
-
-  return fetch(`https://travel-app-back-113.herokuapp.com/api/${whatIsIt}/${id}`, {
-    method: method,
-    body: body,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
 }

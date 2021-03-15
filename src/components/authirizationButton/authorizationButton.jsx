@@ -1,30 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsAuthorized } from '../../actions/control';
-import { DEFAULT_USER_ICON } from '../../utils/constants';
+import { Link } from 'react-router-dom';
+import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
+import { DEFAULT_PHOTO, AUTHORIZATION_BTN_MENU } from '../../utils/constants';
 import './authorizationButton.scss';
 
 const AuthorizationButton = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const dispatch = useDispatch();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isAuthorized = useSelector((rootState) => rootState.control.isAuthorized);
-
+  const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
+  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
   const btnRef = useRef(null);
 
   const toggleAuthorization = () => {
     dispatch(setIsAuthorized(!isAuthorized));
-  }
+    dispatch(setCurrentPerson(null));
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  }
+  };
 
   useEffect(() => {
-    const closeMenu = (e) => {
-      const { target } = e;
+    const closeMenu = ({ target }) => {
       const { current } = btnRef;
-      
+
       if (!(target === current || target.parentNode === current)) {
         setIsMenuOpen(false);
       }
@@ -34,48 +35,58 @@ const AuthorizationButton = () => {
     return () => {
       window.removeEventListener('click', closeMenu);
     };
-  }, [])
+  }, []);
 
   return (
     <div>
-      <button 
+      <button
         ref={btnRef}
         className="authorization-btn"
+        type="button"
         onClick={toggleMenu}
       >
-        {isAuthorized 
-          ? (
-            <img 
-              className="authorization-btn__image"
-              src={DEFAULT_USER_ICON}
-              alt="user icon"
-            />
-          ) : (
-            <i className="authorization-btn__icon far fa-user" />
-          )
-        }
+        {isAuthorized && (
+          <img
+            className="authorization-btn__image"
+            src={currentPerson.photo || DEFAULT_PHOTO}
+            alt="user icon"
+          />
+        )}
+        {!isAuthorized && (
+          <i className="authorization-btn__icon far fa-user" />
+        )}
       </button>
       {isMenuOpen && (
         <ul className="authorization-btn__menu">
-          {isAuthorized
-            ? (
-              <li 
+          {isAuthorized && (
+            <li>
+              <button
+                className="authorization-btn__menu-button"
+                type="button"
                 onClick={toggleAuthorization}
-                className="authorization-btn__menu-item"
               >
-                SignOut
-              </li> 
-            ) : (
-              <>      
-                <li className="authorization-btn__menu-item">SignIn</li>
-                <li className="authorization-btn__menu-item">SignUp</li>
-              </>
-            )
-          }
+                {AUTHORIZATION_BTN_MENU[currentLanguage].signout}
+              </button>
+            </li>
+          )}
+          {!isAuthorized && (
+            <>
+              <li>
+                <Link className="authorization-btn__menu-item" to="/authorization">
+                  {AUTHORIZATION_BTN_MENU[currentLanguage].login}
+                </Link>
+              </li>
+              <li>
+                <Link className="authorization-btn__menu-item" to="/authorization/registration">
+                  {AUTHORIZATION_BTN_MENU[currentLanguage].signup}
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       )}
     </div>
   );
-}
+};
 
 export default AuthorizationButton;

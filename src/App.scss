@@ -1,4 +1,7 @@
-// @import '~video-react/styles/scss/video-react';
+@import './sass/breakpoints.scss';
+@import './sass/colors.scss';
+@import '~video-react/styles/scss/video-react';
+
 :root {
   font-family: 'Montserrat', sans-serif;
 }
@@ -15,14 +18,15 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 #root {
@@ -34,10 +38,16 @@ li {
 }
 
 .App {
-  // padding: 30px;
-  background-color: blanchedalmond;
+  background-color: $white;
   min-width: 100%;
   min-height: 100vh;
   display: grid;
   grid-template-rows: 60px 1fr 50px;
+
+  @media (max-width: $size-md) {
+    grid-template-rows: 60px 1fr 200px;
+  }
+  @media (max-width: $size-xs) {
+    grid-template-rows: 50px 1fr 200px;
+  }
 }

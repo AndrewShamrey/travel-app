@@ -1,3 +1,7 @@
+@import '../../sass/breakpoints.scss';
+@import '../../sass/colors.scss';
+@import '../../sass/transitions.scss';
+
 @keyframes rotateMenuBtnActive {
   0% {
     transform: rotate(0deg);
@@ -30,38 +34,40 @@
 .header {
   margin: 0;
   padding: 10px 20px;
-  width: 100vw;
-  background-color: #150f7d;
-  color: #fff;
+  width: 100%;
+  background-color: $blue;
+  color: $white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
 
   &__logo {
     font-size: 32px;
     background-color: inherit;
     flex-grow: 3;
     z-index: 1;
+    cursor: pointer;
   }
 
   &__menu-btn {
     display: none;
     outline: none;
+    transition: $color-transition;
 
     &:hover {      
-      color: #ffe325;
+      color: $yellow;
     }
   }
 
-  @media (max-width: 600px) {   
+  @media (max-width: $size-md) {   
     &__menu-btn {
       height: 18px;
       font-size: 18px;
-      color: #fff;
+      color: $white;
       background-color: transparent;
       border: none;
       display: block;
@@ -78,7 +84,7 @@
     }
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: $size-xs) {
     padding: 10px;
     &__logo {
       font-size: 18px;
@@ -97,22 +103,12 @@
     }
   }
 
-  @media (max-width: 600px) {
-    padding: 10px 20px;
+  @media (max-width: $size-md) {
     width: 100%;
     background-color: inherit;
     justify-content: space-around;
-    position: absolute;
-    top: 0;
-    left: 0;  
-    display: none; 
-    z-index: -1;
-
-    &_visible {
-      display: flex;
-      top: 100%;
-      animation: showMenu 0.3s linear;
-    }
+    justify-content: flex-end;
+    align-items: center;
 
     & > * {
       margin-right: 15px;
@@ -121,9 +117,5 @@
         margin-right: 0;
       }
     }
-  }
-
-  @media (max-width: 375px) {
-    padding: 10px;
   }
 }
