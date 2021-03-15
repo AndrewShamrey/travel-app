@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { DATE_CONFIG } from '../../utils/constants';
-import './dateWidget.css';
+import './dateWidget.scss';
 
 const DateWidget = () => {
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
@@ -33,8 +33,26 @@ const DateWidget = () => {
     };
   }, [tick]);
 
+  const {
+    day, hrs, mins, month, secs, weekday,
+  } = time;
+
   return (
-    <p className="App-clock">{JSON.stringify(time)}</p>
+    <div className="country-page__widget">
+      <p className="time">
+        {hrs}
+        :
+        {mins}
+        :
+        {secs}
+      </p>
+      <p className="date">
+        {day}
+        {month}
+        ,
+        {weekday}
+      </p>
+    </div>
   );
 };
 

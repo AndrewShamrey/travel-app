@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
-import dateWidget from '../../assets/images/date-widget.png';
+import DateWidget from '../dateWidget/dateWidget';
 import weatherWidget from '../../assets/images/weather-widget.png';
 import exchangeRatesWidget from '../../assets/images/exchange-rates-widget.png';
 import mapImg from '../../assets/images/map.png';
@@ -63,9 +63,7 @@ const CountryPage = () => {
           />
           <p className="country-page__description">{description}</p>
           <div className="country-page__widgets">
-            <div className="country-page__widget">
-              <img src={dateWidget} alt="Date widget" />
-            </div>
+            <DateWidget />
             <div className="country-page__widget">
               <img src={weatherWidget} alt="Weather widget" />
             </div>
