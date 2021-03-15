@@ -3,10 +3,10 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
+import CountryMap from '../map/Map';
 import dateWidget from '../../assets/images/date-widget.png';
 import weatherWidget from '../../assets/images/weather-widget.png';
 import exchangeRatesWidget from '../../assets/images/exchange-rates-widget.png';
-import mapImg from '../../assets/images/map.png';
 import './countryPage.scss';
 
 const CountryPage = () => {
@@ -90,7 +90,7 @@ const CountryPage = () => {
         </div>
       </div>
       <div className="country-page__map">
-        <img src={mapImg} alt="map example" />
+        <CountryMap />
       </div>
     </main>
   );
