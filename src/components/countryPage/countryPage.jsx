@@ -51,9 +51,6 @@ const CountryPage = () => {
   const { name, capital, description } = countryData.info[currentLanguage];
   const { mainPlace, video } = countryData;
 
-  console.log('mainPlace ', mainPlace);
-  console.log('video ', video);
-
   if (isLoader) {
     return (
       <div className="country-page__loader">
