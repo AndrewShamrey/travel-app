@@ -40,6 +40,9 @@ const PageImageGallery = () => {
           {descriptions[imgId]}
         </p>
       </div>
+      <div className="country-page__gallery_rating">
+        stars
+      </div>
     </div>
   );
 };
