@@ -1,4 +1,3 @@
-import { useRef, useEffect } from 'react';
 import { MAIN_PLACES } from '../../utils/constants';
 import './card.scss';
 
