@@ -4,18 +4,14 @@ import { useSelector } from 'react-redux';
 
 import './imageGallery.scss';
 
-const PageImageGallery = ({ countryData, currentPlaces }) => {
+const PageImageGallery = () => {
   const [imgId, setImgId] = useState(0);
-  // const countryData = useSelector((rootState) => rootState.control.countryConfig);
+  const countryData = useSelector((rootState) => rootState.control.countryConfig);
   const currentCountry = countryData.shortName;
   console.log('in the gallery, currentCountry is:', currentCountry);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
-  // const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
+  const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   console.log('currentPlaces are:', currentPlaces);
-
-  // const images = currentPlaces.map((place) => place.image);
-
-  // const name = currentPlaces.map((place) => place.info[lang].name);
 
   const descriptions = currentPlaces.map((place) => place.info[lang].description);
 
@@ -29,13 +25,10 @@ const PageImageGallery = ({ countryData, currentPlaces }) => {
     description: place.info[lang].name,
   }));
 
-  // что-то все-таки не так работает
   useEffect(() => {
-    setImgId(0);
   }, [lang]);
 
   const GetIdImage = (id) => {
-    console.log(id);
     setImgId(id);
   };
 
@@ -43,7 +36,9 @@ const PageImageGallery = ({ countryData, currentPlaces }) => {
     <div className="country-page__gallery">
       <ImageGallery items={imagesForCarousel} onSlide={GetIdImage} />
       <div className="country-page__gallery_description-block">
-        {descriptions[imgId]}
+        <p className="country-page__gallery_description-block_text">
+          {descriptions[imgId]}
+        </p>
       </div>
     </div>
   );
