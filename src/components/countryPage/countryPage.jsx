@@ -1,17 +1,19 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
 import Video from '../video/Video';
+import CountryMap from '../map/Map';
 import dateWidget from '../../assets/images/date-widget.png';
 import weatherWidget from '../../assets/images/weather-widget.png';
 import exchangeRatesWidget from '../../assets/images/exchange-rates-widget.png';
-import mapImg from '../../assets/images/map.png';
+import earthIcon from '../../assets/images/earth.png';
 import './countryPage.scss';
 
 const CountryPage = () => {
   const { country } = useParams();
+  const [isLoader, setIsLoader] = useState(true);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -33,6 +35,7 @@ const CountryPage = () => {
         fetchClass.getPlacesByCountry(country)
           .then((places) => {
             dispatch(setPlacesByCountry(places));
+            setIsLoader(false);
           });
       })
       .catch((err) => {
@@ -42,7 +45,6 @@ const CountryPage = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   const countryData = useSelector((rootState) => rootState.control.countryConfig);
   const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
 
@@ -51,6 +53,18 @@ const CountryPage = () => {
 
   console.log('mainPlace ', mainPlace);
   console.log('video ', video);
+
+  if (isLoader) {
+    return (
+      <div className="country-page__loader">
+        <img
+          className="country-page__loader-icon"
+          src={earthIcon}
+          alt="earth-icon"
+        />
+      </div>
+    );
+  }
 
   return (
     <main className="country-page">
@@ -93,7 +107,7 @@ const CountryPage = () => {
         </div>
       </div>
       <div className="country-page__map">
-        <img src={mapImg} alt="map example" />
+        <CountryMap />
       </div>
     </main>
   );

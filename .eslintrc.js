@@ -24,7 +24,6 @@ module.exports = {
     'react/prop-types': 0,
     'linebreak-style': 0,
     'no-param-reassign': 1,
-    'react/jsx-props-no-spreading': 1,
     'jsx-a11y/no-autofocus': 1,
     'no-unused-vars': 1,
     'no-underscore-dangle': 0,
