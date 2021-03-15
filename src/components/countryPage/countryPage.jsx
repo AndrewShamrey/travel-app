@@ -84,7 +84,10 @@ const CountryPage = () => {
               <img src={exchangeRatesWidget} alt="Exchange rates widget" />
             </div>
           </div>
-          <PageImageGallery />
+          <PageImageGallery
+            countryData={countryData}
+            currentPlaces={currentPlaces}
+          />
           <div className="country-page__video">
             <img
               className="country-page__image"
