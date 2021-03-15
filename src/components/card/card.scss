@@ -24,6 +24,11 @@
   position: relative;
   cursor: pointer;
 
+  &:hover {    
+    box-shadow: 0 0 20px 3px #ffe325;
+    transform: scale(1.02);
+  }  
+
   @media (max-width: $size-lg) {
     width: 27vw;
     height: 20vw;
@@ -50,9 +55,8 @@
     left: 0;
   }
 
-  &:hover {    
-    box-shadow: 0 0 20px 3px #ffe325;
-    transform: scale(1.02);
+  &__name {
+    text-transform: uppercase;
   }
 }
 
