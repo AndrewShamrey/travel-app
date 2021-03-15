@@ -9,12 +9,11 @@ import icon from '../../assets/images/pin.png';
 
 const CountryMap = () => {
   const mapRef = React.createRef(null);
-  const currentCountry = useSelector((rootState) => rootState.control);
-  const { applicationLanguage } = currentCountry;
+  const { applicationLanguage } = useSelector((rootState) => rootState.control);
   const mapLanguage = `${applicationLanguage}_${applicationLanguage === 'en' ? 'US' : 'RU'}`;
   const {
     shortName, latlng, capitalCoord, iso3166,
-  } = currentCountry.countryConfig;
+  } = useSelector((rootState) => rootState.control.countryConfig);
 
   const getRegions = (ymaps) => {
     if (mapRef && mapRef.current) {
@@ -58,6 +57,9 @@ const CountryMap = () => {
         lang="en_US"
         onLoad={(ymaps) => getRegions(ymaps)}
         instanceRef={mapRef}
+        options={{
+          minZoom: 2,
+        }}
       >
         <Placemark
           modules={['geoObject.addon.balloon']}
