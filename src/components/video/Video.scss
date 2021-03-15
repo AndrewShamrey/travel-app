@@ -1,6 +1,8 @@
 @import '~video-react/styles/scss/video-react';
 
 .Video {
-  width: 500px;
-  height: 300px;
+  width: 100%;
+  height: auto;
+  min-width: 300px;
+  min-height: 250px;
 }

@@ -47,7 +47,10 @@ const CountryPage = () => {
   const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
 
   const { name, capital, description } = countryData.info[currentLanguage];
-  const { mainPlace } = countryData;
+  const { mainPlace, video } = countryData;
+
+  console.log('mainPlace ', mainPlace);
+  console.log('video ', video);
 
   return (
     <main className="country-page">
@@ -82,7 +85,10 @@ const CountryPage = () => {
             />
           </div>
           <div className="country-page__video">
-            <Video />
+            <Video
+              src={`${video}`}
+              poster={mainPlace.image}
+            />
           </div>
         </div>
       </div>
