@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
+import Video from '../video/Video';
 import CountryMap from '../map/Map';
 import dateWidget from '../../assets/images/date-widget.png';
 import weatherWidget from '../../assets/images/weather-widget.png';
@@ -48,7 +49,7 @@ const CountryPage = () => {
   const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
 
   const { name, capital, description } = countryData.info[currentLanguage];
-  const { mainPlace } = countryData;
+  const { mainPlace, video } = countryData;
 
   if (isLoader) {
     return (
@@ -95,10 +96,9 @@ const CountryPage = () => {
             />
           </div>
           <div className="country-page__video">
-            <img
-              className="country-page__image"
-              src={mainPlace.image}
-              alt="example"
+            <Video
+              src={`${video}`}
+              poster={mainPlace.image}
             />
           </div>
         </div>
