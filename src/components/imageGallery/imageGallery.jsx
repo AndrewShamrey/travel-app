@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import ImageGallery from 'react-image-gallery';
 import { useSelector } from 'react-redux';
-
+import PlacesRating from '../placesRating/placesRating';
 import './imageGallery.scss';
 
 const PageImageGallery = () => {
   const [imgId, setImgId] = useState(0);
-  const countryData = useSelector((rootState) => rootState.control.countryConfig);
-  const currentCountry = countryData.shortName;
-  console.log('in the gallery, currentCountry is:', currentCountry);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   console.log('currentPlaces are:', currentPlaces);
@@ -40,9 +37,7 @@ const PageImageGallery = () => {
           {descriptions[imgId]}
         </p>
       </div>
-      <div className="country-page__gallery_rating">
-        stars
-      </div>
+      <PlacesRating />
     </div>
   );
 };

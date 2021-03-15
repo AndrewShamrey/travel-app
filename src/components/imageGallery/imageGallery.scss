@@ -84,18 +84,6 @@
       }
     }
   }
-  &_rating {
-    position: absolute;
-    right: 5px;
-    top: 7%;
-    height: 1rem;
-    color: $yellow;
-    z-index: 5;
-    &:hover {
-      color: blue;
-      transform: scale(1.2);
-    }
-  }
 }
 .image-gallery-right-nav, .image-gallery-left-nav {
   top: 40%;
@@ -128,7 +116,7 @@
 }
 .image-gallery-slide {
   .image-gallery-description {
-    bottom: 20%;
+    bottom: 24%;
     @media screen and (max-width: $size-md) {
       font-size: 0.9rem;
     }
