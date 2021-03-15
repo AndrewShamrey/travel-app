@@ -2,6 +2,15 @@
 @import '../../sass/colors.scss';
 @import '../../sass/transitions.scss';
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
 .search {
   width: 375px;
   display: flex;
@@ -17,9 +26,26 @@
     }
   }
 
+  &__spinner {
+    font-size: 12px;
+    color: inherit;
+    background: transparent;
+    border-radius: 5%;
+    border: none;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translate(0, -50%);
+
+    i {
+      animation: rotate 0.5s linear infinite;
+    }
+  }
+
   &__input {
     padding: 5px;
     width: 100%;
+    font-size: 14px;
     color: $lightGrey;
     background-color: $transparentWhite;
     border: none;

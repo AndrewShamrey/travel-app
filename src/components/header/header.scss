@@ -36,7 +36,8 @@
   padding: 10px 20px;
   width: 100%;
   background-color: $blue;
-  color: $white;
+  color: $white;  
+  box-shadow: 0 0 20px -6px $lightBlueShadow;
   display: flex;
   justify-content: space-between;
   align-items: center;
