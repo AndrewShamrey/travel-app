@@ -7,18 +7,16 @@
   max-height: calc(100vh - 110px);
   position: relative;
   display: flex;
-  // flex-direction: column;
 
   @media (max-width: $size-md) {
+    flex-direction: column;
     max-height: unset;
   }
 
   &__map {
-    // max-width: 70%;
     flex-grow: 1;
     background-color: $white;
     margin: 5px;
-    padding: 15px 5px;
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 15px 0px $blue;

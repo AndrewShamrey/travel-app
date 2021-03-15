@@ -11,8 +11,9 @@ const CountryMap = () => {
   const mapRef = React.createRef(null);
   const currentCountry = useSelector((rootState) => rootState.control);
   const { applicationLanguage } = currentCountry;
+  const mapLanguage = `${applicationLanguage}_${applicationLanguage === 'en' ? 'US' : 'RU'}`;
   const {
-    shortName, latlng, capitalCoord, currency: { code },
+    shortName, latlng, capitalCoord, iso3166,
   } = currentCountry.countryConfig;
 
   const getRegions = (ymaps) => {
@@ -25,7 +26,7 @@ const CountryMap = () => {
         })
         .then((result) => {
           result.features.forEach((el) => {
-            if (el.properties.iso3166 === code.slice(0, 2)) {
+            if (el.properties.iso3166 === iso3166) {
               el.id = el.properties.iso3166;
               el.options = {
                 fillOpacity: 0.6,
@@ -44,13 +45,13 @@ const CountryMap = () => {
   };
 
   return (
-    <YMaps>
+    <YMaps key={mapLanguage} query={{ lang: mapLanguage }}>
       <Map
         defaultState={{
           center: latlng,
           zoom: 3,
           controls: ['zoomControl', 'fullscreenControl'],
-          lang: 'en_US',
+          lang: mapLanguage,
         }}
         modules={['control.ZoomControl', 'control.FullscreenControl', 'borders', 'ObjectManager']}
         className="map"
@@ -69,7 +70,7 @@ const CountryMap = () => {
             iconLayout: 'default#image',
             iconImageHref: icon,
             iconImageSize: [30, 30],
-            // iconImageOffset: [-15, -30],
+            iconImageOffset: [0, -30],
           }}
         />
         <TypeSelector options={{ float: 'right' }} />
