@@ -37,7 +37,7 @@ const PageImageGallery = () => {
           {descriptions[imgId]}
         </p>
       </div>
-      {isAuthorized && <PlacesRating />}
+      {isAuthorized && <PlacesRating idPlace={imgId} />}
     </div>
   );
 };
