@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { exchangeRatesAPI } from '../../utils/exchangeAPI';
+import './exchangeRatesWidget.scss';
 
 const ExchangeRateWidget = () => {
   const currency = useSelector((rootState) => rootState.control.countryConfig.currency.code);
@@ -19,21 +20,25 @@ const ExchangeRateWidget = () => {
     getExchangeRates();
   }, [getExchangeRates]);
 
+  console.log(rates);
+
   return (
-    <div>
-      <p>Exchange Rates</p>
-      <ul>
-        <li>
-          <span>EUR</span>
-          <span>{rates.EUR || 'Not found'}</span>
+    <div className="exchange-rates-widget">
+      <p className="exchange-rates-widget__title">
+        {`${currency} exchange rates`}
+      </p>
+      <ul className="exchange-rates-widget__list">
+        <li className="exchange-rates-widget__list-item">
+          <span className="exchange-rates-widget__currency">EUR</span>
+          <span className="exchange-rates-widget__value">{rates.EUR || 'Not found'}</span>
         </li>
-        <li>
-          <span>USD</span>
-          <span>{rates.USD || 'Not found'}</span>
+        <li className="exchange-rates-widget__list-item">
+          <span className="exchange-rates-widget__currency">USD</span>
+          <span className="exchange-rates-widget__value">{rates.USD || 'Not found'}</span>
         </li>
-        <li>
-          <span>BYN</span>
-          <span>{rates.BYN || 'Not found'}</span>
+        <li className="exchange-rates-widget__list-item">
+          <span className="exchange-rates-widget__currency">BYN</span>
+          <span className="exchange-rates-widget__value">{rates.BYN || 'Not found'}</span>
         </li>
       </ul>
     </div>

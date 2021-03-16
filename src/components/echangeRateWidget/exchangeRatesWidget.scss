@@ -1,0 +1,37 @@
+@import '../../sass/breakpoints.scss';
+@import '../../sass/colors.scss';
+
+.exchange-rates-widget {
+  padding: 10px 15px;
+  width: 180px;
+  height: fit-content;
+  font-size: 14px;
+  text-align: center;
+  background: $white;
+  box-shadow: 0px 2px 7px 1px $greyShadow;
+  border-radius: 5px;
+
+  &__title {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  &__list {
+    &-item {
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__currency {
+    // padding: 0 5px;
+    text-align: left;
+    // width: 60px;
+  }
+
+  &__value {
+    text-align: right;
+    // min-width: 65%;
+  }
+}

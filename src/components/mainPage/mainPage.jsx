@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ALL_COUNTRIES } from '../../utils/constants';
 import Card from '../card/card';
-// import ExchangeRateWidget from '../echangeRateWidget/exchangeRateWidget';
 import './mainPage.scss';
 
 const MainPage = () => {

@@ -9,7 +9,7 @@ import Video from '../video/Video';
 import CountryMap from '../map/Map';
 import dateWidget from '../../assets/images/date-widget.png';
 import weatherWidget from '../../assets/images/weather-widget.png';
-import exchangeRatesWidget from '../../assets/images/exchange-rates-widget.png';
+import ExchangeRateWidget from '../echangeRateWidget/exchangeRateWidget';
 import earthIcon from '../../assets/images/earth.png';
 import './countryPage.scss';
 
@@ -91,7 +91,7 @@ const CountryPage = () => {
               <img src={weatherWidget} alt="Weather widget" />
             </div>
             <div className="country-page__widget">
-              <img src={exchangeRatesWidget} alt="Exchange rates widget" />
+              <ExchangeRateWidget />
             </div>
           </div>
           <PageImageGallery />
