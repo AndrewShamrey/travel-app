@@ -1,9 +1,19 @@
 @import '../../sass/breakpoints.scss';
 @import '../../sass/colors.scss';
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
 .exchange-rates-widget {
-  padding: 10px 20px;
-  width: 180px;
+  padding: 10px 25px;
+  min-width: 150px;
+  min-height: 113px;
   height: fit-content;
   font-family: 'Roboto', 'Open Sans', monospace;
   font-size: 14px;
@@ -11,6 +21,32 @@
   background: $white;
   box-shadow: 0px 2px 7px 1px $transparentBlack;
   border-radius: 5px;
+  position: relative;
+
+  &__reload-btn {
+    margin: 10px 0;
+    font-size: 18px;
+    color: $grey;
+    border: none;
+    background: transparent;
+    // position: absolute;
+    // top: 5px;
+    // right: 5px;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &__spinner {
+    margin-top: 10px;
+    font-size: 20px;
+    color: $grey;
+    display: inline-block;
+    animation: rotate 0.5s linear infinite;
+  }
 
   &__title {
     margin-bottom: 10px;
