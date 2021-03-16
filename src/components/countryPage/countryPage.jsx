@@ -3,11 +3,11 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
+import DateWidget from '../dateWidget/dateWidget';
 import { CAPITAL_TITLES } from '../../utils/constants';
 import PageImageGallery from '../imageGallery/imageGallery';
 import Video from '../video/Video';
 import CountryMap from '../map/Map';
-import dateWidget from '../../assets/images/date-widget.png';
 import weatherWidget from '../../assets/images/weather-widget.png';
 import ExchangeRateWidget from '../echangeRateWidget/exchangeRateWidget';
 import earthIcon from '../../assets/images/earth.png';
@@ -84,9 +84,7 @@ const CountryPage = () => {
           />
           <p className="country-page__description">{description}</p>
           <div className="country-page__widgets">
-            <div className="country-page__widget">
-              <img src={dateWidget} alt="Date widget" />
-            </div>
+            <DateWidget />
             <div className="country-page__widget">
               <img src={weatherWidget} alt="Weather widget" />
             </div>
