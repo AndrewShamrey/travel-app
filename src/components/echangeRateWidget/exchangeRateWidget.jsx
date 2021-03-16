@@ -1,13 +1,18 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import exchangeRatesAPI from '../../utils/exchangeAPI';
+import exchangeRatesAPI from '../../utils/exchangeRatesAPI';
+import { EXCHANGE_RATE_VALUES } from '../../utils/constants';
 import './exchangeRatesWidget.scss';
 
 const ExchangeRateWidget = () => {
-  const currency = useSelector((rootState) => rootState.control.countryConfig.currency.code);
   const [rates, setRates] = useState({});
   const [isLoader, setIsLoader] = useState(true);
   const [isError, setIsError] = useState(false);
+
+  const currency = useSelector((rootState) => rootState.control.countryConfig.currency.code);
+  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
+
+  const { title, error } = EXCHANGE_RATE_VALUES[currentLanguage];
 
   const getExchangeRates = useCallback(async () => {
     try {
@@ -38,7 +43,7 @@ const ExchangeRateWidget = () => {
   return (
     <div className="exchange-rates-widget">
       <p className="exchange-rates-widget__title">
-        {`${currency} exchange rates`}
+        {`${currency} ${title}`}
       </p>
       <div className="exchange-rates-widget__list">
         {isLoader && (
@@ -55,7 +60,7 @@ const ExchangeRateWidget = () => {
             >
               <i className="fas fa-sync-alt" />
             </button>
-            <p>Server is not available</p>
+            <p>{error}</p>
           </>
         )}
         {!isError && !isLoader && (

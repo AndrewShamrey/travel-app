@@ -1,9 +1,8 @@
-import { MAIN_PLACES } from '../../utils/constants';
 import './card.scss';
 
-const Card = ({ country, capital, index }) => (
+const Card = ({ country, capital, image }) => (
   <div className="country-card" role="presentation">
-    <img src={MAIN_PLACES[index]} alt="place" className="country-card__image" />
+    <img src={image} alt="place" className="country-card__image" />
     <p className="country-card__title">
       <span className="country-card__name">{country}</span>
       {' - '}
