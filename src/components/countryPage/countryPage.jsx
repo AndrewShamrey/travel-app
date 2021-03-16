@@ -19,6 +19,13 @@ const CountryPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
+  const mainPlace = useSelector((rootState) => rootState.control.countryConfig.mainPlace);
+  const video = useSelector((rootState) => rootState.control.countryConfig.video);
+  const { name, capital, description } = useSelector((rootState) => (
+    rootState.control.countryConfig.info[currentLanguage]
+  ));
+
   useEffect(() => {
     const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
 
@@ -46,12 +53,6 @@ const CountryPage = () => {
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const countryData = useSelector((rootState) => rootState.control.countryConfig);
-  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
-
-  const { name, capital, description } = countryData.info[currentLanguage];
-  const { mainPlace, video } = countryData;
 
   if (isLoader) {
     return (
