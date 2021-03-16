@@ -1,5 +1,6 @@
+@import "./../../sass/colors.scss";
 .main-page {
-  // display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(180deg, $blue, $lightGrey);
+  max-width: 100vw;
 }

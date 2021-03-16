@@ -6,7 +6,7 @@ const initialState = {
   searchValue: '',
   applicationLanguage: DEFAULT_LANGUAGE,
   countryConfig: DEFAULT_COUNTRY_CONFIG,
-  currentPlaces: null,
+  currentPlaces: [],
   isAuthorized: false,
   currentPerson: null,
 };
