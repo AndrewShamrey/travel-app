@@ -11,8 +11,8 @@
 }
 
 .country-page {
+  max-width: 100vw;
   $blockMarginBottom: 15px;
-
   max-height: calc(100vh - 110px);
   position: relative;
   display: flex;

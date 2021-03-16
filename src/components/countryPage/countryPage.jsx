@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
+import { CAPITAL_TITLES } from '../../utils/constants';
 import PageImageGallery from '../imageGallery/imageGallery';
 import Video from '../video/Video';
 import CountryMap from '../map/Map';
@@ -52,11 +53,6 @@ const CountryPage = () => {
   const { name, capital, description } = countryData.info[currentLanguage];
   const { mainPlace, video } = countryData;
 
-  const capitalTitle = {
-    en: 'Capital',
-    ru: 'Столица',
-    be: 'Сталіца',
-  };
   if (isLoader) {
     return (
       <div className="country-page__loader">
@@ -76,7 +72,7 @@ const CountryPage = () => {
           <div className="country-page__country">
             <h2 className="country-page__name">{name}</h2>
             <p className="country-page__capital">
-              {capitalTitle[currentLanguage]}
+              {CAPITAL_TITLES[currentLanguage]}
               :&nbsp;
               {capital}
             </p>

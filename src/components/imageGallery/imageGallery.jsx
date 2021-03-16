@@ -25,13 +25,13 @@ const PageImageGallery = () => {
     setImgId(0);
   }, [lang]);
 
-  const GetIdImage = (id) => {
+  const getIdImage = (id) => {
     setImgId(id);
   };
 
   return (
     <div className="country-page__gallery">
-      <ImageGallery items={imagesForCarousel} onSlide={GetIdImage} />
+      <ImageGallery items={imagesForCarousel} onSlide={getIdImage} />
       <div className="country-page__gallery_description-block">
         <p className="country-page__gallery_description-block_text">
           {descriptions[imgId]}
