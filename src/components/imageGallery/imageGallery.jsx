@@ -9,8 +9,6 @@ const PageImageGallery = () => {
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const isAuthorized = useSelector((rootState) => rootState.control.isAuthorized);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
-  console.log('currentPlaces are:', currentPlaces);
-
   const descriptions = currentPlaces.map((place) => place.info[lang].description);
 
   const imagesForCarousel = currentPlaces.map((place) => ({
@@ -24,6 +22,7 @@ const PageImageGallery = () => {
   }));
 
   useEffect(() => {
+    setImgId(0);
   }, [lang]);
 
   const GetIdImage = (id) => {
