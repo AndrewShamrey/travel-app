@@ -2,23 +2,18 @@
 /* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-// import Star from './star';
+import FetchData from '../../utils/fetchData';
+import RatingList from './ratingList';
 import './placesRating.scss';
-
-function Star({ name }) {
-  console.log('here');
-
-  return (
-    <i className={`fas fa-star ${name}`} />
-  );
-}
 
 const PlacesRating = ({ idPlace }) => {
   const [currentRate, setCurrentRate] = useState([false, false, false, false, false]);
+  const [isListShown, setIsListShown] = useState(false);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   const placeRate = currentPlaces[idPlace].rating;
-  console.log(currentPlaces);
+  const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
+  console.log(currentPerson._id, currentPlaces);
   console.log(currentPlaces[idPlace].info[lang].name, placeRate);
 
   useEffect(() => {
@@ -46,8 +41,16 @@ const PlacesRating = ({ idPlace }) => {
       if (i <= ind) clickStates[i] = true;
       else clickStates[i] = false;
     }
-
     setCurrentRate(clickStates);
+
+    // const body = {
+    //   rating: ind + 1,
+    //   personsId: currentPerson._id, // нет такого поля сейчас
+    // };
+    // const id = currentPlaces[idPlace]._id;
+
+    // const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+    // fetchClass.updatePlaceById(body, id).catch((err) => console.log('Error - ', err));
   };
 
   const yellowStar = 'fas fa-star star yellow';
@@ -66,6 +69,7 @@ const PlacesRating = ({ idPlace }) => {
       <button type="button" className="show-ratings">
         <i className="far fa-question-circle" />
       </button>
+      { isListShown && <RatingList /> }
     </div>
   );
 };
