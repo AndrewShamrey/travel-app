@@ -1,0 +1,15 @@
+@import "../../sass/colors.scss";
+@import "../../sass/breakpoints.scss";
+
+.country-page__gallery_rating {
+  position: absolute;
+  right: 5px;
+  top: 7%;
+  height: 1rem;
+  color: $yellow;
+  z-index: 5;
+  &:hover {
+    color: blue;
+    transform: scale(1.2);
+  }
+}
