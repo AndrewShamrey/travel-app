@@ -393,3 +393,9 @@ export const ERROR_PAGE_TEXT = {
   ru: 'Упс! Нет такой страницы.',
   be: 'Упс! Няма такой старонкі.',
 };
+
+export const CAPITAL_TITLES = {
+  en: 'Capital',
+  ru: 'Столица',
+  be: 'Сталіца',
+};

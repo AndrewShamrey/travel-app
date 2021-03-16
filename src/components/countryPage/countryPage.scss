@@ -11,8 +11,8 @@
 }
 
 .country-page {
+  max-width: 100vw;
   $blockMarginBottom: 15px;
-
   max-height: calc(100vh - 110px);
   position: relative;
   display: flex;
@@ -124,6 +124,7 @@
     box-shadow: 10px -1px 0px 1px $white, -10px -1px 0px 1px $white, 0 3px 7px 0px $greyShadow;
     position: sticky;
     top: 0;
+    z-index: 10;
 
     @media (max-width: $size-md) {
       position: relative;
@@ -133,10 +134,11 @@
 
   &__name {
     margin-bottom: 5px;
+    color: $blue;
   }
 
   &__capital {
-    font-size: 12px;
+    font-size: 0.9rem;
   }
 
   &__widgets {

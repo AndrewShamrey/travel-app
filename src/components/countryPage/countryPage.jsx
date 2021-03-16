@@ -3,6 +3,8 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
+import { CAPITAL_TITLES } from '../../utils/constants';
+import PageImageGallery from '../imageGallery/imageGallery';
 import Video from '../video/Video';
 import CountryMap from '../map/Map';
 import dateWidget from '../../assets/images/date-widget.png';
@@ -69,7 +71,11 @@ const CountryPage = () => {
         <div className="country-page__info">
           <div className="country-page__country">
             <h2 className="country-page__name">{name}</h2>
-            <p className="country-page__capital">{capital}</p>
+            <p className="country-page__capital">
+              {CAPITAL_TITLES[currentLanguage]}
+              :&nbsp;
+              {capital}
+            </p>
           </div>
           <img
             className="country-page__image"
@@ -88,13 +94,7 @@ const CountryPage = () => {
               <img src={exchangeRatesWidget} alt="Exchange rates widget" />
             </div>
           </div>
-          <div className="country-page__gallery">
-            <img
-              className="country-page__image"
-              src={mainPlace.image}
-              alt="example"
-            />
-          </div>
+          <PageImageGallery />
           <div className="country-page__video">
             <Video
               src={`${video}`}
