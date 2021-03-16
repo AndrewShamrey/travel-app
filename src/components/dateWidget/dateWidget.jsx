@@ -12,11 +12,12 @@ const DateWidget = () => {
     const month = DATE_CONFIG[lang].month[date.getUTCMonth()];
     const weekday = DATE_CONFIG[lang].weekday[date.getUTCDay()];
     const day = date.getUTCDate();
+    const year = date.getFullYear();
     const hrs = date.getUTCHours().toString().padStart(2, '0');
     const mins = date.getUTCMinutes().toString().padStart(2, '0');
     const secs = date.getUTCSeconds().toString().padStart(2, '0');
     return {
-      month, weekday, day, hrs, mins, secs,
+      year, month, weekday, day, hrs, mins, secs,
     };
   }, [lang]);
 
@@ -34,24 +35,33 @@ const DateWidget = () => {
   }, [tick]);
 
   const {
-    day, hrs, mins, month, secs, weekday,
+    day, hrs, mins, month, secs, weekday, year,
   } = time;
 
   return (
     <div className="country-page__widget">
-      <p className="time">
-        {hrs}
-        :
-        {mins}
-        :
-        {secs}
-      </p>
-      <p className="date">
-        {day}
-        {month}
-        ,
-        {weekday}
-      </p>
+      <div className="country-page__widget_time">
+        <p className="time">
+          {hrs}
+          :
+          {mins}
+          :
+          {secs}
+        </p>
+        <p className="date">
+          <span className="date__weekday">
+            {weekday}
+            ,
+          </span>
+          <span className="date__whole-date">
+            {day}
+            &nbsp;
+            {month}
+            &nbsp;
+            {year}
+          </span>
+        </p>
+      </div>
     </div>
   );
 };
