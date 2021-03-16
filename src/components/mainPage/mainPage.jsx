@@ -2,10 +2,12 @@
 import { Link } from 'react-router-dom';
 import { ALL_COUNTRIES } from '../../utils/constants';
 import Card from '../card/card';
+import ExchangeRateWidget from '../echangeRateWidget/exchangeRateWidget';
 import './mainPage.scss';
 
 const MainPage = () => (
   <div className="main-page">
+    <ExchangeRateWidget />
     <div className="cards-cont">
       {ALL_COUNTRIES.map((item, index) => {
         const path = `/country/${item}`;
