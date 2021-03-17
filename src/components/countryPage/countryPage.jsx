@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
 import DateWidget from '../dateWidget/dateWidget';
-import { CAPITAL_TITLES } from '../../utils/constants';
+import { CAPITAL_TITLES } from '../../utils/vocabulary';
 import PageImageGallery from '../imageGallery/imageGallery';
 import Video from '../video/Video';
 import CountryMap from '../map/Map';

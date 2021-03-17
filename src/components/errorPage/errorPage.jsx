@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { ERROR_PAGE_TEXT } from '../../utils/constants';
+import { ERROR_PAGE_TEXT } from '../../utils/vocabulary';
 import './errorPage.scss';
 
 export default function ErrorPage() {

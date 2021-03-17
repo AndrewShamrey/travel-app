@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
-import { DEFAULT_PHOTO, AUTHORIZATION_INFO, MAX_IMAGE_SIZE } from '../../utils/constants';
+import { AUTHORIZATION_INFO } from '../../utils/vocabulary';
+import { DEFAULT_PHOTO, MAX_IMAGE_SIZE } from '../../utils/constants';
 import DeleteIMG from '../../assets/images/error.svg';
 import './authPage.css';
 
@@ -103,11 +104,12 @@ const LogInPage = () => {
           return;
         }
 
-        setActiveSubmit(false);
-
-        const { nickname, photo } = newPerson;
-        dispatch(setCurrentPerson({ nickname, photo }));
-        dispatch(setIsAuthorized(true));
+        fetchClass.getPersonByNameAndPass(newPerson.nickname, newPerson.pass)
+          .then(([person]) => {
+            setActiveSubmit(false);
+            dispatch(setCurrentPerson(person));
+            dispatch(setIsAuthorized(true));
+          });
       })
       .catch((err) => console.log('Error - ', err));
   };

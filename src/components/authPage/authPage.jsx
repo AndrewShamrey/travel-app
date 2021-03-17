@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { ReactComponent as ArrowLeft } from '../../assets/images/arrow-left.svg';
 import BackButton from './styledNav';
-import { AUTHORIZATION_INFO } from '../../utils/constants';
+import { AUTHORIZATION_INFO } from '../../utils/vocabulary';
 import LogInPage from './loginPage';
 import SignInPage from './signinPage';
 import './authPage.css';
