@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
-import RatingList from './ratingList';
+import RatingList from '../ratingList/ratingList';
 import './placesRating.scss';
 
 const PlacesRating = ({ idPlace }) => {
