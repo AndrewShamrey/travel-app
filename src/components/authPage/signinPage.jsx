@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
 import { AUTHORIZATION_INFO } from '../../utils/vocabulary';
-import { DEFAULT_PHOTO, MAX_IMAGE_SIZE } from '../../utils/constants';
+import { DEFAULT_PHOTO, MAX_IMAGE_SIZE, BACK_URL } from '../../utils/constants';
 import DeleteIMG from '../../assets/images/error.svg';
 import './authPage.css';
 
 const LogInPage = () => {
-  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+  const fetchClass = new FetchData(BACK_URL);
 
   const dispatch = useDispatch();
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
