@@ -12,15 +12,8 @@ const weatherAPI = {
       const data = await response.json();
 
       const { id: icon, description } = data.weather[0];
-      const { temp } = data.main;
-      const { humidity } = data.main;
+      const { temp, humidity } = data.main;
       const wind = data.wind.speed;
-      // htmlElements.city.value = city;
-      // htmlElements.wind.innerText = `Wind: ${wind} m/s`;
-      // htmlElements.temperature.innerText = `${temp} °C`;
-      // htmlElements.humidity.innerText = `Humidity: ${humidity}%`;
-      // htmlElements.icon.className += ` owf owf-${icon}`
-      // htmlElements.error.innerText = '';
 
       return {
         icon, description, temp, humidity, wind,
