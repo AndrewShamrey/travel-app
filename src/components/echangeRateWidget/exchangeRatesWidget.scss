@@ -1,5 +1,6 @@
 @import '../../sass/breakpoints.scss';
 @import '../../sass/colors.scss';
+@import '../../sass/transitions.scss';
 
 .exchange-rates-widget {
   padding: 10px 25px;
@@ -21,6 +22,7 @@
     border: none;
     background: transparent;
     outline: none;
+    transition: $color-transition;
     cursor: pointer;
 
     &:hover {
