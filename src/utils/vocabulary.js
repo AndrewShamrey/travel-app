@@ -61,6 +61,21 @@ export const SEARCH__PLACEHOLDER = {
   be: 'Пошук...',
 };
 
+export const EXCHANGE_RATE_VALUES = {
+  en: {
+    title: 'exchange rates',
+    error: 'Server is not available',
+  },
+  ru: {
+    title: 'курсы обмена',
+    error: 'Сервер недоступен',
+  },
+  be: {
+    title: 'курсы абмену',
+    error: 'Сервер недаступны',
+  },
+};
+
 export const AUTHORIZATION_BTN_MENU = {
   en: {
     login: 'LogIn',
@@ -84,210 +99,3 @@ export const CAPITAL_TITLES = {
   ru: 'Столица',
   be: 'Сталіца',
 };
-
-export const ALL_COUNTRIES = [
-  {
-    en: {
-      name: 'Australia',
-      shortName: 'Australia',
-      capital: 'Canberra',
-    },
-    ru: {
-      name: 'Австралия',
-      shortName: 'Australia',
-      capital: 'Канберра',
-    },
-    be: {
-      name: 'Аўстралія',
-      shortName: 'Australia',
-      capital: 'Канбера',
-    },
-  },
-  {
-    en: {
-      name: 'Brazil',
-      shortName: 'Brazil',
-      capital: 'Brasília',
-    },
-    ru: {
-      name: 'Бразилия',
-      shortName: 'Brazil',
-      capital: 'Бразилиа',
-    },
-    be: {
-      name: 'Бразілія',
-      shortName: 'Brazil',
-      capital: 'Бразіліа',
-    },
-  },
-  {
-    en: {
-      name: 'Vietnam',
-      shortName: 'Vietnam',
-      capital: 'Hanoi',
-    },
-    ru: {
-      name: 'Вьетнам',
-      shortName: 'Vietnam',
-      capital: 'Ханой',
-    },
-    be: {
-      name: 'В’етнам',
-      shortName: 'Vietnam',
-      capital: 'Ханой',
-    },
-  },
-  {
-    en: {
-      name: 'Denmark',
-      shortName: 'Denmark',
-      capital: 'Copenhagen',
-    },
-    ru: {
-      name: 'Дания',
-      shortName: 'Denmark',
-      capital: 'Копенгаген',
-    },
-    be: {
-      name: 'Данія',
-      shortName: 'Denmark',
-      capital: 'Капенгаген',
-    },
-  },
-  {
-    en: {
-      name: 'Egypt',
-      shortName: 'Egypt',
-      capital: 'Cairo',
-    },
-    ru: {
-      name: 'Египет',
-      shortName: 'Egypt',
-      capital: 'Каир',
-    },
-    be: {
-      name: 'Егіпет',
-      shortName: 'Egypt',
-      capital: 'Каір',
-    },
-  },
-  {
-    en: {
-      name: 'India',
-      shortName: 'India',
-      capital: 'New Delhi',
-    },
-    ru: {
-      name: 'Индия',
-      shortName: 'India',
-      capital: 'Нью-Дели',
-    },
-    be: {
-      name: 'Індыя',
-      shortName: 'India',
-      capital: 'Нью-Дэлі',
-    },
-  },
-  {
-    en: {
-      name: 'Italy',
-      shortName: 'Italy',
-      capital: 'Rome',
-    },
-    ru: {
-      name: 'Италия',
-      shortName: 'Italy',
-      capital: 'Рим',
-    },
-    be: {
-      name: 'Італія',
-      shortName: 'Italy',
-      capital: 'Рым',
-    },
-  },
-  {
-    en: {
-      name: 'Canada',
-      shortName: 'Canada',
-      capital: 'Ottawa',
-    },
-    ru: {
-      name: 'Канада',
-      shortName: 'Canada',
-      capital: 'Оттава',
-    },
-    be: {
-      name: 'Канада',
-      shortName: 'Canada',
-      capital: 'Атава',
-    },
-  },
-  {
-    en: {
-      name: 'Thailand',
-      shortName: 'Thailand',
-      capital: 'Bangkok',
-    },
-    ru: {
-      name: 'Таиланд',
-      shortName: 'Thailand',
-      capital: 'Бангкок',
-    },
-    be: {
-      name: 'Тайланд',
-      shortName: 'Thailand',
-      capital: 'Бангкок',
-    },
-  },
-  {
-    en: {
-      name: 'Switzerland',
-      shortName: 'Switzerland',
-      capital: 'Bern',
-    },
-    ru: {
-      name: 'Швейцария',
-      shortName: 'Switzerland',
-      capital: 'Берн',
-    },
-    be: {
-      name: 'Швейцарыя',
-      shortName: 'Switzerland',
-      capital: 'Берн',
-    },
-  },
-  {
-    en: {
-      name: 'France',
-      shortName: 'France',
-      capital: 'Paris',
-    },
-    ru: {
-      name: 'Франция',
-      shortName: 'France',
-      capital: 'Париж',
-    },
-    be: {
-      name: 'Францыя',
-      shortName: 'France',
-      capital: 'Парыж',
-    },
-  },
-  {
-    en: {
-      name: 'Japan',
-      shortName: 'Japan',
-      capital: 'Tokio',
-    },
-    ru: {
-      name: 'Япония',
-      shortName: 'Japan',
-      capital: 'Токио',
-    },
-    be: {
-      name: 'Японія',
-      shortName: 'Japan',
-      capital: 'Токіа',
-    },
-  },
-];

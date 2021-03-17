@@ -28,7 +28,6 @@ const controlReducer = (state = initialState, action) => {
       });
     case ACTION_TYPES.SET_PREV_STATE:
       return produce(state, (draft) => {
-        draft.searchValue = action.prevState.searchValue;
         draft.applicationLanguage = action.prevState.applicationLanguage;
         draft.countryConfig = action.prevState.countryConfig;
         draft.currentPlaces = action.prevState.currentPlaces;

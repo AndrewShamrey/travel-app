@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchValue } from '../../actions/control';
 import { SEARCH__PLACEHOLDER } from '../../utils/vocabulary';
+import Spinner from '../spinner/spinner';
 import './search.scss';
 
 const Search = ({ isMenuOpen }) => {
@@ -56,11 +57,7 @@ const Search = ({ isMenuOpen }) => {
           onChange={searchFieldChangeHandler}
           onKeyDown={handlerOnKeydown}
         />
-        { isSpinner && (
-          <span className="search__spinner">
-            <i className="fas fa-spinner" />
-          </span>
-        )}
+        { isSpinner && <Spinner additionalClassName="search__spinner" />}
         <button
           className="search__delete-icon"
           type="button"
