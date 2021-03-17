@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPerson } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
 import { DEFAULT_PHOTO, MAX_IMAGE_SIZE } from '../../utils/constants';
-import { AUTHORIZATION_INFO } from '../../utils/vocabulary';
+import { AUTHORIZATION_INFO, USER_MODAL } from '../../utils/vocabulary';
 import './userModal.scss';
 
-const UserModal = () => {
+const UserModal = ({ toggleModal }) => {
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const currentUser = useSelector((rootState) => rootState.control.currentPerson);
 
@@ -61,47 +61,56 @@ const UserModal = () => {
   };
 
   return (
-    <div className="user-modal">
-      <p className="user-modal__name">{`Name: ${nickname}`}</p>
-      <img
-        className="user-modal__photo"
-        src={imgURL || photo || DEFAULT_PHOTO}
-        alt="User"
-      />
-      <div className="user-modal__controls">
-        <label
-          className="user-modal__change-photo user-modal__button"
-          htmlFor="user-photo"
-        >
-          Change photo
-          <input
-            type="file"
-            id="user-photo"
-            onChange={loadFile}
-          />
-        </label>
+    <div className="backdrop">
+      <div className="user-modal">
         <button
           type="button"
-          className="user-modal__button"
-          disabled={!imgURL}
-          onClick={confirm}
+          className="user-modal__close"
+          onClick={toggleModal}
         >
-          Confirm
+          <i className="far fa-times-circle" />
         </button>
-        <button
-          type="button"
-          className="user-modal__button"
-          disabled={!imgURL}
-          onClick={reset}
-        >
-          Reset
-        </button>
-      </div>
-      {warningImg && (
-        <div className="warning-error">
-          {AUTHORIZATION_INFO[lang].imageSizeWarning}
+        <p className="user-modal__name">{`${USER_MODAL[lang].name}: ${nickname}`}</p>
+        <img
+          className="user-modal__photo"
+          src={imgURL || photo || DEFAULT_PHOTO}
+          alt="User"
+        />
+        <div className="user-modal__controls">
+          <label
+            className="user-modal__change-photo user-modal__button"
+            htmlFor="user-photo"
+          >
+            {USER_MODAL[lang].change}
+            <input
+              type="file"
+              id="user-photo"
+              onChange={loadFile}
+            />
+          </label>
+          <button
+            type="button"
+            className="user-modal__button"
+            disabled={!imgURL}
+            onClick={confirm}
+          >
+            {USER_MODAL[lang].confirm}
+          </button>
+          <button
+            type="button"
+            className="user-modal__button"
+            disabled={!imgURL}
+            onClick={reset}
+          >
+            {USER_MODAL[lang].reset}
+          </button>
         </div>
-      )}
+        {warningImg && (
+          <div className="warning-error">
+            {AUTHORIZATION_INFO[lang].imageSizeWarning}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

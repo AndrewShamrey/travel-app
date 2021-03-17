@@ -81,16 +81,19 @@ export const AUTHORIZATION_BTN_MENU = {
     login: 'LogIn',
     signup: 'SignUp',
     signout: 'SignOut',
+    change: 'Change photo',
   },
   ru: {
     login: 'Войти',
     signup: 'Зарегистрироваться',
     signout: 'Выйти',
+    change: 'Сменить фото',
   },
   be: {
     login: 'Увайсцi',
     signup: 'Зарэгістравацца',
     signout: 'Выйсцi',
+    change: 'Змяніць фота',
   },
 };
 
@@ -118,5 +121,26 @@ export const WEATHER_VALUES = {
     ms: 'м/с',
     humidity: 'Вільготнасць',
     error: 'Сервер недаступны',
+  },
+};
+
+export const USER_MODAL = {
+  en: {
+    name: 'User name',
+    change: 'Change photo',
+    confirm: 'Confirm',
+    reset: 'Reset',
+  },
+  ru: {
+    name: 'Имя пользователя',
+    change: 'Сменить фото',
+    confirm: 'Подтвердить',
+    reset: 'Сбросить',
+  },
+  be: {
+    name: 'Імя карыстальніка',
+    change: 'Змяніць фота',
+    confirm: 'Пацвердзіць',
+    reset: 'Скінуць',
   },
 };
