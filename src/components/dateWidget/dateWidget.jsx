@@ -39,29 +39,27 @@ const DateWidget = () => {
   } = time;
 
   return (
-    <div className="country-page__widget">
-      <div className="country-page__widget_time">
-        <p className="time">
-          {hrs}
-          :
-          {mins}
-          :
-          {secs}
-        </p>
-        <p className="date">
-          <span className="date__weekday">
-            {weekday}
-            ,
-          </span>
-          <span className="date__whole-date">
-            {day}
+    <div className="country-page__widget_time">
+      <p className="time">
+        {hrs}
+        :
+        {mins}
+        :
+        {secs}
+      </p>
+      <p className="date">
+        <span className="date__weekday">
+          {weekday}
+          ,
+        </span>
+        <span className="date__whole-date">
+          {day}
             &nbsp;
-            {month}
+          {month}
             &nbsp;
-            {year}
-          </span>
-        </p>
-      </div>
+          {year}
+        </span>
+      </p>
     </div>
   );
 };

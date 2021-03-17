@@ -1,40 +1,30 @@
 @import '../../sass/breakpoints.scss';
 @import '../../sass/colors.scss';
 
-.exchange-rates-widget {
-  padding: 10px 15px;
+.weather-widget {
+  padding: 5px 15px;
   min-width: 150px;
   min-height: 113px;
   height: fit-content;
   font-family: 'Roboto', 'Open Sans', monospace;
   font-size: 14px;
-  text-align: center;
+  text-align: left;
   background: $white;
   box-shadow: 0px 2px 7px 1px $transparentBlack;
   border-radius: 5px;
+  display: flex;
   position: relative;
 
   @media (max-width: $size-lg) {
-    padding: 10px;
-    min-width: 140px;
+    padding: 5px;
   }
-
+  
   @media (max-width: $size-sm) {
-    padding: 10px 15px;
+    padding: 5px 10px;
   }
 
   @media (max-width: $size-xs) {
-    padding: 10px 45px;
     width: 80%;
-
-    &__list {
-      margin: auto;
-      width: fit-content;
-    }
-
-    &__list-item {
-      width: 150px;
-    }
   }
 
   &__reload-btn {
@@ -51,6 +41,20 @@
     }
   }
 
+  &__content {
+    margin: auto;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > * {
+      margin-bottom: 4px;
+    }
+  }
+
   &__spinner {
     margin-top: 10px;
     font-size: 20px;
@@ -59,27 +63,32 @@
   }
 
   &__title {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: 700;
   }
 
-  &__list {
-    &-item {
-      margin: 5px 0;
-      display: flex;
-      justify-content: space-between;
-
-      &:hover {
-        background-color: $lightGrey;
-      }
-    }
+  &__main {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
   }
 
-  &__currency {
-    text-align: left;
+  &__temperature {
+    margin-right: 5px;
+    font-size: 20px;
   }
 
-  &__value {
-    text-align: right;
+  &__icon.owf {
+    font-size: 40px;
+    color: $blue;
+  }
+
+  &__description::first-letter {
+    text-transform: capitalize;
+  }
+
+  &__description, &__wind, &__humidity {
+    width: 100%;
   }
 }
