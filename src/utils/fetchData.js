@@ -19,6 +19,10 @@ export default class FetchData {
     return this._defaultMethod('POST', 'persons', null, null, body);
   }
 
+  updateAvatar(id, body) {
+    return this._defaultMethod('PATCH', 'persons', null, null, body, id);
+  }
+
   _defaultMethod(method, path = '', name = '', pass = '', body = '', id = '') {
     if (method === 'GET') {
       return fetch(`${this.baseUrl}/${path}/${name}/${pass}`, {

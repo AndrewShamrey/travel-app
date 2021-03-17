@@ -60,15 +60,26 @@ const AuthorizationButton = () => {
       {isMenuOpen && (
         <ul className="authorization-btn__menu">
           {isAuthorized && (
-            <li>
-              <button
-                className="authorization-btn__menu-button"
-                type="button"
-                onClick={toggleAuthorization}
-              >
-                {AUTHORIZATION_BTN_MENU[currentLanguage].signout}
-              </button>
-            </li>
+            <>
+              <li>
+                <button
+                  className="authorization-btn__menu-button"
+                  type="button"
+                  onClick={() => {}}
+                >
+                  Change Photo
+                </button>
+              </li>
+              <li>
+                <button
+                  className="authorization-btn__menu-button"
+                  type="button"
+                  onClick={toggleAuthorization}
+                >
+                  {AUTHORIZATION_BTN_MENU[currentLanguage].signout}
+                </button>
+              </li>
+            </>
           )}
           {!isAuthorized && (
             <>
