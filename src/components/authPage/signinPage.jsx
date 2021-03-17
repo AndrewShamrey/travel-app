@@ -104,11 +104,12 @@ const LogInPage = () => {
           return;
         }
 
-        setActiveSubmit(false);
-
-        const { nickname, photo } = newPerson;
-        dispatch(setCurrentPerson({ nickname, photo }));
-        dispatch(setIsAuthorized(true));
+        fetchClass.getPersonByNameAndPass(newPerson.nickname, newPerson.pass)
+          .then(([person]) => {
+            setActiveSubmit(false);
+            dispatch(setCurrentPerson(person));
+            dispatch(setIsAuthorized(true));
+          });
       })
       .catch((err) => console.log('Error - ', err));
   };
