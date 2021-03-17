@@ -1,0 +1,91 @@
+@import "../../sass/colors.scss";
+@import "../../sass/breakpoints.scss";
+@import "../../sass/transitions.scss";
+
+.rating-list {
+  position: absolute;
+  right: 0.5rem;
+  top: 0;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 0 5px 2px $blueDark,
+  inset 0 0 5px 1px $lightBlue;
+  padding: 1rem 0.5rem 1rem 1rem;
+  background-color: $transparentBlack;
+  border-radius: 10px; 
+  color: $white;
+  border: none;
+
+  @media screen and (max-width: $size-xs) {
+    width: 280px;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: $color-transition;
+    outline: none;
+    color: $white;
+    font-size: 1.5rem;
+    border: none;
+    &:hover {
+      color: $red;
+      transform: scale(1.2);
+    }
+  }
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 2rem);
+    overflow-y: auto;
+    margin-top: 2rem;
+  
+    .rating-list_content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .spinner {
+        align-self: center;
+      }
+      .no-data {
+        align-self: center;
+      }
+      .list-line {
+        display: flex;
+        justify-content: space-between;
+
+        &_rating {
+          width: fit-content;
+          .stars {
+            color: $yellow;
+            font-size: 1rem;
+          }
+        }
+      }
+
+    }
+
+    &::-webkit-scrollbar {      
+      width: 7px;
+      background-color: $darkGrey;
+      border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: $darkGrey;
+      border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: $transparentBlack;
+      &:hover {
+        background-color: $blue;
+      }
+    }
+  }
+}

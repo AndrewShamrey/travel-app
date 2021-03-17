@@ -1,0 +1,136 @@
+@import '../../sass/breakpoints.scss';
+@import '../../sass/colors.scss';
+@import '../../sass/transitions.scss';
+
+@keyframes rotateMenuBtnActive {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateMenuBtnInactive {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes showMenu {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  100% {
+    top: 100%;
+    opacity: 1;
+  }
+}
+
+.header {
+  margin: 0;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: $blue;
+  color: $white;  
+  box-shadow: 0 0 20px -6px $lightBlueShadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  &__logo {
+    font-size: 32px;
+    background-color: inherit;
+    flex-grow: 3;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover {
+      color: $yellow;
+      transition: $color-transition;
+    }
+  }
+
+  &__menu-btn {
+    display: none;
+    outline: none;
+    transition: $color-transition;
+
+    &:hover {      
+      color: $yellow;
+    }
+  }
+
+  @media (max-width: $size-md) {   
+    &__menu-btn {
+      height: 18px;
+      font-size: 18px;
+      color: $white;
+      background-color: transparent;
+      border: none;
+      display: block;
+      animation: rotateMenuBtnInactive 0.3s linear reverse;
+
+      &_active {
+        transform: rotate(180deg);
+        animation: rotateMenuBtnActive 0.3s linear;
+      }
+    }    
+
+    &__logo {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: $size-xs) {
+    padding: 10px;
+    &__logo {
+      font-size: 18px;
+    }
+  }
+}
+
+.header__options {
+  display: flex;
+  align-items: center;
+
+  & > * {
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  & > button {
+    margin-right: 0;
+  }
+
+  @media (max-width: $size-md) {
+    width: 100%;
+    background-color: inherit;
+    justify-content: space-around;
+    justify-content: flex-end;
+    align-items: center;
+
+    & > * {
+      margin-right: 20px;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    & > button {
+      margin-right: 20px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import "../../sass/colors.scss";
+@import "../../sass/breakpoints.scss";
+@import "../../sass/transitions.scss";
+
+.country-page__gallery_rating {
+  padding: 0.5rem;
+  background-color: $cardShadow;
+  position: absolute;
+  right: 0;
+  top: 7%;
+  height: 2.2rem;
+  z-index: 5;
+  border-radius: 5px 0 0 5px;
+
+  .star.yellow {
+    color: $yellow;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: $color-transition;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  .show-ratings {
+    color: $yellow;
+    font-size: 1.2rem;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 1rem;
+    transition: $color-transition;
+    outline: none;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
