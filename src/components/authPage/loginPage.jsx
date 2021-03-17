@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
 import { AUTHORIZATION_INFO } from '../../utils/vocabulary';
+import { BACK_URL } from '../../utils/constants';
 import FetchData from '../../utils/fetchData';
 import './authPage.css';
 
 const LogInPage = () => {
-  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+  const fetchClass = new FetchData(BACK_URL);
 
   const dispatch = useDispatch();
   const [isOpenPass, togglePass] = useState(false);
