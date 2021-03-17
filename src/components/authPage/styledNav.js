@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BackButton = styled(NavLink)`
-  padding: 16px 0 16px;
+  padding: 16px 0;
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
