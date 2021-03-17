@@ -1,12 +1,16 @@
 /* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPlacesByCountry } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
 import RatingList from '../ratingList/ratingList';
 import './placesRating.scss';
 
 const PlacesRating = ({ idPlace }) => {
+  const { country } = useParams();
+  const dispatch = useDispatch();
   const [isListShown, setIsListShown] = useState(false);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
@@ -16,6 +20,7 @@ const PlacesRating = ({ idPlace }) => {
   const placePersons = currentPlaces[idPlace].personsId;
   const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
   const currPersonId = currentPerson._id;
+  console.log(country);
   console.log(currentPerson, placePersons);
   console.log(currentPlaces[idPlace].info[lang].name, placeRate);
 
@@ -40,8 +45,12 @@ const PlacesRating = ({ idPlace }) => {
       .then((data) => {
         console.log(data.status);
         if (data.status === 200) {
-          console.log('ну и что?');
           setCurrentRate(newRate);
+          fetchClass.getPlacesByCountry(country)
+            .then((places) => {
+              dispatch(setPlacesByCountry(places));
+            })
+            .catch((err) => console.log('Error - ', err));
         }
       })
       .catch((err) => console.log('Error - ', err));

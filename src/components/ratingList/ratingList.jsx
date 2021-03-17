@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
+import { LABEL_FOR_NO_DATA_RATING } from '../../utils/vocabulary';
 import './ratingList.scss';
 
 const RatingList = ({ isModalOpened, idPlace }) => {
@@ -20,15 +21,9 @@ const RatingList = ({ isModalOpened, idPlace }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const labelForNoData = {
-    en: 'No one rated this place yet.',
-    ru: 'Никто еще не поставил оценку этому месту.',
-    be: 'Ніхто яшчэ не вызначыў рэйтынг гэтага месца',
-  };
-
   const noDataToDisplay = (
     <p className="no-data">
-      {labelForNoData[lang]}
+      {LABEL_FOR_NO_DATA_RATING[lang]}
     </p>
   );
 
