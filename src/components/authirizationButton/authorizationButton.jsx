@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
-import { DEFAULT_PHOTO, AUTHORIZATION_BTN_MENU } from '../../utils/constants';
+import { DEFAULT_PHOTO } from '../../utils/constants';
+import { AUTHORIZATION_BTN_MENU } from '../../utils/vocabulary';
 import './authorizationButton.scss';
 
 const AuthorizationButton = () => {
@@ -38,7 +39,7 @@ const AuthorizationButton = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <button
         ref={btnRef}
         className="authorization-btn"
@@ -85,7 +86,7 @@ const AuthorizationButton = () => {
           )}
         </ul>
       )}
-    </div>
+    </>
   );
 };
 

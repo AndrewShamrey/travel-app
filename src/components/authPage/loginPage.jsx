@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
-import { AUTHORIZATION_INFO } from '../../utils/constants';
+import { AUTHORIZATION_INFO } from '../../utils/vocabulary';
 import FetchData from '../../utils/fetchData';
 import './authPage.css';
 

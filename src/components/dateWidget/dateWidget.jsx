@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { DATE_CONFIG } from '../../utils/constants';
+import { DATE_CONFIG } from '../../utils/vocabulary';
 import './dateWidget.scss';
 
 const DateWidget = () => {

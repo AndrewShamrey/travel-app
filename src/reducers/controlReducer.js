@@ -1,6 +1,7 @@
 import produce from 'immer';
 import * as ACTION_TYPES from '../actionTypes/control';
-import { DEFAULT_COUNTRY_CONFIG, DEFAULT_LANGUAGE } from '../utils/constants';
+import DEFAULT_COUNTRY_CONFIG from '../utils/defCountry';
+import { DEFAULT_LANGUAGE } from '../utils/constants';
 
 const initialState = {
   searchValue: '',
@@ -27,7 +28,6 @@ const controlReducer = (state = initialState, action) => {
       });
     case ACTION_TYPES.SET_PREV_STATE:
       return produce(state, (draft) => {
-        draft.searchValue = action.prevState.searchValue;
         draft.applicationLanguage = action.prevState.applicationLanguage;
         draft.countryConfig = action.prevState.countryConfig;
         draft.currentPlaces = action.prevState.currentPlaces;

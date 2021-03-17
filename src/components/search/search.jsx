@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchValue } from '../../actions/control';
-import { SEARCH__PLACEHOLDER } from '../../utils/constants';
+import { SEARCH__PLACEHOLDER } from '../../utils/vocabulary';
 import Spinner from '../spinner/spinner';
 import './search.scss';
 
