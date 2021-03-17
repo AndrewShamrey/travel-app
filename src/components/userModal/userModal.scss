@@ -2,22 +2,43 @@
 
 .user-modal {
   padding: 20px;
+  width: fit-content;
   color: $white;
   background-color: $blue;
+  border: 2px solid #515fac99;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   &__photo {
+    margin-bottom: 10px;
     width: 100px;
     height: 100px;
   }
 
-  &__change-photo {
+  &__name {
+    margin-bottom: 10px;
+  }
 
+  &__change-photo {
     input {
       display: none;
     }
+  }
+
+  &__controls {
+    display: flex;
+  }
+
+  &__button {
+    margin: 5px;
+    padding: 5px;
+    font-size: 14px;
+    color: $white;
+    background: $transparentWhite;
+    border-radius: 5px;
+    border: none;
+    display: block;
   }
 }

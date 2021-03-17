@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ALL_COUNTRIES from '../../utils/allCountries';
 import Card from '../card/card';
-import UserModal from '../userModal/userModal';
 import './mainPage.scss';
 
 const MainPage = () => {
@@ -19,7 +18,6 @@ const MainPage = () => {
 
   return (
     <div className="main-page">
-      <UserModal />
       <div className="cards-cont">
         {displayingCards.map((country) => {
           const {

@@ -62,7 +62,7 @@ const UserModal = () => {
 
   return (
     <div className="user-modal">
-      <p>{`Name: ${nickname}`}</p>
+      <p className="user-modal__name">{`Name: ${nickname}`}</p>
       <img
         className="user-modal__photo"
         src={imgURL || photo || DEFAULT_PHOTO}
@@ -70,7 +70,7 @@ const UserModal = () => {
       />
       <div className="user-modal__controls">
         <label
-          className="user-modal__change-photo"
+          className="user-modal__change-photo user-modal__button"
           htmlFor="user-photo"
         >
           Change photo
@@ -79,21 +79,23 @@ const UserModal = () => {
             id="user-photo"
             onChange={loadFile}
           />
-          <button
-            type="button"
-            disabled={!imgURL}
-            onClick={confirm}
-          >
-            Confirm
-          </button>
-          <button
-            type="button"
-            disabled={!imgURL}
-            onClick={reset}
-          >
-            Reset
-          </button>
         </label>
+        <button
+          type="button"
+          className="user-modal__button"
+          disabled={!imgURL}
+          onClick={confirm}
+        >
+          Confirm
+        </button>
+        <button
+          type="button"
+          className="user-modal__button"
+          disabled={!imgURL}
+          onClick={reset}
+        >
+          Reset
+        </button>
       </div>
       {warningImg && (
         <div className="warning-error">
