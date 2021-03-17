@@ -99,3 +99,24 @@ export const CAPITAL_TITLES = {
   ru: 'Столица',
   be: 'Сталіца',
 };
+
+export const WEATHER_VALUES = {
+  en: {
+    wind: 'Wind',
+    ms: 'm/s',
+    humidity: 'Humidity',
+    error: 'Server is not available',
+  },
+  ru: {
+    wind: 'Ветер',
+    ms: 'м/с',
+    humidity: 'Влажность',
+    error: 'Сервер недоступен',
+  },
+  be: {
+    wind: 'Вецер',
+    ms: 'м/с',
+    humidity: 'Вільготнасць',
+    error: 'Сервер недаступны',
+  },
+};
