@@ -16,7 +16,6 @@ const RatingList = ({ isModalOpened, idPlace }) => {
     const { personsId } = currentPlaces[idPlace];
     fetchClass._defaultMethod('GET', 'persons/ratingdata', JSON.stringify(personsId))
       .then((ratingData) => {
-        console.log(ratingData);
         setRatingArr(ratingData);
         setIsLoader(false);
       })
@@ -50,9 +49,6 @@ const RatingList = ({ isModalOpened, idPlace }) => {
       </p>
     </div>
   ));
-
-  // eslint-disable-next-line eqeqeq
-  console.log(ratingArr == true);
 
   const theList = () => {
     if (isLoader) {

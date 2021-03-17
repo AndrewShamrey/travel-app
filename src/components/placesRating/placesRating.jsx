@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,32 +11,25 @@ const PlacesRating = ({ idPlace }) => {
   const dispatch = useDispatch();
   const [isListShown, setIsListShown] = useState(false);
   const [ratedUsers, setRatedUsers] = useState([]);
-  const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   const placeRate = currentPlaces[idPlace].rating.number;
   const [currentRate, setCurrentRate] = useState(placeRate);
   const placeVotes = currentPlaces[idPlace].rating.count;
   const placePersons = currentPlaces[idPlace].personsId;
   const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
-  const currPersonId = currentPerson._id; // это актуальный айди
-  console.log(country);
-  console.log(currentPerson, placePersons);
-  console.log(currentPlaces[idPlace].info[lang].name, placeRate);
+  const currPersonId = currentPerson._id;
 
   useEffect(() => {
     setCurrentRate(placeRate);
   }, [idPlace, placeRate]);
 
-  const ClickHandler = (e) => {
+  const clickHandler = (e) => {
     if (ratedUsers.length > 0) {
       ratedUsers.forEach((user) => {
         if (user[0]._id === currPersonId) {
-          console.log(user[0]._id, currPersonId);
           console.log('кликал уже');
         } else {
-          console.log(user[0]._id, currPersonId);
           const ind = e.target.id;
-          console.log('click', ind);
           const newRate = +ind;
 
           const wholeRate = (placeRate * placeVotes + newRate) / (placeVotes + 1);
@@ -51,7 +42,6 @@ const PlacesRating = ({ idPlace }) => {
           const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
           fetchClass.updatePlaceById(JSON.stringify(body), id)
             .then((data) => {
-              console.log(data.status);
               if (data.status === 200) {
                 setCurrentRate(newRate);
                 fetchClass.getPlacesByCountry(country)
@@ -66,7 +56,6 @@ const PlacesRating = ({ idPlace }) => {
       });
     } else {
       const ind = e.target.id;
-      console.log('click', ind);
       const newRate = +ind;
 
       const wholeRate = (placeRate * placeVotes + newRate) / (placeVotes + 1);
@@ -79,7 +68,6 @@ const PlacesRating = ({ idPlace }) => {
       const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
       fetchClass.updatePlaceById(JSON.stringify(body), id)
         .then((data) => {
-          console.log(data.status);
           if (data.status === 200) {
             setCurrentRate(newRate);
             fetchClass.getPlacesByCountry(country)
@@ -96,10 +84,8 @@ const PlacesRating = ({ idPlace }) => {
   useEffect(() => {
     const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
     const { personsId } = currentPlaces[idPlace];
-    console.log('personsId:', personsId);
     fetchClass._defaultMethod('GET', 'persons/ratingdata', JSON.stringify(personsId))
       .then((ratingData) => {
-        console.log('ratingData:', ratingData);
         setRatedUsers(ratingData);
       })
       .catch((err) => console.log('The error is - ', err));
@@ -107,11 +93,10 @@ const PlacesRating = ({ idPlace }) => {
   }, [idPlace, currentPlaces]);
 
   const drawStars = (num) => {
-    console.log('drawing', num);
     const yellowStar = 'fas fa-star star yellow';
     const starGrey = 'far fa-star star yellow';
     return (
-      <i id={num} className={num <= currentRate ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
+      <i id={num} className={num <= currentRate ? yellowStar : starGrey} onClick={clickHandler} role="presentation" />
     );
   };
 
