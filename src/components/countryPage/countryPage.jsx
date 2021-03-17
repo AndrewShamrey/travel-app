@@ -9,7 +9,7 @@ import PageImageGallery from '../imageGallery/imageGallery';
 import Video from '../video/Video';
 import CountryMap from '../map/Map';
 import weatherWidget from '../../assets/images/weather-widget.png';
-import exchangeRatesWidget from '../../assets/images/exchange-rates-widget.png';
+import ExchangeRateWidget from '../echangeRateWidget/exchangeRateWidget';
 import earthIcon from '../../assets/images/earth.png';
 import './countryPage.scss';
 
@@ -18,6 +18,13 @@ const CountryPage = () => {
   const [isLoader, setIsLoader] = useState(true);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
+  const mainPlace = useSelector((rootState) => rootState.control.countryConfig.mainPlace);
+  const video = useSelector((rootState) => rootState.control.countryConfig.video);
+  const { name, capital, description } = useSelector((rootState) => (
+    rootState.control.countryConfig.info[currentLanguage]
+  ));
 
   useEffect(() => {
     const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
@@ -46,12 +53,6 @@ const CountryPage = () => {
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const countryData = useSelector((rootState) => rootState.control.countryConfig);
-  const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
-
-  const { name, capital, description } = countryData.info[currentLanguage];
-  const { mainPlace, video } = countryData;
 
   if (isLoader) {
     return (
@@ -89,7 +90,7 @@ const CountryPage = () => {
               <img src={weatherWidget} alt="Weather widget" />
             </div>
             <div className="country-page__widget">
-              <img src={exchangeRatesWidget} alt="Exchange rates widget" />
+              <ExchangeRateWidget />
             </div>
           </div>
           <PageImageGallery />
