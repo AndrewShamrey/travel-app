@@ -1,0 +1,58 @@
+@import '../../sass/breakpoints.scss';
+@import '../../sass/colors.scss';
+
+.exchange-rates-widget {
+  padding: 10px 25px;
+  min-width: 150px;
+  min-height: 113px;
+  height: fit-content;
+  font-family: 'Roboto', 'Open Sans', monospace;
+  font-size: 14px;
+  text-align: center;
+  background: $white;
+  box-shadow: 0px 2px 7px 1px $transparentBlack;
+  border-radius: 5px;
+  position: relative;
+
+  &__reload-btn {
+    margin: 10px 0;
+    font-size: 18px;
+    color: $grey;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &__spinner {
+    margin-top: 10px;
+    font-size: 20px;
+    color: $grey;
+    display: inline-block;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  &__list {
+    &-item {
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__currency {
+    text-align: left;
+  }
+
+  &__value {
+    text-align: right;
+  }
+}
