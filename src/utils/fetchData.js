@@ -19,6 +19,10 @@ export default class FetchData {
     return this._defaultMethod('POST', 'persons', null, null, body);
   }
 
+  updatePlaceById(body, id) {
+    return this._defaultMethod('PATCH', 'places', null, null, body, id);
+  }
+
   _defaultMethod(method, path = '', name = '', pass = '', body = '', id = '') {
     if (method === 'GET') {
       return fetch(`${this.baseUrl}/${path}/${name}/${pass}`, {

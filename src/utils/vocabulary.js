@@ -120,3 +120,9 @@ export const WEATHER_VALUES = {
     error: 'Сервер недаступны',
   },
 };
+
+export const LABEL_FOR_NO_DATA_RATING = {
+  en: 'No one rated this place yet.',
+  ru: 'Никто еще не поставил оценку этому месту.',
+  be: 'Ніхто яшчэ не вызначыў рэйтынг гэтага месца',
+};
