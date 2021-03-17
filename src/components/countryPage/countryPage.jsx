@@ -5,6 +5,7 @@ import FetchData from '../../utils/fetchData';
 import { setCountryConfig, setPlacesByCountry } from '../../actions/control';
 import DateWidget from '../dateWidget/dateWidget';
 import { CAPITAL_TITLES } from '../../utils/vocabulary';
+import { BACK_URL } from '../../utils/constants';
 import PageImageGallery from '../imageGallery/imageGallery';
 import Video from '../video/Video';
 import CountryMap from '../map/Map';
@@ -27,7 +28,7 @@ const CountryPage = () => {
   ));
 
   useEffect(() => {
-    const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+    const fetchClass = new FetchData(BACK_URL);
 
     const redirect = () => {
       history.push('/*');
