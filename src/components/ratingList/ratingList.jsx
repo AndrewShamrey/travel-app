@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import FetchData from '../../utils/fetchData';
 import { LABEL_FOR_NO_DATA_RATING } from '../../utils/vocabulary';
+import Spinner from '../spinner/spinner';
 import './ratingList.scss';
 
 const RatingList = ({ isModalOpened, idPlace }) => {
   const [ratingArr, setRatingArr] = useState([]);
+  const [isLoader, setIsLoader] = useState(true);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
 
@@ -16,6 +18,7 @@ const RatingList = ({ isModalOpened, idPlace }) => {
       .then((ratingData) => {
         console.log(ratingData);
         setRatingArr(ratingData);
+        setIsLoader(false);
       })
       .catch((err) => console.log('The error is - ', err));
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -51,6 +54,13 @@ const RatingList = ({ isModalOpened, idPlace }) => {
   // eslint-disable-next-line eqeqeq
   console.log(ratingArr == true);
 
+  const theList = () => {
+    if (isLoader) {
+      return (<Spinner additionalClassName="spinner" />);
+    }
+    return ratingArr.length > 0 ? allRates : noDataToDisplay;
+  };
+
   return (
     <div className="rating-list">
       <button type="button" className="close-modal" onClick={() => isModalOpened(false)}>
@@ -58,7 +68,7 @@ const RatingList = ({ isModalOpened, idPlace }) => {
       </button>
       <div className="rating-list__wrapper">
         <div className="rating-list_content">
-          {ratingArr.length > 0 ? allRates : noDataToDisplay}
+          {theList()}
         </div>
       </div>
     </div>

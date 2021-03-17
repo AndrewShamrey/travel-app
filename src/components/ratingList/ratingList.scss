@@ -45,10 +45,14 @@
     margin-top: 2rem;
   
     .rating-list_content {
+      width: 100%;
       display: flex;
       flex-direction: column;
+      .spinner {
+        align-self: center;
+      }
       .no-data {
-        justify-content: center;
+        align-self: center;
       }
       .list-line {
         display: flex;
