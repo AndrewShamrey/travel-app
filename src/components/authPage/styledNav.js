@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BackButton = styled(NavLink)`
-  padding: 16px 16px 16px 0;
+  padding: 16px 0 16px;
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -10,13 +10,20 @@ const BackButton = styled(NavLink)`
   line-height: 24px;
   color: #fff;
   text-decoration: none;
-  transition-property: background-color, color;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
+  transition: color 0.1s ease-in-out;
   cursor: pointer;
 
   & span {
-    margin-left: 5px;
+    margin-left: -12px;
+    padding-left: 17px;
+    padding-right: 5px;
+    border-radius: 0 12px 12px 0;
+    background-color: rgba(0,0,0,0.2);
+    transition: all 0.1s ease-in-out;
+  }
+
+  & span:hover {
+    background-color: rgba(0,0,0,0.25);
   }
 
   & svg {
