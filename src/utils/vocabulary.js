@@ -41,11 +41,11 @@ export const DATE_CONFIG = {
   },
   ru: {
     weekday: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-    month: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+    month: ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'],
   },
   be: {
     weekday: ['Нядзеля', 'Панядзелак', 'Аўторак', 'Серада', 'Чацвер', 'Пятніца', 'Субота'],
-    month: ['Студзень', 'Люты', 'Сакавік', 'Красавік', 'Май', 'Чэрвень', 'Ліпень', 'Жнівень', 'Верасень', 'Кастрычнік', 'Лістапад', 'Снежань'],
+    month: ['студзеня', 'лютага', 'сакавіка', 'красавіка', 'мая', 'чэрвеня', 'ліпеня', 'жніўня', 'верасня', 'кастрычніка', 'лістапада', 'снежня'],
   },
 };
 
@@ -78,3 +78,216 @@ export const AUTHORIZATION_BTN_MENU = {
     signout: 'Выйсцi',
   },
 };
+
+export const CAPITAL_TITLES = {
+  en: 'Capital',
+  ru: 'Столица',
+  be: 'Сталіца',
+};
+
+export const ALL_COUNTRIES = [
+  {
+    en: {
+      name: 'Australia',
+      shortName: 'Australia',
+      capital: 'Canberra',
+    },
+    ru: {
+      name: 'Австралия',
+      shortName: 'Australia',
+      capital: 'Канберра',
+    },
+    be: {
+      name: 'Аўстралія',
+      shortName: 'Australia',
+      capital: 'Канбера',
+    },
+  },
+  {
+    en: {
+      name: 'Brazil',
+      shortName: 'Brazil',
+      capital: 'Brasília',
+    },
+    ru: {
+      name: 'Бразилия',
+      shortName: 'Brazil',
+      capital: 'Бразилиа',
+    },
+    be: {
+      name: 'Бразілія',
+      shortName: 'Brazil',
+      capital: 'Бразіліа',
+    },
+  },
+  {
+    en: {
+      name: 'Vietnam',
+      shortName: 'Vietnam',
+      capital: 'Hanoi',
+    },
+    ru: {
+      name: 'Вьетнам',
+      shortName: 'Vietnam',
+      capital: 'Ханой',
+    },
+    be: {
+      name: 'В’етнам',
+      shortName: 'Vietnam',
+      capital: 'Ханой',
+    },
+  },
+  {
+    en: {
+      name: 'Denmark',
+      shortName: 'Denmark',
+      capital: 'Copenhagen',
+    },
+    ru: {
+      name: 'Дания',
+      shortName: 'Denmark',
+      capital: 'Копенгаген',
+    },
+    be: {
+      name: 'Данія',
+      shortName: 'Denmark',
+      capital: 'Капенгаген',
+    },
+  },
+  {
+    en: {
+      name: 'Egypt',
+      shortName: 'Egypt',
+      capital: 'Cairo',
+    },
+    ru: {
+      name: 'Египет',
+      shortName: 'Egypt',
+      capital: 'Каир',
+    },
+    be: {
+      name: 'Егіпет',
+      shortName: 'Egypt',
+      capital: 'Каір',
+    },
+  },
+  {
+    en: {
+      name: 'India',
+      shortName: 'India',
+      capital: 'New Delhi',
+    },
+    ru: {
+      name: 'Индия',
+      shortName: 'India',
+      capital: 'Нью-Дели',
+    },
+    be: {
+      name: 'Індыя',
+      shortName: 'India',
+      capital: 'Нью-Дэлі',
+    },
+  },
+  {
+    en: {
+      name: 'Italy',
+      shortName: 'Italy',
+      capital: 'Rome',
+    },
+    ru: {
+      name: 'Италия',
+      shortName: 'Italy',
+      capital: 'Рим',
+    },
+    be: {
+      name: 'Італія',
+      shortName: 'Italy',
+      capital: 'Рым',
+    },
+  },
+  {
+    en: {
+      name: 'Canada',
+      shortName: 'Canada',
+      capital: 'Ottawa',
+    },
+    ru: {
+      name: 'Канада',
+      shortName: 'Canada',
+      capital: 'Оттава',
+    },
+    be: {
+      name: 'Канада',
+      shortName: 'Canada',
+      capital: 'Атава',
+    },
+  },
+  {
+    en: {
+      name: 'Thailand',
+      shortName: 'Thailand',
+      capital: 'Bangkok',
+    },
+    ru: {
+      name: 'Таиланд',
+      shortName: 'Thailand',
+      capital: 'Бангкок',
+    },
+    be: {
+      name: 'Тайланд',
+      shortName: 'Thailand',
+      capital: 'Бангкок',
+    },
+  },
+  {
+    en: {
+      name: 'Switzerland',
+      shortName: 'Switzerland',
+      capital: 'Bern',
+    },
+    ru: {
+      name: 'Швейцария',
+      shortName: 'Switzerland',
+      capital: 'Берн',
+    },
+    be: {
+      name: 'Швейцарыя',
+      shortName: 'Switzerland',
+      capital: 'Берн',
+    },
+  },
+  {
+    en: {
+      name: 'France',
+      shortName: 'France',
+      capital: 'Paris',
+    },
+    ru: {
+      name: 'Франция',
+      shortName: 'France',
+      capital: 'Париж',
+    },
+    be: {
+      name: 'Францыя',
+      shortName: 'France',
+      capital: 'Парыж',
+    },
+  },
+  {
+    en: {
+      name: 'Japan',
+      shortName: 'Japan',
+      capital: 'Tokio',
+    },
+    ru: {
+      name: 'Япония',
+      shortName: 'Japan',
+      capital: 'Токио',
+    },
+    be: {
+      name: 'Японія',
+      shortName: 'Japan',
+      capital: 'Токіа',
+    },
+  },
+];

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchValue } from '../../actions/control';
 import { SEARCH__PLACEHOLDER } from '../../utils/vocabulary';
@@ -9,12 +9,26 @@ const Search = ({ isMenuOpen }) => {
   const value = useSelector((rootState) => rootState.control.searchValue);
   const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
 
+  const [isSpinner, setIsSpinner] = useState(false);
+  const inputRef = useRef(null);
+
+  const animateSearch = useCallback(() => {
+    setIsSpinner(() => true);
+    inputRef.current.disabled = true;
+    setTimeout(() => {
+      setIsSpinner(() => false);
+      inputRef.current.disabled = false;
+      inputRef.current.focus();
+    }, 500);
+  }, [setIsSpinner]);
+
   const searchFieldChangeHandler = (e) => {
     dispatch(setSearchValue(e.target.value));
   };
 
   const sendSearchRequest = () => {
     dispatch(setSearchValue(value));
+    animateSearch();
   };
 
   const clearSearchField = () => {
@@ -24,6 +38,7 @@ const Search = ({ isMenuOpen }) => {
   const handlerOnKeydown = (e) => {
     if (e.key === 'Enter') {
       searchFieldChangeHandler(e);
+      animateSearch();
     }
   };
 
@@ -32,6 +47,7 @@ const Search = ({ isMenuOpen }) => {
       <div className="search__input-wrapper">
         <input
           value={value || ''}
+          ref={inputRef}
           placeholder={SEARCH__PLACEHOLDER[currentLanguage]}
           className="search__input"
           autoFocus
@@ -40,6 +56,11 @@ const Search = ({ isMenuOpen }) => {
           onChange={searchFieldChangeHandler}
           onKeyDown={handlerOnKeydown}
         />
+        { isSpinner && (
+          <span className="search__spinner">
+            <i className="fas fa-spinner" />
+          </span>
+        )}
         <button
           className="search__delete-icon"
           type="button"

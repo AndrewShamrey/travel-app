@@ -1,9 +1,8 @@
 import DefaultPhoto from '../assets/images/default-photo.jpg';
 
 export const DEFAULT_LANGUAGE = 'en';
-export const DEFAULT_PHOTO = DefaultPhoto;
 export const MAX_IMAGE_SIZE = 4000000;
-export const ALL_COUNTRIES = ['Australia', 'Brazil', 'Vietnam', 'Denmark', 'Egypt', 'India', 'Italy', 'Canada', 'Thailand', 'Switzerland', 'France', 'Japan'];
+export const DEFAULT_PHOTO = DefaultPhoto;
 export const MAIN_PLACES = [
   'https://res.cloudinary.com/db8pqmy2n/image/upload/v1615294994/Australia/1_Sydney_Opera_House_h26peq.jpg',
   'https://res.cloudinary.com/db8pqmy2n/image/upload/v1615295430/Brazil/1_Cristo_Redentor_and_Corcovado_lei5ct.jpg',
