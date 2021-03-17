@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import exchangeRatesAPI from '../../utils/exchangeRatesAPI';
 import { EXCHANGE_RATE_VALUES } from '../../utils/constants';
+import Spinner from '../spinner/spinner';
 import './exchangeRatesWidget.scss';
 
 const ExchangeRateWidget = () => {
@@ -47,9 +48,7 @@ const ExchangeRateWidget = () => {
       </p>
       <div className="exchange-rates-widget__list">
         {isLoader && (
-          <span className="exchange-rates-widget__spinner">
-            <i className="fas fa-spinner" />
-          </span>
+          <Spinner additionalClassName="exchange-rates-widget__spinner" />
         )}
         {isError && (
           <>

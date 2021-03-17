@@ -1,15 +1,6 @@
 @import '../../sass/breakpoints.scss';
 @import '../../sass/colors.scss';
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(180deg);
-  }
-}
-
 .exchange-rates-widget {
   padding: 10px 25px;
   min-width: 150px;
@@ -42,7 +33,6 @@
     font-size: 20px;
     color: $grey;
     display: inline-block;
-    animation: rotate 0.5s linear infinite;
   }
 
   &__title {
