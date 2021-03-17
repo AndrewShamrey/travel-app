@@ -69,7 +69,7 @@
   }
 
   &__delete-icon {
-    font-size: 12px;
+    font-size: 14px;
     color: inherit;
     background: transparent;
     border-radius: 5%;
@@ -83,10 +83,6 @@
 
     &:hover {
       color: $red;
-    }
-
-    i {
-      vertical-align: middle;
     }
   }
   
