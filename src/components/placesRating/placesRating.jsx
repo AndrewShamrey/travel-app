@@ -7,69 +7,66 @@ import RatingList from '../ratingList/ratingList';
 import './placesRating.scss';
 
 const PlacesRating = ({ idPlace }) => {
-  const [currentRate, setCurrentRate] = useState([false, false, false, false, false]);
   const [isListShown, setIsListShown] = useState(false);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
-  const placeRate = currentPlaces[idPlace].rating;
+  const placeRate = currentPlaces[idPlace].rating.number;
+  const [currentRate, setCurrentRate] = useState(placeRate);
+  const placeVotes = currentPlaces[idPlace].rating.count;
+  const placePersons = currentPlaces[idPlace].personsId;
   const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
-  console.log(currentPerson, currentPlaces);
+  const currPersonId = currentPerson._id;
+  console.log(currentPerson, placePersons);
   console.log(currentPlaces[idPlace].info[lang].name, placeRate);
 
   useEffect(() => {
-    setCurrentRate([false, false, false, false, false]);
-  }, [idPlace]);
-
-  useEffect(() => {
-    for (let i = 1; i <= 5; i += 1) {
-      const clickStates = [...currentRate];
-      if (i <= placeRate) {
-        clickStates[i - 1] = true;
-      } else {
-        clickStates[i - 1] = false;
-      }
-      setCurrentRate(clickStates);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [placeRate]);
+    setCurrentRate(placeRate);
+  }, [idPlace, placeRate]);
 
   const ClickHandler = (e) => {
     const ind = e.target.id;
     console.log('click', ind);
-    const clickStates = [...currentRate];
-    for (let i = 0; i < 5; i += 1) {
-      if (i <= ind) clickStates[i] = true;
-      else clickStates[i] = false;
-    }
-    setCurrentRate(clickStates);
+    const newRate = +ind;
 
-    // const body = {
-    //   rating: ind + 1,
-    //   personsId: currentPerson._id, // нет такого поля сейчас
-    // };
-    // const id = currentPlaces[idPlace]._id;
+    const wholeRate = (placeRate + newRate) / (placeVotes + 1);
+    const body = {
+      rating: { number: wholeRate, count: placeVotes + 1 },
+      personsId: placePersons.concat([{ id: currPersonId, rating: newRate }]),
+    };
+    const id = currentPlaces[idPlace]._id;
 
-    // const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
-    // fetchClass.updatePlaceById(body, id).catch((err) => console.log('Error - ', err));
+    const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+    fetchClass.updatePlaceById(JSON.stringify(body), id)
+      .then((data) => {
+        console.log(data.status);
+        if (data.status === 200) {
+          console.log('ну и что?');
+          setCurrentRate(newRate);
+        }
+      })
+      .catch((err) => console.log('Error - ', err));
   };
 
-  const yellowStar = 'fas fa-star star yellow';
-  const starGrey = 'far fa-star star yellow';
+  const drawStars = (num) => {
+    console.log('drawing', num);
+    const yellowStar = 'fas fa-star star yellow';
+    const starGrey = 'far fa-star star yellow';
+    return (
+      <i id={num} className={num <= currentRate ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
+    );
+  };
 
   return (
     <div className="country-page__gallery_rating">
-      {/* {currentRate.forEach((star, ind) => (
-        <i id={ind} className={star ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
-      ))} */}
-      <i id="0" className={currentRate[0] ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
-      <i id="1" className={currentRate[1] ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
-      <i id="2" className={currentRate[2] ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
-      <i id="3" className={currentRate[3] ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
-      <i id="4" className={currentRate[4] ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
+      {drawStars(1)}
+      {drawStars(2)}
+      {drawStars(3)}
+      {drawStars(4)}
+      {drawStars(5)}
       <button type="button" className="show-ratings" onClick={() => setIsListShown(true)}>
         <i className="far fa-question-circle" />
       </button>
-      { isListShown && <RatingList isModalOpened={setIsListShown} /> }
+      { isListShown && <RatingList isModalOpened={setIsListShown} idPlace={idPlace} /> }
     </div>
   );
 };

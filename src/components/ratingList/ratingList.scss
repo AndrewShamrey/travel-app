@@ -47,6 +47,21 @@
     .rating-list_content {
       display: flex;
       flex-direction: column;
+      .no-data {
+        justify-content: center;
+      }
+      .list-line {
+        display: flex;
+        justify-content: space-between;
+
+        &_rating {
+          width: fit-content;
+          .stars {
+            color: $yellow;
+            font-size: 1rem;
+          }
+        }
+      }
 
     }
 

@@ -20,7 +20,7 @@ export default class FetchData {
   }
 
   updatePlaceById(body, id) {
-    return this._defaultMethod('PATCH', 'places/one', null, null, body, id);
+    return this._defaultMethod('PATCH', 'places', null, null, body, id);
   }
 
   _defaultMethod(method, path = '', name = '', pass = '', body = '', id = '') {
