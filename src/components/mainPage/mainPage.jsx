@@ -19,13 +19,18 @@ const MainPage = () => {
   return (
     <div className="main-page">
       <div className="cards-cont">
-        {displayingCards.map((country, index) => {
-          const { name, capital, shortName } = country[currentLanguage];
+        {displayingCards.map((country) => {
+          const {
+            name,
+            capital,
+            shortName,
+            image,
+          } = country[currentLanguage];
           const path = `/country/${shortName}`;
 
           return (
             <Link to={path} key={shortName}>
-              <Card country={name} capital={capital} index={index} />
+              <Card country={name} capital={capital} image={image} />
             </Link>
           );
         })}
