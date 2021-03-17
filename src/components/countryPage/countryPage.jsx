@@ -8,8 +8,8 @@ import { CAPITAL_TITLES } from '../../utils/vocabulary';
 import PageImageGallery from '../imageGallery/imageGallery';
 import Video from '../video/Video';
 import CountryMap from '../map/Map';
-import weatherWidget from '../../assets/images/weather-widget.png';
 import ExchangeRateWidget from '../echangeRateWidget/exchangeRateWidget';
+import WeatherWidget from '../weatherWidget/weatherWidget';
 import earthIcon from '../../assets/images/earth.png';
 import './countryPage.scss';
 
@@ -51,8 +51,7 @@ const CountryPage = () => {
         console.log('Error - ', err);
         redirect();
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [country, dispatch, history]);
 
   if (isLoader) {
     return (
@@ -85,9 +84,11 @@ const CountryPage = () => {
           />
           <p className="country-page__description">{description}</p>
           <div className="country-page__widgets">
-            <DateWidget />
             <div className="country-page__widget">
-              <img src={weatherWidget} alt="Weather widget" />
+              <DateWidget />
+            </div>
+            <div className="country-page__widget">
+              <WeatherWidget />
             </div>
             <div className="country-page__widget">
               <ExchangeRateWidget />

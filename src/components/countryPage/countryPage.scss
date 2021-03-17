@@ -52,6 +52,12 @@
     box-shadow: 0 0 15px 0px $blue;
     overflow-y: hidden;
     z-index: 1;
+
+    @media (max-width: $size-md) {
+      padding: 0 10px;
+      border-radius: unset;
+      box-shadow: none;
+    }
   }
 
   &__image {
@@ -150,6 +156,16 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    @media (max-width: $size-md) {
+      align-items: stretch;
+    }
+
+    &-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__widget {
@@ -159,8 +175,28 @@
     justify-content: center;
     align-items: center;
 
-    img {
+    &:first-child {
       width: 100%;
+    }
+
+    @media (max-width: $size-md) {
+      &:first-child {
+        width: unset;
+      }
+
+      width: fit-content;
+    }
+
+    @media (max-width: $size-sm) {
+      &:first-child {
+        margin-bottom: 5px;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: $size-xs) {
+      width: 100%;
+      margin-bottom: 5px;
     }
   }
 
