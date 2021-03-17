@@ -38,7 +38,7 @@ const AuthorizationButton = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <button
         ref={btnRef}
         className="authorization-btn"
@@ -85,7 +85,7 @@ const AuthorizationButton = () => {
           )}
         </ul>
       )}
-    </div>
+    </>
   );
 };
 
