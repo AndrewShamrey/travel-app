@@ -12,6 +12,7 @@ const PlacesRating = ({ idPlace }) => {
   const { country } = useParams();
   const dispatch = useDispatch();
   const [isListShown, setIsListShown] = useState(false);
+  const [ratedUsers, setRatedUsers] = useState([]);
   const lang = useSelector((rootState) => rootState.control.applicationLanguage);
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   const placeRate = currentPlaces[idPlace].rating.number;
@@ -19,7 +20,7 @@ const PlacesRating = ({ idPlace }) => {
   const placeVotes = currentPlaces[idPlace].rating.count;
   const placePersons = currentPlaces[idPlace].personsId;
   const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
-  const currPersonId = currentPerson._id;
+  const currPersonId = currentPerson._id; // это актуальный айди
   console.log(country);
   console.log(currentPerson, placePersons);
   console.log(currentPlaces[idPlace].info[lang].name, placeRate);
@@ -29,32 +30,81 @@ const PlacesRating = ({ idPlace }) => {
   }, [idPlace, placeRate]);
 
   const ClickHandler = (e) => {
-    const ind = e.target.id;
-    console.log('click', ind);
-    const newRate = +ind;
+    if (ratedUsers.length > 0) {
+      ratedUsers.forEach((user) => {
+        if (user[0]._id === currPersonId) {
+          console.log(user[0]._id, currPersonId);
+          console.log('кликал уже');
+        } else {
+          console.log(user[0]._id, currPersonId);
+          const ind = e.target.id;
+          console.log('click', ind);
+          const newRate = +ind;
 
-    const wholeRate = (placeRate + newRate) / (placeVotes + 1);
-    const body = {
-      rating: { number: wholeRate, count: placeVotes + 1 },
-      personsId: placePersons.concat([{ id: currPersonId, rating: newRate }]),
-    };
-    const id = currentPlaces[idPlace]._id;
+          const wholeRate = (placeRate * placeVotes + newRate) / (placeVotes + 1);
+          const body = {
+            rating: { number: wholeRate, count: placeVotes + 1 },
+            personsId: placePersons.concat([{ id: currPersonId, rating: newRate }]),
+          };
+          const id = currentPlaces[idPlace]._id;
 
-    const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
-    fetchClass.updatePlaceById(JSON.stringify(body), id)
-      .then((data) => {
-        console.log(data.status);
-        if (data.status === 200) {
-          setCurrentRate(newRate);
-          fetchClass.getPlacesByCountry(country)
-            .then((places) => {
-              dispatch(setPlacesByCountry(places));
+          const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+          fetchClass.updatePlaceById(JSON.stringify(body), id)
+            .then((data) => {
+              console.log(data.status);
+              if (data.status === 200) {
+                setCurrentRate(newRate);
+                fetchClass.getPlacesByCountry(country)
+                  .then((places) => {
+                    dispatch(setPlacesByCountry(places));
+                  })
+                  .catch((err) => console.log('Error - ', err));
+              }
             })
             .catch((err) => console.log('Error - ', err));
         }
-      })
-      .catch((err) => console.log('Error - ', err));
+      });
+    } else {
+      const ind = e.target.id;
+      console.log('click', ind);
+      const newRate = +ind;
+
+      const wholeRate = (placeRate * placeVotes + newRate) / (placeVotes + 1);
+      const body = {
+        rating: { number: wholeRate, count: placeVotes + 1 },
+        personsId: placePersons.concat([{ id: currPersonId, rating: newRate }]),
+      };
+      const id = currentPlaces[idPlace]._id;
+
+      const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+      fetchClass.updatePlaceById(JSON.stringify(body), id)
+        .then((data) => {
+          console.log(data.status);
+          if (data.status === 200) {
+            setCurrentRate(newRate);
+            fetchClass.getPlacesByCountry(country)
+              .then((places) => {
+                dispatch(setPlacesByCountry(places));
+              })
+              .catch((err) => console.log('Error - ', err));
+          }
+        })
+        .catch((err) => console.log('Error - ', err));
+    }
   };
+
+  useEffect(() => {
+    const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+    const { personsId } = currentPlaces[idPlace];
+    console.log('personsId:', personsId);
+    fetchClass._defaultMethod('GET', 'persons/ratingdata', JSON.stringify(personsId))
+      .then((ratingData) => {
+        console.log('ratingData:', ratingData);
+        setRatedUsers(ratingData);
+      })
+      .catch((err) => console.log('The error is - ', err));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [idPlace, currentPlaces]);
 
   const drawStars = (num) => {
     console.log('drawing', num);
