@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import weatherAPI from '../../utils/weatherAPI';
-import { WEATHER_VALUES } from '../../utils/constants';
+import { WEATHER_VALUES } from '../../utils/vocabulary';
 import Spinner from '../spinner/spinner';
 import './weatherWidget.scss';
 

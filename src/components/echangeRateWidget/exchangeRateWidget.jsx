@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import exchangeRatesAPI from '../../utils/exchangeRatesAPI';
-import { EXCHANGE_RATE_VALUES } from '../../utils/constants';
+import { EXCHANGE_RATE_VALUES } from '../../utils/vocabulary';
 import Spinner from '../spinner/spinner';
 import './exchangeRatesWidget.scss';
 

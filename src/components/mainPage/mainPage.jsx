@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ALL_COUNTRIES } from '../../utils/constants';
+import ALL_COUNTRIES from '../../utils/allCountries';
 import Card from '../card/card';
 import './mainPage.scss';
 
