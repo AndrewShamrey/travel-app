@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ALL_COUNTRIES from '../../utils/allCountries';
@@ -8,12 +7,6 @@ import './mainPage.scss';
 const MainPage = () => {
   const searchValue = useSelector((rootState) => rootState.control.searchValue);
   const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
-
-  const person = useSelector((rootState) => rootState.control.currentPerson);
-  useEffect(() => {
-    console.log(person);
-    console.log(person && person._id);
-  }, [person]);
 
   const processedSearchValue = searchValue.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
   const searchRegExp = new RegExp(processedSearchValue, 'gi');
