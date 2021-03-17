@@ -13,7 +13,7 @@ const PlacesRating = ({ idPlace }) => {
   const currentPlaces = useSelector((rootState) => rootState.control.currentPlaces);
   const placeRate = currentPlaces[idPlace].rating;
   const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
-  console.log(currentPerson._id, currentPlaces);
+  console.log(currentPerson, currentPlaces);
   console.log(currentPlaces[idPlace].info[lang].name, placeRate);
 
   useEffect(() => {
@@ -66,10 +66,10 @@ const PlacesRating = ({ idPlace }) => {
       <i id="2" className={currentRate[2] ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
       <i id="3" className={currentRate[3] ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
       <i id="4" className={currentRate[4] ? yellowStar : starGrey} onClick={ClickHandler} role="presentation" />
-      <button type="button" className="show-ratings">
+      <button type="button" className="show-ratings" onClick={() => setIsListShown(true)}>
         <i className="far fa-question-circle" />
       </button>
-      { isListShown && <RatingList /> }
+      { isListShown && <RatingList isModalOpened={setIsListShown} /> }
     </div>
   );
 };

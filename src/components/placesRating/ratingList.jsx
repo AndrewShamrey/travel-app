@@ -1,9 +1,27 @@
-
-const RatingList = () => {
-console.log('don t worry');
+const RatingList = ({ isModalOpened }) => {
+  console.log('don t worry');
   return (
     <div className="rating-list">
-      здесь будет списочек
+      <button type="button" className="close-modal" onClick={() => isModalOpened(false)}>
+        <i className="far fa-times-circle" />
+      </button>
+      <div className="rating-list_content">
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+        <p>здесь будет списочек</p>
+      </div>
     </div>
   );
 };
