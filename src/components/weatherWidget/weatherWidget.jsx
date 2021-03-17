@@ -8,7 +8,7 @@ import './weatherWidget.scss';
 const ExchangeRateWidget = () => {
   const [weather, setWeather] = useState({});
   const [isLoader, setIsLoader] = useState(true);
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const city = useSelector((rootState) => rootState.control.countryConfig.info.en.capital);
   const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);

@@ -52,6 +52,12 @@
     box-shadow: 0 0 15px 0px $blue;
     overflow-y: hidden;
     z-index: 1;
+
+    @media (max-width: $size-md) {
+      padding: 0 10px;
+      border-radius: unset;
+      box-shadow: none;
+    }
   }
 
   &__image {
