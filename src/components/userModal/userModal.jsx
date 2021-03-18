@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPerson } from '../../actions/control';
 import FetchData from '../../utils/fetchData';
-import { DEFAULT_PHOTO, MAX_IMAGE_SIZE } from '../../utils/constants';
+import { DEFAULT_PHOTO, MAX_IMAGE_SIZE, BACK_URL } from '../../utils/constants';
 import { AUTHORIZATION_INFO, USER_MODAL } from '../../utils/vocabulary';
 import './userModal.scss';
 
@@ -17,7 +17,7 @@ const UserModal = ({ toggleModal }) => {
 
   const { _id, nickname, photo } = currentUser || {};
 
-  const fetchClass = new FetchData('https://travel-app-back-113.herokuapp.com/api');
+  const fetchClass = new FetchData(BACK_URL);
 
   const setImage = (data) => {
     setImgWarning(false);
