@@ -1,0 +1,91 @@
+@import "./../../sass/colors.scss";
+@import "./../../sass/transitions.scss";
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: $transparentBlack;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.user-modal {
+  padding: 20px;
+  width: fit-content;
+  color: $white;
+  background-color: $blue;
+  border: 2px solid $blueLightTransparent;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__photo {
+    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    margin-bottom: 10px;
+  }
+
+  &__change-photo {
+    input {
+      display: none;
+    }
+  }
+
+  &__controls {
+    display: flex;
+  }
+
+  &__button {
+    margin: 5px;
+    padding: 5px;
+    font-size: 14px;
+    color: $white;
+    background: $blueLightTransparent;
+    border: 1px solid $blueLight;
+    border-radius: 5px;
+    border: none;
+    transition: $color-transition;
+    display: block;
+    outline: none;
+
+    &[disabled] {
+      color: $grey;
+      background-color: $cardShadow;
+      border: 1px solid $transparentBlack;
+    }
+
+    &:not([disabled]):hover {
+      background-color: $yellow;
+      color: $blue;
+      cursor: pointer;
+    }
+  }
+
+  &__close {
+    font-size: 20px;
+    color: $white;
+    background: transparent;
+    border-radius: 50%;
+    border: none;
+    transition: $color-transition;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    outline: none;
+
+    &:hover {
+      color: $red;
+    }
+  }
+}

@@ -19,6 +19,10 @@ export default class FetchData {
     return this._defaultMethod('POST', 'persons', null, null, body);
   }
 
+  updateAvatar(id, body) {
+    return this._defaultMethod('PATCH', 'persons', null, null, body, id);
+  }
+
   updatePlaceById(body, id) {
     return this._defaultMethod('PATCH', 'places', null, null, body, id);
   }

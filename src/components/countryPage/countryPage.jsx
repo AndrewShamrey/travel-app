@@ -12,6 +12,7 @@ import CountryMap from '../map/Map';
 import ExchangeRateWidget from '../echangeRateWidget/exchangeRateWidget';
 import WeatherWidget from '../weatherWidget/weatherWidget';
 import earthIcon from '../../assets/images/earth.png';
+import UserModal from '../userModal/userModal';
 import './countryPage.scss';
 
 const CountryPage = () => {

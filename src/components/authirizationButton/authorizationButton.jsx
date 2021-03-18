@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import { setCurrentPerson, setIsAuthorized } from '../../actions/control';
 import { DEFAULT_PHOTO } from '../../utils/constants';
 import { AUTHORIZATION_BTN_MENU } from '../../utils/vocabulary';
+import UserModal from '../userModal/userModal';
 import './authorizationButton.scss';
 
 const AuthorizationButton = () => {
   const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const isAuthorized = useSelector((rootState) => rootState.control.isAuthorized);
   const currentPerson = useSelector((rootState) => rootState.control.currentPerson);
   const currentLanguage = useSelector((rootState) => rootState.control.applicationLanguage);
@@ -21,6 +23,10 @@ const AuthorizationButton = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleModal = () => {
+    setIsOpen((state) => !state);
   };
 
   useEffect(() => {
@@ -60,15 +66,26 @@ const AuthorizationButton = () => {
       {isMenuOpen && (
         <ul className="authorization-btn__menu">
           {isAuthorized && (
-            <li>
-              <button
-                className="authorization-btn__menu-button"
-                type="button"
-                onClick={toggleAuthorization}
-              >
-                {AUTHORIZATION_BTN_MENU[currentLanguage].signout}
-              </button>
-            </li>
+            <>
+              <li>
+                <button
+                  className="authorization-btn__menu-button"
+                  type="button"
+                  onClick={toggleModal}
+                >
+                  {AUTHORIZATION_BTN_MENU[currentLanguage].change}
+                </button>
+              </li>
+              <li>
+                <button
+                  className="authorization-btn__menu-button"
+                  type="button"
+                  onClick={toggleAuthorization}
+                >
+                  {AUTHORIZATION_BTN_MENU[currentLanguage].signout}
+                </button>
+              </li>
+            </>
           )}
           {!isAuthorized && (
             <>
@@ -86,6 +103,7 @@ const AuthorizationButton = () => {
           )}
         </ul>
       )}
+      {isOpen && <UserModal toggleModal={toggleModal} />}
     </>
   );
 };
